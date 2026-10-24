@@ -12631,5 +12631,970 @@
     </div>
 </div>
 
+<!-- ======================================================================= -->
+<!-- V84.0 ENTERPRISE UNIFIED DESIGN SYSTEM, LINE ICONS & FIREBASE CLOUD SYNC -->
+<!-- ======================================================================= -->
+<style id="v84-unified-design-system">
+    :root,
+    html[data-theme="dark"],
+    body.dark-mode {
+        --bg-app: #090d16 !important;
+        --bg-body: #090d16 !important;
+        --bg-sidebar: #111827 !important;
+        --bg-header: rgba(17, 24, 39, 0.92) !important;
+        --bg-surface: #111827 !important;
+        --bg-card: #161f33 !important;
+        --bg-card-hover: #1e293b !important;
+        --bg-muted: #0f172a !important;
+        --bg-subtle: #0f172a !important;
+        --border-subtle: #1e293b !important;
+        --border-color: #1e293b !important;
+        --border-strong: #334155 !important;
+        --text-main: #f8fafc !important;
+        --text-secondary: #cbd5e1 !important;
+        --text-muted: #94a3b8 !important;
+        --primary: #3b82f6 !important;
+        --primary-hover: #2563eb !important;
+        --primary-soft: rgba(59, 130, 246, 0.15) !important;
+        --success: #10b981 !important;
+        --warning: #f59e0b !important;
+        --danger: #ef4444 !important;
+        --purple: #8b5cf6 !important;
+    }
+
+    html[data-theme="light"] body:not(.dark-mode),
+    body.light-mode {
+        --bg-app: #f4f7fb !important;
+        --bg-body: #f4f7fb !important;
+        --bg-sidebar: #ffffff !important;
+        --bg-header: rgba(255, 255, 255, 0.92) !important;
+        --bg-surface: #ffffff !important;
+        --bg-card: #ffffff !important;
+        --bg-card-hover: #f1f5f9 !important;
+        --bg-muted: #f8fafc !important;
+        --bg-subtle: #f8fafc !important;
+        --border-subtle: #e2e8f0 !important;
+        --border-color: #e2e8f0 !important;
+        --border-strong: #cbd5e1 !important;
+        --text-main: #0f172a !important;
+        --text-secondary: #334155 !important;
+        --text-muted: #64748b !important;
+        --primary: #1d4ed8 !important;
+        --primary-hover: #1e40af !important;
+        --primary-soft: rgba(29, 78, 216, 0.1) !important;
+        --success: #15803d !important;
+        --warning: #b45309 !important;
+        --danger: #b91c1c !important;
+        --purple: #6d28d9 !important;
+    }
+
+    /* 1. معيار الأيقونات الخطية الموحدة (Monochrome Outlined SVG Icons) */
+    .outline-svg-icon {
+        width: 16.5px;
+        height: 16.5px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        flex-shrink: 0;
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    .action-icon-btn {
+        width: 34px !important;
+        height: 34px !important;
+        min-width: 34px !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: 1px solid var(--border-subtle) !important;
+        border-radius: 8px !important;
+        color: var(--text-secondary) !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        transition: all 0.18s ease !important;
+    }
+    .action-icon-btn:hover {
+        border-color: var(--primary) !important;
+        color: var(--primary) !important;
+        background: var(--primary-soft) !important;
+    }
+    .action-icon-btn.danger-btn:hover {
+        border-color: var(--danger) !important;
+        color: var(--danger) !important;
+        background: rgba(239, 68, 68, 0.12) !important;
+    }
+
+    /* 2. انضباط الزوايا الأربع للبطاقات ومنع الخروج عن الشاشة (4-Corner Card Discipline) */
+    .card, .kpi-card, .stat-card, .form-panel, .preview-panel,
+    .history-section, .settings-card, .recent-ops-bar, .recent-op-card,
+    .preview-info-card, .stock-depletion-alert-strip {
+        border-radius: 14px !important;
+        border: 1px solid var(--border-subtle) !important;
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+    }
+
+    /* 3. حماية ترويسات البطاقات واقتطاع النصوص الطويلة قبل الأزرار */
+    h2.section-title, .card-header, .modal-header, .section-header {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        flex-wrap: nowrap !important;
+        gap: 8px !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    h2.section-title > span:first-child,
+    .card-header-title,
+    .modal-title-wrap {
+        flex: 1 1 0% !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+    }
+
+    h2.section-title > div,
+    .card-header-actions,
+    .modal-top-left-actions {
+        flex: 0 0 auto !important;
+        flex-shrink: 0 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+    }
+
+    /* 4. توسيط علامة الصح والأيقونات داخل أزرار الحفظ بنسبة 100% */
+    .v84-save-icon-btn,
+    .modal-action-save-btn,
+    .modal-action-close-btn {
+        width: 34px !important;
+        height: 34px !important;
+        min-width: 34px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        text-indent: 0 !important;
+        border-radius: 8px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+    }
+    .v84-save-icon-btn,
+    .modal-action-save-btn {
+        background: rgba(59, 130, 246, 0.14) !important;
+        border: 1px solid var(--primary) !important;
+        color: var(--primary) !important;
+    }
+    .v84-save-icon-btn:hover,
+    .modal-action-save-btn:hover {
+        background: var(--primary) !important;
+        color: #ffffff !important;
+    }
+    .modal-action-close-btn {
+        background: rgba(239, 68, 68, 0.12) !important;
+        border: 1px solid var(--danger) !important;
+        color: var(--danger) !important;
+    }
+    .modal-action-close-btn:hover {
+        background: var(--danger) !important;
+        color: #ffffff !important;
+    }
+
+    /* 5. شريط تبويبات مركز التحكم والإعدادات الموحد */
+    .v84-settings-tabs-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: 14px;
+        padding: 10px 12px;
+        margin-bottom: 16px;
+    }
+    .v84-settings-tab-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 8px 14px;
+        border-radius: 10px;
+        border: 1px solid var(--border-subtle);
+        background: var(--bg-muted);
+        color: var(--text-secondary);
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.18s ease;
+    }
+    .v84-settings-tab-btn:hover,
+    .v84-settings-tab-btn.active {
+        border-color: var(--primary);
+        color: var(--primary);
+        background: var(--primary-soft);
+    }
+
+    /* 6. بطاقة المستخدم في الإعدادات (اسم المستخدم + البريد + أزرار خطية فقط) */
+    .v84-user-banner-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: 14px;
+        padding: 14px 18px;
+        margin-bottom: 16px;
+        flex-wrap: nowrap;
+    }
+    .v84-user-banner-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+        flex: 1;
+    }
+    .v84-user-banner-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+    .v84-outlined-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        padding: 8px 14px;
+        border-radius: 10px;
+        border: 1px solid var(--border-strong);
+        background: transparent;
+        color: var(--text-main);
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .v84-outlined-btn:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+        background: var(--primary-soft);
+    }
+    .v84-outlined-btn.logout-btn {
+        border-color: rgba(239, 68, 68, 0.55);
+        color: var(--danger);
+    }
+    .v84-outlined-btn.logout-btn:hover {
+        background: rgba(239, 68, 68, 0.12);
+        border-color: var(--danger);
+    }
+
+    /* 7. ضبط أحجام النوافذ المنبثقة (Compact Modals) */
+    .modal-card {
+        max-width: 520px !important;
+        width: calc(100% - 24px) !important;
+        border-radius: 16px !important;
+        border: 1px solid var(--border-subtle) !important;
+        box-sizing: border-box !important;
+    }
+    #report-print-modal .modal-card,
+    #inventory-print-modal .modal-card {
+        max-width: 960px !important;
+    }
+
+    /* 8. التجاوب الجذري مع الهاتف والشاشات الضيقة (<= 768px) */
+    @media (max-width: 768px) {
+        #app-sidebar, .app-sidebar {
+            transform: none !important;
+            width: 64px !important;
+            min-width: 64px !important;
+            max-width: 64px !important;
+            right: 0 !important;
+            inset-inline-start: 0 !important;
+            z-index: 1000 !important;
+        }
+        #app-sidebar .brand-info,
+        #app-sidebar .nav-label,
+        #app-sidebar .nav-badge,
+        #app-sidebar .sidebar-recent-header,
+        #app-sidebar .sidebar-recent-list,
+        #app-sidebar .user-details,
+        #app-sidebar #sidebar-toggle-btn {
+            display: none !important;
+        }
+        #app-sidebar .sidebar-header {
+            padding: 10px 0 !important;
+            justify-content: center !important;
+        }
+        #app-sidebar .brand-box {
+            justify-content: center !important;
+        }
+        #app-sidebar .nav-item {
+            width: 44px !important;
+            height: 44px !important;
+            margin: 4px auto !important;
+            padding: 0 !important;
+            justify-content: center !important;
+            border-radius: 50% !important;
+        }
+        #app-main, .app-main {
+            margin-right: 64px !important;
+            margin-inline-start: 64px !important;
+            width: calc(100vw - 64px) !important;
+            max-width: calc(100vw - 64px) !important;
+            overflow-x: hidden !important;
+        }
+        .app-container {
+            padding: 10px 10px 48px 10px !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        /* إخفاء النصوص في أزرار إدارة الحساب وتسجيل الخروج على الهاتف والاكتفاء بالأيقونة الخطية */
+        .v84-outlined-btn .btn-text-label,
+        .v84-settings-tab-btn .tab-text-label {
+            display: none !important;
+        }
+        .v84-outlined-btn,
+        .v84-settings-tab-btn {
+            padding: 8px 10px !important;
+        }
+    }
+</style>
+
+<!-- ======================================================================= -->
+<!-- نافذة حساب المستخدم والمزامنة السحابية النظيفة (Zero Technical Noise)   -->
+<!-- ======================================================================= -->
+<div class="modal-overlay" id="modal-user-account" style="display:none; align-items:center; justify-content:center; z-index:10050;" onclick="if(event.target===this) closeCleanUserAccountModal()">
+    <div class="modal-card" style="max-width:480px !important; padding:20px;">
+        <div class="modal-header" style="border-bottom:1px solid var(--border-subtle); padding-bottom:12px; margin-bottom:16px;">
+            <div class="modal-title-wrap" style="font-weight:700; font-size:16px; color:var(--text-main); display:flex; align-items:center; gap:8px;">
+                <svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>حساب المستخدم والمزامنة السحابية</span>
+            </div>
+            <div class="modal-top-left-actions">
+                <button type="button" class="modal-action-close-btn" onclick="closeCleanUserAccountModal()" title="إغلاق">
+                    <svg class="outline-svg-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- بطاقة المستخدم الأساسية (بدون أي UID أو مسارات سحابية أو قواعد أمان) -->
+        <div style="background:var(--bg-muted); border:1px solid var(--border-subtle); border-radius:14px; padding:16px; margin-bottom:14px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:14px;">
+                <div style="display:flex; align-items:center; gap:12px;">
+                    <div style="width:48px; height:48px; border-radius:50%; background:var(--primary-soft); border:1.5px solid var(--primary); display:flex; align-items:center; justify-content:center; color:var(--primary); font-weight:800; font-size:18px;" id="clean-acc-avatar">م</div>
+                    <div>
+                        <div style="font-weight:800; font-size:15.5px; color:var(--text-main); display:flex; align-items:center; gap:6px;">
+                            <span id="clean-acc-name">محمد أيت حمادي</span>
+                            <span id="clean-acc-sync-dot" style="display:inline-block; width:9px; height:9px; border-radius:50%; background:#10b981;" title="متصل ومزامن سحابياً"></span>
+                        </div>
+                        <div style="font-size:12.5px; color:var(--text-muted);" id="clean-acc-email">mohamed105@gmail.com</div>
+                    </div>
+                </div>
+                <div style="text-align:left;">
+                    <div style="font-size:12.5px; font-weight:700; color:var(--text-secondary);" id="clean-acc-ops-count">0 عمليات مخزنة</div>
+                    <div style="font-size:11.5px; color:var(--success);" id="clean-acc-sync-label">● المزامنة السحابية نشطة</div>
+                </div>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                <button type="button" class="btn btn-primary" onclick="closeCleanUserAccountModal(); openSettingsSection('user-profile');" style="border-radius:10px !important;">
+                    <svg class="outline-svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    <span>تعديل الملف الشخصي</span>
+                </button>
+                <button type="button" class="v84-outlined-btn logout-btn" onclick="window.v84CloudSignOut()">
+                    <svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    <span>تسجيل الخروج</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- تبديل الحساب والمصادقة السحابية -->
+        <div style="background:var(--bg-muted); border:1px solid var(--border-subtle); border-radius:14px; padding:14px; margin-bottom:14px;">
+            <div style="font-weight:700; font-size:13.5px; color:var(--text-main); margin-bottom:10px; display:flex; align-items:center; gap:6px;">
+                <svg class="outline-svg-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>المصادقة السحابية وتبديل الحساب</span>
+            </div>
+            <div id="clean-auth-email-form" style="display:none; flex-direction:column; gap:8px; margin-bottom:10px;">
+                <input type="email" id="cloud-auth-email" class="form-control" placeholder="البريد الإلكتروني..." dir="ltr" />
+                <input type="password" id="cloud-auth-pass" class="form-control" placeholder="كلمة المرور..." dir="ltr" />
+                <div style="display:flex; gap:8px;">
+                    <button type="button" class="btn btn-primary btn-sm" style="flex:1;" onclick="window.v84CloudEmailLogin()">دخول / مزامنة</button>
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('clean-auth-email-form').style.display='none'">إلغاء</button>
+                </div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+                <button type="button" class="v84-outlined-btn" style="width:100%;" onclick="window.v84CloudGoogleLogin()">
+                    <svg class="outline-svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+                    <span>تسجيل الدخول بحساب Google</span>
+                </button>
+                <button type="button" class="v84-outlined-btn" style="width:100%;" onclick="document.getElementById('clean-auth-email-form').style.display='flex'">
+                    <svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+                    <span>دخول بحساب آخر (البريد الإلكتروني + كلمة المرور)</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- النسخ الاحتياطي والاستعادة السريعة -->
+        <div style="background:var(--bg-muted); border:1px solid var(--border-subtle); border-radius:14px; padding:14px;">
+            <div style="font-weight:700; font-size:13.5px; color:var(--text-main); margin-bottom:10px; display:flex; align-items:center; gap:6px;">
+                <svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>النسخ الاحتياطي واسترجاع البيانات (JSON)</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+                <button type="button" class="btn btn-primary" style="width:100%; border-radius:10px !important;" onclick="document.getElementById('import-json-input').click()">
+                    <span>استيراد وترحيل ملف JSON إلى حسابي</span>
+                </button>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+                    <button type="button" class="v84-outlined-btn" onclick="exportDataFilesWithTimestamp()">تصدير نسخة JSON</button>
+                    <button type="button" class="v84-outlined-btn" onclick="window.v84RollbackLastRestore()">التراجع عن الاستيراد</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- نافذة تأكيد تصفير وإخلاء جميع العمليات والبيانات (Zero-Out Confirmation) -->
+<!-- ======================================================================= -->
+<div class="modal-overlay" id="modal-zero-out-confirm" style="display:none; align-items:center; justify-content:center; z-index:10060;" onclick="if(event.target===this) this.style.display='none'">
+    <div class="modal-card" style="max-width:440px !important; padding:22px; text-align:center;">
+        <div style="width:52px; height:52px; border-radius:50%; background:rgba(239,68,68,0.12); color:var(--danger); display:flex; align-items:center; justify-content:center; margin:0 auto 12px auto;">
+            <svg class="outline-svg-icon" style="width:26px; height:26px;" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+        </div>
+        <h3 style="margin:0 0 8px 0; color:var(--text-main); font-size:17px;">تأكيد تصفير وإخلاء جميع العمليات</h3>
+        <p style="font-size:13.5px; color:var(--text-secondary); line-height:1.7; margin-bottom:18px;">
+            هل أنت متأكد من رغبتك في حذف جميع عمليات التسليم والجرد نهائياً وإخلاء التطبيق ليصبح العداد صفراً (0)؟<br/>
+            <span style="font-size:12px; color:var(--warning);">(سيتم حفظ نسخة احتياطية فورية في ذاكرة التراجع قبل الحذف)</span>
+        </p>
+        <div style="display:flex; justify-content:center; gap:10px;">
+            <button type="button" class="v84-outlined-btn" onclick="document.getElementById('modal-zero-out-confirm').style.display='none'">إلغاء</button>
+            <button type="button" class="btn btn-danger" onclick="window.v84ExecuteZeroOutWipe()">نعم، تصفير وإخلاء الكل</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// =========================================================================
+// محرك V84.0 الموحد: العدّ اللغوي، الفرز الزمني، الحذف الجذري، والأيقونات الخطية
+// =========================================================================
+(function() {
+    // 1. دالة العدّ اللغوي الديناميكي الصحيح بالعربية
+    window.formatArabicPlural = function(count, zeroLabel, oneLabel, twoLabel, fewLabel, manyLabel) {
+        const n = parseInt(count, 10) || 0;
+        if (n === 0) return '0 ' + zeroLabel;
+        if (n === 1) return oneLabel;
+        if (n === 2) return twoLabel;
+        const mod100 = n % 100;
+        if (mod100 >= 3 && mod100 <= 10) return n + ' ' + fewLabel;
+        return n + ' ' + manyLabel;
+    };
+
+    window.formatOperationsCountAr = function(count) {
+        return window.formatArabicPlural(count, 'عمليات', 'عملية واحدة', 'عمليتان', 'عمليات', 'عملية');
+    };
+
+    // 2. سجل الحذف النهائي (Anti-Ghosting & Cascade Delete Registry)
+    function ensureDeletedRegistry() {
+        if (typeof uiStateConfig !== 'object' || !uiStateConfig) return { destinations: [], categories: [], items: [], transactions: [], inventories: [] };
+        if (!uiStateConfig.deletedEntitiesRegistry) {
+            uiStateConfig.deletedEntitiesRegistry = { destinations: [], categories: [], items: [], transactions: [], inventories: [] };
+        }
+        return uiStateConfig.deletedEntitiesRegistry;
+    }
+
+    window.purgeDeletedFromMemory = function() {
+        const reg = ensureDeletedRegistry();
+        if (Array.isArray(reg.destinations) && typeof destinations === 'object' && destinations) {
+            reg.destinations.forEach(function(d) {
+                if (destinations[d]) delete destinations[d];
+            });
+        }
+        if (Array.isArray(reg.categories) && Array.isArray(categories)) {
+            categories = categories.filter(function(c) { return !reg.categories.includes(c); });
+        }
+        if (Array.isArray(reg.items) && Array.isArray(databaseItems)) {
+            databaseItems = databaseItems.filter(function(it) { return it && !reg.items.includes(it.id) && !reg.items.includes(it.name); });
+        }
+        if (Array.isArray(reg.transactions) && Array.isArray(transactionsHistory)) {
+            transactionsHistory = transactionsHistory.filter(function(tx) { return tx && !reg.transactions.includes(tx.id); });
+        }
+        if (Array.isArray(reg.inventories) && Array.isArray(inventoriesHistory)) {
+            inventoriesHistory = inventoriesHistory.filter(function(inv) { return inv && !reg.inventories.includes(inv.id); });
+        }
+    };
+
+    // 3. الفرز الزمني الصارم من الأحدث إلى الأقدم حسب تاريخ التنفيذ الفعلي (Execution Date)
+    window.sortTransactionsByExecutionDateDesc = function(list) {
+        if (!Array.isArray(list)) return [];
+        return list.sort(function(a, b) {
+            const isoA = (a && a.isoDate) ? String(a.isoDate) : '';
+            const isoB = (b && b.isoDate) ? String(b.isoDate) : '';
+            if (isoA !== isoB) return isoB.localeCompare(isoA);
+            const timeA = (a && a.date && a.date.includes(' ')) ? a.date.split(' ')[1] : '';
+            const timeB = (b && b.date && b.date.includes(' ')) ? b.date.split(' ')[1] : '';
+            return timeB.localeCompare(timeA);
+        });
+    };
+
+    // ترقية الحذف الجذري للوجهات مع الإفراغ التلقائي (Cascade Delete & Nullification)
+    window.settingsDeleteDestination = async function(optionalDestName) {
+        const picker = document.getElementById('settings-dest-picker');
+        const destName = optionalDestName || (picker ? picker.value : '');
+        if (!destName) {
+            NotificationService.show('الرجاء تحديد الوجهة التي ترغب في حذفها أولاً.', 'warning');
+            return;
+        }
+        if (!confirm('هل أنت متأكد من الحذف النهائي للوجهة: "' + destName + '"؟\n(سيتم مسحها نهائياً ولن تعود عند تحديث الصفحة)')) return;
+
+        const reg = ensureDeletedRegistry();
+        if (!reg.destinations.includes(destName)) reg.destinations.push(destName);
+        delete destinations[destName];
+
+        // إفراغ حقل الوجهة في النموذج الحالي إن كان يشير إليها
+        const destSel = document.getElementById('dest-select');
+        if (destSel && destSel.value === destName) destSel.value = '';
+
+        await commitAllData(false);
+        if (window.v84PushToCloud) window.v84PushToCloud();
+        if (picker) picker.value = '';
+        const recCont = document.getElementById('settings-recipients-container');
+        if (recCont) recCont.style.display = 'none';
+        syncAllDropdownsAndControls();
+        renderV84DestinationsQuickTable();
+        runDataHealthCheck();
+        NotificationService.show('تم حذف الوجهة نهائياً ولن تعود عند التحديث.');
+    };
+
+    // ترقية الحذف الجذري للأصناف والمواد
+    const origDeleteCat = window.settingsDeleteCategory;
+    window.settingsDeleteCategory = async function() {
+        const picker = document.getElementById('settings-cat-picker');
+        const catName = picker ? picker.value : '';
+        if (!catName) {
+            NotificationService.show('الرجاء تحديد الصنف المراد حذفه أولاً.', 'warning');
+            return;
+        }
+        if (confirm('تحذير: هل تود حذف الصنف: "' + catName + '" نهائياً؟')) {
+            const reg = ensureDeletedRegistry();
+            if (!reg.categories.includes(catName)) reg.categories.push(catName);
+            categories = categories.filter(function(c) { return c !== catName; });
+            databaseItems = databaseItems.filter(function(item) { return item.category !== catName; });
+            await commitAllData(false);
+            if (window.v84PushToCloud) window.v84PushToCloud();
+            picker.value = '';
+            const cont = document.getElementById('settings-items-container');
+            if (cont) cont.style.display = 'none';
+            syncAllDropdownsAndControls();
+            runDataHealthCheck();
+            NotificationService.show('تم حذف الصنف نهائياً.');
+        }
+    };
+
+    // جدول استعراض وحذف الوجهات المباشر داخل بطاقة الوجهات
+    window.renderV84DestinationsQuickTable = function() {
+        let wrap = document.getElementById('v84-destinations-table-wrap');
+        const destCard = document.querySelector('.settings-card[data-setting-card="destinations"] .card-collapsible-content');
+        if (!destCard) return;
+        if (!wrap) {
+            wrap = document.createElement('div');
+            wrap.id = 'v84-destinations-table-wrap';
+            wrap.style.marginTop = '16px';
+            destCard.appendChild(wrap);
+        }
+        const keys = Object.keys(destinations || {});
+        let rows = '';
+        keys.forEach(function(d) {
+            const opsCount = (transactionsHistory || []).filter(function(tx) { return tx.destination === d; }).length;
+            const safeD = d.replace(/'/g, "\\'");
+            rows += '<tr>' +
+                '<td style="font-weight:700;">' + d + '</td>' +
+                '<td style="text-align:center;">' + window.formatOperationsCountAr(opsCount) + '</td>' +
+                '<td style="text-align:center; white-space:nowrap;">' +
+                    '<button type="button" class="action-icon-btn danger-btn" onclick="settingsDeleteDestination(\'' + safeD + '\')" title="حذف الوجهة نهائياً">' +
+                        '<svg class="outline-svg-icon" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>' +
+                    '</button>' +
+                '</td>' +
+            '</tr>';
+        });
+        wrap.innerHTML = '<div class="table-responsive"><table class="data-table"><thead><tr><th>الوجهة المسجلة</th><th style="text-align:center;">عدد العمليات</th><th style="text-align:center; width:70px;">حذف نهائي</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
+    };
+
+    // 4. نافذة الحساب النظيفة وتصفير البيانات مع التراجع (Rollback)
+    window.openUserProfileModal = function() {
+        const modal = document.getElementById('modal-user-account');
+        if (!modal) return;
+        const meta = (uiStateConfig && uiStateConfig.projectMeta) ? uiStateConfig.projectMeta : DEFAULT_UI_STATE.projectMeta;
+        const name = (meta && meta.ownerName) ? meta.ownerName : 'محمد أيت حمادي';
+        const email = (window.v84CurrentUserEmail) || (meta && meta.contactEmail) || 'mohamed105@gmail.com';
+        const nameEl = document.getElementById('clean-acc-name');
+        const emailEl = document.getElementById('clean-acc-email');
+        const avEl = document.getElementById('clean-acc-avatar');
+        const countEl = document.getElementById('clean-acc-ops-count');
+        if (nameEl) nameEl.textContent = name;
+        if (emailEl) emailEl.textContent = email;
+        if (avEl) avEl.textContent = name.trim().charAt(0) || 'م';
+        if (countEl) countEl.textContent = window.formatOperationsCountAr((transactionsHistory || []).length) + ' مخزنة';
+        modal.style.display = 'flex';
+    };
+
+    window.closeCleanUserAccountModal = function() {
+        const modal = document.getElementById('modal-user-account');
+        if (modal) modal.style.display = 'none';
+    };
+
+    window.v84RollbackLastRestore = async function() {
+        const raw = localStorage.getItem('PRE_RESTORE_SNAPSHOT_KEY');
+        if (!raw) {
+            NotificationService.show('لا توجد نقطة استرجاع سابقة محفوظة.', 'warning');
+            return;
+        }
+        if (!confirm('هل تود استعادة البيانات كما كانت قبل آخر عملية استيراد أو تصفير؟')) return;
+        try {
+            const snap = JSON.parse(raw);
+            if (Array.isArray(snap.transactions)) transactionsHistory = snap.transactions;
+            if (Array.isArray(snap.inventories)) inventoriesHistory = snap.inventories;
+            if (Array.isArray(snap.categories)) categories = snap.categories;
+            if (snap.destinations) destinations = snap.destinations;
+            if (Array.isArray(snap.items)) databaseItems = snap.items;
+            await commitAllData(false);
+            if (window.v84PushToCloud) window.v84PushToCloud();
+            syncAllDropdownsAndControls();
+            renderHistory();
+            renderBIAnalytics();
+            initInventoryModule();
+            NotificationService.show('تم التراجع واستعادة السجلات السابقة بنجاح.');
+        } catch (e) {
+            NotificationService.show('تعذر استرجاع النسخة السابقة.', 'error');
+        }
+    };
+
+    window.v84ExecuteZeroOutWipe = async function() {
+        // حفظ لقطة تراجع فورية قبل التصفير
+        localStorage.setItem('PRE_RESTORE_SNAPSHOT_KEY', JSON.stringify({
+            transactions: transactionsHistory,
+            inventories: inventoriesHistory,
+            categories: categories,
+            destinations: destinations,
+            items: databaseItems
+        }));
+        const reg = ensureDeletedRegistry();
+        (transactionsHistory || []).forEach(function(tx) {
+            if (tx && tx.id && !reg.transactions.includes(tx.id)) reg.transactions.push(tx.id);
+        });
+        transactionsHistory = [];
+        inventoriesHistory = [];
+        await commitAllData(false);
+        if (window.v84PushToCloud) window.v84PushToCloud();
+        document.getElementById('modal-zero-out-confirm').style.display = 'none';
+        renderRecentOperationsBar();
+        renderHistory();
+        renderBIAnalytics();
+        initInventoryModule();
+        runDataHealthCheck();
+        NotificationService.show('تم إخلاء وتصفير جميع العمليات بنجاح (العداد = 0).');
+    };
+
+    // 5. تهيئة واجهة V84.0 وتعميم حقل الوجهة وتنظيف قسم "حول البرنامج"
+    function upgradeDOMToV84Standard() {
+        // تعميم تسمية حقل الوجهة وربط الوجهة الافتراضية
+        const destLbl = document.querySelector('label[for="dest-select"]');
+        if (destLbl) destLbl.textContent = 'الوجهة:';
+
+        // إنشاء input بديل لـ import-file-input إن لم يكن موجوداً
+        if (!document.getElementById('import-file-input')) {
+            const inp = document.createElement('input');
+            inp.type = 'file';
+            inp.id = 'import-file-input';
+            inp.accept = '.json';
+            inp.style.display = 'none';
+            inp.onchange = function(e) { importDataFiles(e); };
+            document.body.appendChild(inp);
+        }
+
+        // تنظيف قسم "حول البرنامج" من أية عبارات إنجليزية بين قوسين وإضافة زر الحفظ العلوي المتمركز
+        const aboutCard = document.getElementById('card-about-app');
+        if (aboutCard) {
+            const titleEl = aboutCard.querySelector('h2.section-title');
+            if (titleEl) {
+                titleEl.innerHTML =
+                    '<span>حول البرنامج</span>' +
+                    '<div class="card-header-actions">' +
+                        '<button type="button" class="v84-save-icon-btn" onclick="event.stopPropagation(); saveProjectMetaSettings();" title="حفظ معلومات البرنامج">' +
+                            '<svg class="outline-svg-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>' +
+                        '</button>' +
+                    '</div>';
+            }
+            aboutCard.querySelectorAll('label').forEach(function(lbl) {
+                if (lbl.textContent.includes('اسم المشروع')) lbl.textContent = 'عنوان البرنامج:';
+                if (lbl.textContent.includes('وصف مختصر')) lbl.textContent = 'التفاصيل والوصف:';
+                lbl.textContent = lbl.textContent.replace(/\s*\([^)]*[A-Za-z]+[^)]*\)/g, '');
+            });
+        }
+
+        // إضافة زر تصفير وإخلاء جميع العمليات في قسم النسخ الاحتياطي والبيانات
+        const backupCard = document.querySelector('.settings-card[data-setting-card="backup"] .card-collapsible-content');
+        if (backupCard && !document.getElementById('v84-zero-out-btn-wrap')) {
+            const zeroWrap = document.createElement('div');
+            zeroWrap.id = 'v84-zero-out-btn-wrap';
+            zeroWrap.style.cssText = 'margin-top:14px; padding:14px; border-radius:12px; border:1px solid rgba(239,68,68,0.35); background:rgba(239,68,68,0.06); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;';
+            zeroWrap.innerHTML =
+                '<div>' +
+                    '<strong style="color:var(--danger); font-size:13.5px;">إخلاء وتصفير سجل العمليات والمخزون (0 عملية)</strong>' +
+                    '<div style="font-size:12px; color:var(--text-muted);">حذف جميع العمليات المسجلة وإرجاع العداد إلى الصفر مع حفظ نسخة تراجع آمنة.</div>' +
+                '</div>' +
+                '<div style="display:flex; gap:8px;">' +
+                    '<button type="button" class="v84-outlined-btn" onclick="window.v84RollbackLastRestore()">↩ التراجع عن الاستيراد/التصفير</button>' +
+                    '<button type="button" class="btn btn-danger btn-sm" onclick="document.getElementById(\'modal-zero-out-confirm\').style.display=\'flex\'">تصفير وإخلاء جميع العمليات</button>' +
+                '</div>';
+            backupCard.appendChild(zeroWrap);
+        }
+
+        // إضافة شريط المستخدم النظيف وأزرار (إدارة الحساب / تسجيل الخروج) الخطية في بطاقة المستخدم
+        const userCard = document.querySelector('#card-user-profile .card-collapsible-content');
+        if (userCard && !document.getElementById('v84-user-clean-banner')) {
+            const banner = document.createElement('div');
+            banner.id = 'v84-user-clean-banner';
+            banner.className = 'v84-user-banner-card';
+            const meta = (uiStateConfig && uiStateConfig.projectMeta) ? uiStateConfig.projectMeta : DEFAULT_UI_STATE.projectMeta;
+            banner.innerHTML =
+                '<div class="v84-user-banner-info">' +
+                    '<div style="width:42px; height:42px; border-radius:50%; background:var(--primary-soft); border:1.5px solid var(--primary); display:flex; align-items:center; justify-content:center; color:var(--primary); font-weight:800;">م</div>' +
+                    '<div style="min-width:0;">' +
+                        '<div style="font-weight:800; font-size:14.5px; color:var(--text-main); display:flex; align-items:center; gap:6px;">' +
+                            '<span id="v84-banner-user-name">' + (meta.ownerName || 'محمد أيت حمادي') + '</span>' +
+                            '<span style="width:8px; height:8px; border-radius:50%; background:#10b981; display:inline-block;"></span>' +
+                        '</div>' +
+                        '<div style="font-size:12px; color:var(--text-muted);" id="v84-banner-user-email">' + (meta.contactEmail || 'mohamed105@gmail.com') + '</div>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="v84-user-banner-actions">' +
+                    '<button type="button" class="v84-outlined-btn" onclick="openUserProfileModal()" title="إدارة الحساب">' +
+                        '<svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>' +
+                        '<span class="btn-text-label">إدارة الحساب</span>' +
+                    '</button>' +
+                    '<button type="button" class="v84-outlined-btn logout-btn" onclick="window.v84CloudSignOut()" title="تسجيل الخروج">' +
+                        '<svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>' +
+                        '<span class="btn-text-label">تسجيل الخروج</span>' +
+                    '</button>' +
+                '</div>';
+            userCard.insertBefore(banner, userCard.firstChild);
+        }
+
+        // استبدال أيقونات الشريط الجانبي والشريط العلوي بأيقونات SVG خطية أحادية اللون
+        const navIconsSvg = {
+            'tab-btn-issuance': '<svg class="outline-svg-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>',
+            'tab-btn-history': '<svg class="outline-svg-icon" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>',
+            'tab-btn-inventory': '<svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>',
+            'tab-btn-analytics': '<svg class="outline-svg-icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>',
+            'tab-btn-settings': '<svg class="outline-svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>'
+        };
+        Object.keys(navIconsSvg).forEach(function(btnId) {
+            const btn = document.getElementById(btnId);
+            if (btn) {
+                const iconSpan = btn.querySelector('.nav-icon');
+                if (iconSpan) iconSpan.innerHTML = navIconsSvg[btnId];
+            }
+        });
+    }
+
+    // ربط الفرز الزمني من الأحدث إلى الأقدم وحذف المحذوفات بدوال العرض الأساسية
+    const origGetFiltered = window.getFilteredTransactions;
+    if (typeof origGetFiltered === 'function') {
+        window.getFilteredTransactions = function() {
+            window.purgeDeletedFromMemory();
+            const res = origGetFiltered.apply(this, arguments);
+            return window.sortTransactionsByExecutionDateDesc(res);
+        };
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            window.purgeDeletedFromMemory();
+            window.sortTransactionsByExecutionDateDesc(transactionsHistory);
+            upgradeDOMToV84Standard();
+            renderV84DestinationsQuickTable();
+            if (typeof renderRecentOperationsBar === 'function') renderRecentOperationsBar();
+            if (typeof renderHistory === 'function') renderHistory();
+        }, 120);
+    });
+})();
+</script>
+
+<!-- ======================================================================= -->
+<!-- محرك الربط السحابي المستقل Firebase Cloud Sync (e-stock-justice-settat) -->
+<!-- ======================================================================= -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+import {
+    getAuth,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signOut
+} from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+    onSnapshot
+} from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDs87E-e-aDR2jy2mtWeQCNivXeKBVY4wM",
+    authDomain: "e-stock-justice-settat.firebaseapp.com",
+    projectId: "e-stock-justice-settat",
+    storageBucket: "e-stock-justice-settat.firebasestorage.app",
+    messagingSenderId: "835998594708",
+    appId: "1:835998594708:web:00126c55d635e36c35a681"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+let activeCloudUid = localStorage.getItem('V84_ACTIVE_UID') || 'owner_default_estock';
+let unsubCloudSnapshot = null;
+let lastLocalWriteTime = 0;
+
+function getCloudDocRef(uid) {
+    return doc(db, 'users', uid, 'estock_store', 'main_payload');
+}
+
+// رفع البيانات الحالية إلى السحابة مع حماية سجل الحذف النهائي
+window.v84PushToCloud = async function() {
+    try {
+        lastLocalWriteTime = Date.now();
+        if (window.purgeDeletedFromMemory) window.purgeDeletedFromMemory();
+        const payload = {
+            updatedAt: new Date().toISOString(),
+            clientTimestamp: lastLocalWriteTime,
+            categories: typeof categories !== 'undefined' ? categories : [],
+            destinations: typeof destinations !== 'undefined' ? destinations : {},
+            items: typeof databaseItems !== 'undefined' ? databaseItems : [],
+            transactions: typeof transactionsHistory !== 'undefined' ? transactionsHistory : [],
+            inventories: typeof inventoriesHistory !== 'undefined' ? inventoriesHistory : [],
+            savedNotes: typeof savedNotesPresets !== 'undefined' ? savedNotesPresets : [],
+            uiState: typeof uiStateConfig !== 'undefined' ? uiStateConfig : {}
+        };
+        await setDoc(getCloudDocRef(activeCloudUid), payload, { merge: true });
+    } catch (err) {
+        console.warn('Cloud sync deferred (offline or local mode):', err.message);
+    }
+};
+
+// اعتراض دالة الحفظ المحلية لمزامنتها تلقائياً مع السحابة
+const origCommit = window.commitAllData;
+if (typeof origCommit === 'function') {
+    window.commitAllData = async function(showToast) {
+        if (window.purgeDeletedFromMemory) window.purgeDeletedFromMemory();
+        if (window.sortTransactionsByExecutionDateDesc && Array.isArray(transactionsHistory)) {
+            window.sortTransactionsByExecutionDateDesc(transactionsHistory);
+        }
+        const res = await origCommit.apply(this, arguments);
+        window.v84PushToCloud();
+        return res;
+    };
+}
+
+function attachRealtimeCloudListener(uid) {
+    if (unsubCloudSnapshot) unsubCloudSnapshot();
+    unsubCloudSnapshot = onSnapshot(getCloudDocRef(uid), function(snap) {
+        if (!snap.exists()) {
+            window.v84PushToCloud();
+            return;
+        }
+        // حماية السجلات المضافة حديثاً من التضارب الزمني (Race Condition Protection)
+        if (snap.metadata && snap.metadata.hasPendingWrites) return;
+        const data = snap.data();
+        if (!data) return;
+        if (data.clientTimestamp && Math.abs(Date.now() - lastLocalWriteTime) < 2500) return;
+
+        if (data.uiState && typeof data.uiState === 'object') {
+            uiStateConfig = Object.assign({}, uiStateConfig, data.uiState);
+        }
+        if (Array.isArray(data.categories) && data.categories.length > 0) categories = data.categories;
+        if (data.destinations && typeof data.destinations === 'object' && Object.keys(data.destinations).length > 0) destinations = data.destinations;
+        if (Array.isArray(data.items) && data.items.length > 0) databaseItems = data.items;
+        if (Array.isArray(data.transactions)) transactionsHistory = data.transactions;
+        if (Array.isArray(data.inventories)) inventoriesHistory = data.inventories;
+        if (Array.isArray(data.savedNotes)) savedNotesPresets = data.savedNotes;
+
+        if (window.purgeDeletedFromMemory) window.purgeDeletedFromMemory();
+        if (window.sortTransactionsByExecutionDateDesc) window.sortTransactionsByExecutionDateDesc(transactionsHistory);
+
+        if (typeof syncAllDropdownsAndControls === 'function') syncAllDropdownsAndControls();
+        if (typeof renderRecentOperationsBar === 'function') renderRecentOperationsBar();
+        if (typeof renderHistory === 'function') renderHistory();
+        if (typeof renderBIAnalytics === 'function') renderBIAnalytics();
+        if (typeof initInventoryModule === 'function') initInventoryModule();
+    });
+}
+
+onAuthStateChanged(auth, function(user) {
+    if (user) {
+        activeCloudUid = user.uid;
+        window.v84CurrentUserEmail = user.email || '';
+        localStorage.setItem('V84_ACTIVE_UID', activeCloudUid);
+        const emailBanner = document.getElementById('v84-banner-user-email');
+        if (emailBanner && user.email) emailBanner.textContent = user.email;
+        attachRealtimeCloudListener(activeCloudUid);
+    } else {
+        attachRealtimeCloudListener(activeCloudUid);
+    }
+});
+
+window.v84CloudGoogleLogin = async function() {
+    try {
+        const provider = new GoogleAuthProvider();
+        await signInWithPopup(auth, provider);
+        NotificationService.show('تم تسجيل الدخول والمزامنة بحساب Google بنجاح.');
+        window.closeCleanUserAccountModal();
+    } catch (err) {
+        NotificationService.show('يرجى استخدام البريد الإلكتروني وكلمة المرور في حال فتح الملف محلياً.', 'warning');
+        document.getElementById('clean-auth-email-form').style.display = 'flex';
+    }
+};
+
+window.v84CloudEmailLogin = async function() {
+    const email = (document.getElementById('cloud-auth-email').value || '').trim();
+    const pass = (document.getElementById('cloud-auth-pass').value || '').trim();
+    if (!email || !pass) {
+        NotificationService.show('أدخل البريد الإلكتروني وكلمة المرور أولاً.', 'warning');
+        return;
+    }
+    try {
+        await signInWithEmailAndPassword(auth, email, pass);
+        NotificationService.show('تم تسجيل الدخول والمزامنة السحابية بنجاح.');
+        window.closeCleanUserAccountModal();
+    } catch (loginErr) {
+        try {
+            await createUserWithEmailAndPassword(auth, email, pass);
+            NotificationService.show('تم إنشاء الحساب السحابي والمزامنة بنجاح.');
+            window.closeCleanUserAccountModal();
+        } catch (regErr) {
+            NotificationService.show('تأكد من صحة البريد الإلكتروني وكلمة المرور (6 أحرف على الأقل).', 'error');
+        }
+    }
+};
+
+window.v84CloudSignOut = async function() {
+    try {
+        await signOut(auth);
+        window.closeCleanUserAccountModal();
+        NotificationService.show('تم تسجيل الخروج من الجلسة السحابية بنجاح.');
+    } catch (e) {}
+};
+</script>
+
 </body>
 </html>
