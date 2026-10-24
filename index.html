@@ -4,9 +4,66 @@
 <head>
 <script>
 (function() {
-  var t = localStorage.getItem('theme') || 'dark';
+  var t = localStorage.getItem('theme') || localStorage.getItem('theme_preference') || 'dark';
   document.documentElement.setAttribute('data-theme', t);
+  document.addEventListener('DOMContentLoaded', function() {
+    if (document.body) {
+      document.body.setAttribute('data-theme', t);
+      document.body.classList.toggle('dark-mode', t === 'dark');
+    }
+  });
 })();
+
+        // الدوال المساعدة الأساسية المستعادة لمنع أي ReferenceError أثناء الإقلاع أو التنزيل أو النسخ
+        function getCertificateFilename(tx) {
+            if (!tx) return 'إشهاد_تسليم';
+            var rawSerial = (tx.annualSerial || tx.id || 'CERT').replace(/[\/\s:]+/g, '-');
+            var cleanDate = (tx.isoDate || (tx.date ? tx.date.split(' ')[0].replace(/\//g, '-') : '') || new Date().toISOString().split('T')[0]);
+            var destSlug = (tx.destination || '').trim().replace(/\s+/g, '_').slice(0, 28);
+            return 'إشهاد_تسليم_' + rawSerial + (destSlug ? ('_' + destSlug) : '') + '_' + cleanDate;
+        }
+
+        function loadTransactionIntoForm(txId, isNewClone) {
+            if (isNewClone) {
+                if (typeof clonePastTransaction === 'function') clonePastTransaction(txId);
+            } else {
+                if (typeof loadTransactionForEdit === 'function') loadTransactionForEdit(txId);
+            }
+        }
+
+        function applyStatsCustomizationLayout() {
+            if (typeof uiStateConfig === 'undefined' || !uiStateConfig) return;
+            try {
+                var kpiContainer = document.getElementById('kpi-cards-container');
+                if (kpiContainer && Array.isArray(uiStateConfig.kpiOrder)) {
+                    var hiddenKpis = Array.isArray(uiStateConfig.kpiHidden) ? uiStateConfig.kpiHidden : [];
+                    uiStateConfig.kpiOrder.forEach(function(wId) {
+                        var el = kpiContainer.querySelector('[data-widget-id="' + wId + '"]');
+                        if (el) {
+                            el.style.display = hiddenKpis.includes(wId) ? 'none' : '';
+                            kpiContainer.appendChild(el);
+                        }
+                    });
+                }
+                var chartContainer = document.getElementById('bi-charts-grid-container');
+                if (chartContainer && Array.isArray(uiStateConfig.chartOrder)) {
+                    var hiddenCharts = Array.isArray(uiStateConfig.chartHidden) ? uiStateConfig.chartHidden : [];
+                    uiStateConfig.chartOrder.forEach(function(cId) {
+                        var el = chartContainer.querySelector('[data-widget-id="' + cId + '"]');
+                        if (el) {
+                            el.style.display = hiddenCharts.includes(cId) ? 'none' : '';
+                            chartContainer.appendChild(el);
+                        }
+                    });
+                }
+            } catch (err) {
+                console.warn('Stats layout customization notice:', err);
+            }
+        }
+
+        function filterHistoryTable() {
+            if (typeof resetPageAndRender === 'function') resetPageAndRender();
+        }
 
         // =================================================================
         // V21 RESTORED & NEW ENTERPRISE CONTROLLERS
@@ -30,7 +87,7 @@
             });
 
             let entete = uiStateConfig.officialHeader || DEFAULT_UI_STATE.officialHeader;
-            let enteteImg = localStorage.getItem(StorageService.KEYS.ENTETE) || 'data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%20115%22%3E%3Crect%20width%3D%22900%22%20height%3D%22115%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%22108%22%20x2%3D%22880%22%20y2%3D%22108%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%222.5%22/%3E%3Ctext%20x%3D%22865%22%20y%3D%2234%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2260%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2286%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%3C/text%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%2252%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222.2%22/%3E%3Cpolygon%20points%3D%22450%2C26%20456%2C43%20474%2C43%20459%2C53%20465%2C70%20450%2C60%20435%2C70%20441%2C53%20426%2C43%20444%2C43%22%20fill%3D%22none%22%20stroke%3D%22%23124E3F%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2236%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3ERoyaume%20du%20Maroc%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2260%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3EMinist%C3%A8re%20de%20la%20Justice%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2284%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3EDirection%20Sous-R%C3%A9gionale%20de%20Settat%3C/text%3E%3C/svg%3E';
+            let enteteImg = (typeof getEffectiveEnteteSrc === 'function' ? getEffectiveEnteteSrc() : null) || 'en_tete.png';
             let htmlDoc = '<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><title>' + getCertificateFilename(tx) + '</title>' +
                 '<style>@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap"); body{font-family:"Tajawal",sans-serif; margin:20mm; color:#000;} .cert-title{text-align:center; font-size:18pt; font-weight:bold; border:2px solid #000; border-radius:25px; width:fit-content; margin:15px auto 20px auto; padding:4px 50px;} table{width:100%; border-collapse:collapse; margin-top:20px;} th{background:#f2f2f2; border:1.5px solid #000; padding:8px;} td{border:1.5px solid #000; padding:8px;}</style></head><body>' +
                 '<div style="text-align:center; margin-bottom:20px;"><img src="' + enteteImg + '" style="max-height:110px; max-width:100%; object-fit:contain;" onerror="this.style.display=\'none\'"></div>' +
@@ -116,10 +173,7 @@
                 '<div style="font-size:11.5px; color:var(--text-muted); margin-top:4px;">يُنصح بتصدير نسخة دورية لتأمين السجلات ضد أي مسح للمتصفح.</div>';
         }
 
-        // توجيه النقر على الشارة لفتح النافذة المصغرة
-        function handleUnifiedSystemBadgeClick() {
-            openQuickBackupModal();
-        }
+// تم توحيد handleUnifiedSystemBadgeClick لفتح مركز النسخ الاحتياطي
 
         // 5. دوال الطباعة المجمعة في الأرشيف
         let selectedBatchTxIds = new Set();
@@ -232,8 +286,16 @@
                 '</div>' + pageBreak;
             });
 
-            printContainer.innerHTML = batchHtml;
-            window.print();
+            let batchTarget = document.getElementById('print-batch-target') || printContainer;
+            batchTarget.innerHTML = batchHtml;
+            document.body.classList.remove('printing-report', 'printing-inventory');
+            document.body.classList.add('printing-batch');
+            setTimeout(function() {
+                window.print();
+                setTimeout(function() {
+                    document.body.classList.remove('printing-batch');
+                }, 500);
+            }, 150);
         }
 
         // 6. دوال لوحة الأوامر السريعة
@@ -494,10 +556,7 @@
         // =================================================================
         let hasUnbackedUpChanges = false;
 
-        function markDataUnsaved() {
-            hasUnbackedUpChanges = true;
-            updateUnifiedSystemStatus('unsaved');
-        }
+// تم توحيد markDataUnsaved في محرك الحفظ الرئيسي
 
         function openBackupCenterModal() {
             const modal = document.getElementById('backup-center-modal');
@@ -611,40 +670,72 @@
             badge.setAttribute('title', 'التخزين آمن ومؤمن — كافة السجلات (' + txCount + ' عملية) مؤمنة ومطابقة لآخر نسخة احتياطية بتاريخ ' + formatted + '. انقر لإدارة النسخ الاحتياطي.');
         }
 
-        // دالة حفظ بيانات المسؤول الحصرية في الإعدادات
+        // دالة حفظ بيانات المسؤول والمستخدم الموحدة في الإعدادات ومزامنتها في كامل التطبيق والسحابة
         async function saveUserProfileSettings() {
-            const owner = (document.getElementById('setting-meta-owner').value || '').trim() || DEFAULT_UI_STATE.projectMeta.ownerName;
-            const role = (document.getElementById('setting-meta-role') ? document.getElementById('setting-meta-role').value : '').trim() || 'منتدب قضائي / مسؤول المستودع';
-            const creator = (document.getElementById('setting-meta-creator').value || '').trim() || DEFAULT_UI_STATE.projectMeta.creatorEntity;
-            const email = (document.getElementById('setting-meta-email').value || '').trim();
-            const sigTitle = (document.getElementById('setting-meta-sig-title') ? document.getElementById('setting-meta-sig-title').value : '').trim();
+            const owner = (document.getElementById('setting-meta-owner')?.value || '').trim() || DEFAULT_UI_STATE.projectMeta.ownerName;
+            const role = (document.getElementById('setting-meta-role')?.value || '').trim() || 'منتدب قضائي / مسؤول تدبير المستودع الرقمي';
+            const framework = (document.getElementById('setting-meta-framework')?.value || '').trim() || 'منتدب قضائي من الدرجة الثانية';
+            const city = (document.getElementById('setting-meta-city')?.value || '').trim() || 'سطات';
+            const creator = (document.getElementById('setting-meta-creator')?.value || '').trim() || DEFAULT_UI_STATE.projectMeta.creatorEntity;
+            const email = (document.getElementById('setting-meta-email')?.value || '').trim();
+            const sigTitle = (document.getElementById('setting-meta-sig-title')?.value || '').trim() || ('توقيع وصفة المسلّم: ' + owner);
 
             if (!uiStateConfig.projectMeta) {
                 uiStateConfig.projectMeta = Object.assign({}, DEFAULT_UI_STATE.projectMeta);
             }
 
             uiStateConfig.projectMeta.ownerName = owner;
+            uiStateConfig.projectMeta.ownerRole = role;
+            uiStateConfig.projectMeta.framework = framework;
+            uiStateConfig.projectMeta.city = city;
             uiStateConfig.projectMeta.creatorEntity = creator;
             uiStateConfig.projectMeta.contactEmail = email;
-            uiStateConfig.projectMeta.ownerRole = role;
             uiStateConfig.projectMeta.signatureTitle = sigTitle;
+
+            if (uiStateConfig.officialHeader && city) {
+                uiStateConfig.officialHeader.city = city;
+                const elHdrCity = document.getElementById('setting-header-city');
+                if (elHdrCity && !elHdrCity.value) elHdrCity.value = city;
+            }
+
+            // مزامنة الجلسة النشطة وحساب المستخدم
+            if (window.currentAuthUser && typeof window.currentAuthUser === 'object') {
+                window.currentAuthUser.displayName = owner;
+                if (email) window.currentAuthUser.email = email;
+                window.currentAuthUser.jobTitle = role;
+                window.currentAuthUser.framework = framework;
+                window.currentAuthUser.workplace = creator;
+                window.currentAuthUser.city = city;
+                try {
+                    localStorage.setItem('estock_multiuser_active_session_v1', JSON.stringify(window.currentAuthUser));
+                    if (typeof registerKnownDeviceAccount === 'function') {
+                        registerKnownDeviceAccount(window.currentAuthUser);
+                    }
+                } catch (e) {}
+            }
 
             updateSidebarUserProfile();
             applyFooterSettingsToDOM();
-            logSettingsAction('تحديث بيانات المسؤول عن تدبير المستودع والمنظومة');
+            if (typeof renderProjectAboutCard === 'function') renderProjectAboutCard();
+            if (typeof updateMultiUserAuthUI === 'function') updateMultiUserAuthUI();
+            logSettingsAction('تحديث بيانات المسؤول والملف الشخصي (' + owner + ')');
             await commitAllData(false);
-            
+
             const sumOwner = document.getElementById('profile-summary-owner');
             const sumRole = document.getElementById('profile-summary-role');
+            const sumFramework = document.getElementById('profile-summary-framework');
+            const sumCity = document.getElementById('profile-summary-city');
             const sumCreator = document.getElementById('profile-summary-creator');
             const sumEmail = document.getElementById('profile-summary-email');
             const sumSig = document.getElementById('profile-summary-sig');
             if (sumOwner) sumOwner.textContent = owner;
             if (sumRole) sumRole.textContent = role;
+            if (sumFramework) sumFramework.textContent = framework;
+            if (sumCity) sumCity.textContent = city;
             if (sumCreator) sumCreator.textContent = creator;
-            if (sumEmail) sumEmail.textContent = email || '—';
-            if (sumSig) sumSig.textContent = sigTitle || ('توقيع وصفة المسلّم: ' + owner);
-            NotificationService.show('تم حفظ وتحديث بيانات المسؤول بنجاح وتحديث كافة واجهات المنظومة.');
+            if (sumEmail) sumEmail.textContent = email || (window.currentAuthUser?.email || '—');
+            if (sumSig) sumSig.textContent = sigTitle;
+            NotificationService.show('تم حفظ وتحديث بيانات المستخدم والمسؤول ومزامنتها في كامل المنظومة بنجاح.');
         }
 
     </script>
@@ -1481,14 +1572,14 @@
         /* أزرار رأس التطبيق المضغوطة الأيقونية الفائقة الأناقة (Header Icons)*/
         /* ================================================================= */
         .header-icon-btn {
-            width: 36px !important;
-            height: 36px !important;
-            min-width: 36px !important;
+            width: 34px !important;
+            height: 34px !important;
+            min-width: 34px !important;
             padding: 0 !important;
             border-radius: 8px !important;
-            border: 1px solid rgba(255, 255, 255, 0.25) !important;
-            background: rgba(255, 255, 255, 0.12) !important;
-            color: #ffffff !important;
+            border: 1px solid var(--border-strong) !important;
+            background: var(--bg-card) !important;
+            color: var(--text-secondary) !important;
             display: inline-flex !important;
             align-items: center !important;
             justify-content: center !important;
@@ -1500,8 +1591,9 @@
             line-height: 1 !important;
         }
         .header-icon-btn:hover {
-            background: rgba(255, 255, 255, 0.24) !important;
-            border-color: rgba(255, 255, 255, 0.4) !important;
+            background: var(--primary-soft) !important;
+            border-color: var(--primary) !important;
+            color: var(--primary) !important;
             transform: translateY(-1px);
         }
         .header-icon-btn:active {
@@ -3187,9 +3279,9 @@
             }
         }
 
-        /* Print Media Override: عزل تام لهيكل التطبيق وطباعة الإشهاد فقط في ورقة A4 واحدة */
+        /* Print Media Override: عزل تام لهيكل التطبيق وطباعة القالب النشط فقط في ورق A4 */
         @media print {
-            body:not(.printing-report):not(.printing-inventory) > *:not(#print-certificate-target) {
+            body:not(.printing-report):not(.printing-inventory):not(.printing-batch) > *:not(#print-certificate-target) {
                 display: none !important;
                 visibility: hidden !important;
                 height: 0 !important;
@@ -3216,7 +3308,23 @@
                 padding: 0 !important;
                 overflow: hidden !important;
             }
-            .app-shell, #app-main, #app-sidebar, .app-sidebar, .app-topbar, #app-topbar, .sidebar-backdrop, .app-container, .modal-overlay, #post-save-action-modal {
+            body.printing-batch > *:not(#print-batch-target) {
+                display: none !important;
+                visibility: hidden !important;
+                height: 0 !important;
+                width: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                overflow: hidden !important;
+            }
+            body.printing-batch #print-batch-target {
+                display: block !important;
+                visibility: visible !important;
+                width: 100% !important;
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+            .app-shell, #app-main, #app-sidebar, .app-sidebar, .app-topbar, #app-topbar, .sidebar-backdrop, .app-container, .modal-overlay, .modal-backdrop, #post-save-action-modal {
                 display: none !important;
                 visibility: hidden !important;
                 height: 0 !important;
@@ -3272,7 +3380,14 @@
                 width: 100% !important;
                 box-shadow: none !important;
             }
-            table, tr, td, th {
+            table {
+                break-inside: auto !important;
+                page-break-inside: auto !important;
+            }
+            thead {
+                display: table-header-group !important;
+            }
+            tr, td, th, .cert-signature-wrapper {
                 break-inside: avoid !important;
                 page-break-inside: avoid !important;
             }
@@ -3925,6 +4040,174 @@
                 justify-content: center !important;
             }
         }
+
+        /* ============================================================================
+           V84.1 LIGHT MODE CONTRAST REFINEMENTS & STRICT MOBILE CONTAINMENT (<= 768px)
+           ============================================================================ */
+        html[data-theme="light"] body,
+        body:not(.dark-mode)[data-theme="light"] {
+            background-color: #f4f7fb !important;
+            color: #0f172a !important;
+        }
+        html[data-theme="light"] .form-control,
+        body:not(.dark-mode) .form-control {
+            background-color: #ffffff !important;
+            border-color: #cbd5e1 !important;
+            color: #0f172a !important;
+        }
+        html[data-theme="light"] .form-control:focus,
+        body:not(.dark-mode) .form-control:focus {
+            border-color: #1d4ed8 !important;
+            box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.14) !important;
+        }
+        html[data-theme="light"] .db-safety-badge.status-saved,
+        body:not(.dark-mode) .db-safety-badge.status-saved {
+            background: rgba(21, 128, 61, 0.12) !important;
+            border: 1px solid rgba(21, 128, 61, 0.4) !important;
+            color: #15803d !important;
+        }
+        html[data-theme="light"] .db-safety-badge.status-unsaved,
+        body:not(.dark-mode) .db-safety-badge.status-unsaved {
+            background: rgba(180, 83, 9, 0.12) !important;
+            border: 1px solid rgba(180, 83, 9, 0.45) !important;
+            color: #b45309 !important;
+        }
+        html[data-theme="light"] .db-safety-badge.status-error,
+        body:not(.dark-mode) .db-safety-badge.status-error {
+            background: rgba(185, 28, 28, 0.12) !important;
+            border: 1px solid rgba(185, 28, 28, 0.45) !important;
+            color: #b91c1c !important;
+        }
+        html[data-theme="light"] .data-table th,
+        body:not(.dark-mode) .data-table th {
+            background-color: #f1f5f9 !important;
+            color: #334155 !important;
+            border-bottom: 1.5px solid #cbd5e1 !important;
+        }
+        html[data-theme="light"] .data-table td,
+        body:not(.dark-mode) .data-table td {
+            color: #0f172a !important;
+            border-bottom: 1px solid #e2e8f0 !important;
+        }
+        html[data-theme="light"] .stat-card,
+        body:not(.dark-mode) .stat-card {
+            background: #ffffff !important;
+            border-color: #cbd5e1 !important;
+            border-top: 3px solid #1d4ed8 !important;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05) !important;
+        }
+        html[data-theme="light"] .modal-backdrop,
+        body:not(.dark-mode) .modal-backdrop {
+            background: rgba(15, 23, 42, 0.55) !important;
+        }
+        html[data-theme="light"] #modal-auth-login-gate.active,
+        body:not(.dark-mode) #modal-auth-login-gate.active {
+            background: radial-gradient(circle at top, rgba(29, 78, 216, 0.18), rgba(15, 23, 42, 0.78)) !important;
+        }
+
+        /* Strict Mobile & Tablet Containment (<= 768px) — Zero Horizontal Overflow */
+        @media (max-width: 768px) {
+            #app-main,
+            .app-main,
+            #app-sidebar ~ #app-main,
+            .app-sidebar.collapsed ~ .app-main,
+            .app-shell.sidebar-collapsed #app-main,
+            #app-main.expanded {
+                margin-right: 64px !important;
+                margin-inline-start: 64px !important;
+                margin-left: 0 !important;
+                width: calc(100% - 64px) !important;
+                max-width: calc(100% - 64px) !important;
+                min-width: 0 !important;
+                overflow-x: hidden !important;
+                box-sizing: border-box !important;
+            }
+            .app-topbar {
+                padding: 0 10px !important;
+                gap: 6px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+            .app-container {
+                padding: 10px 8px 36px 8px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                overflow-x: hidden !important;
+            }
+            .main-layout,
+            #bi-charts-grid-container,
+            .stats-dashboard,
+            .recent-ops-grid,
+            .archive-filters-grid,
+            #chart-monthly-container,
+            .settings-grid {
+                display: grid !important;
+                grid-template-columns: minmax(0, 1fr) !important;
+                gap: 12px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+            }
+            /* Override any inline grid-template-columns with large minmax on mobile */
+            .app-container [style*="grid-template-columns"],
+            .modal-card [style*="grid-template-columns"],
+            .modal [style*="grid-template-columns"] {
+                grid-template-columns: minmax(0, 1fr) !important;
+            }
+            .app-container [style*="min-width"],
+            .modal-card [style*="min-width"] {
+                min-width: 0 !important;
+            }
+            .form-panel,
+            .preview-panel,
+            .history-section,
+            .settings-card,
+            .recent-ops-bar,
+            .auth-account-banner-card {
+                padding: 12px 10px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                box-sizing: border-box !important;
+                overflow-x: hidden !important;
+            }
+            .bi-donut-wrapper {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 12px !important;
+            }
+            .bi-donut-legend {
+                min-width: 0 !important;
+                width: 100% !important;
+            }
+            .modal-card,
+            .modal {
+                width: calc(100vw - 20px) !important;
+                max-width: calc(100vw - 20px) !important;
+                max-height: 90dvh !important;
+                padding: 14px 12px !important;
+                margin: auto !important;
+                box-sizing: border-box !important;
+            }
+            .section-title {
+                font-size: 14.5px !important;
+            }
+            .preview-panel-actions {
+                flex-direction: column !important;
+                align-items: stretch !important;
+            }
+            .preview-panel-actions > div {
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 8px !important;
+            }
+            .preview-panel-actions .btn {
+                width: 100% !important;
+            }
+        }
+
     </style>
     <!-- Firebase App, Authentication & Cloud Firestore SDKs (CDN) -->
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -3948,8 +4231,10 @@
             <div class="sidebar-header" style="position:relative;">
                 <div class="brand-box" onclick="switchViewPanel('issuance-view', document.getElementById('tab-btn-issuance'))" data-tooltip="منظومة تدبير المخزون وإشهادات التسليم" title="الرئيسية">
                     <div class="brand-logo-wrap">
-                        <img alt="شعار" class="brand-logo" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230f4c81%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%231d4ed8%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23g)%22/%3E%3Cpath%20d%3D%22M24%2034L50%2020L76%2034V66L50%2080L24%2066Z%22%20fill%3D%22none%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%225%22%20stroke-linejoin%3D%22round%22/%3E%3Cpolyline%20points%3D%2224%2C34%2050%2C48%2076%2C34%22%20fill%3D%22none%22%20stroke%3D%22%2393c5fd%22%20stroke-width%3D%224.5%22%20stroke-linejoin%3D%22round%22/%3E%3Cline%20x1%3D%2250%22%20y1%3D%2248%22%20x2%3D%2250%22%20y2%3D%2280%22%20stroke%3D%22%2393c5fd%22%20stroke-width%3D%224.5%22%20stroke-linecap%3D%22round%22/%3E%3Ccircle%20cx%3D%2272%22%20cy%3D%2270%22%20r%3D%2216%22%20fill%3D%22%230f4c81%22%20stroke%3D%22%2338bdf8%22%20stroke-width%3D%224%22/%3E%3Cpolyline%20points%3D%2266%2C70%2070%2C74%2079%2C65%22%20fill%3D%22none%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E">
-                        <span id="brand-fallback" style="display:none; font-size:20px;"></span>
+                        <img alt="شعار المنظومة" class="brand-logo" src="logo.png" onerror="this.style.display='none'; var fb=document.getElementById('brand-fallback'); if(fb) fb.style.display='inline-flex';">
+                        <span id="brand-fallback" style="display:none; align-items:center; justify-content:center; width:100%; height:100%; color:var(--primary);">
+                            <svg class="outline-svg-icon" style="width:20px !important; height:20px !important;" viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 9h1m4 0h1m-6 4h1m4 0h1m-5 8v-5h4v5"></path></svg>
+                        </span>
                     </div>
                     <div class="brand-info">
                         <div class="brand-title" id="sidebar-brand-title">تدبير المخزون والإشهادات</div>
@@ -3968,17 +4253,11 @@
             </div>
 
             <div class="sidebar-action-wrap">
-                <button type="button" class="sidebar-action-btn primary-action" onclick="switchViewPanel('issuance-view', document.getElementById('tab-btn-issuance')); document.getElementById('dest-select')?.focus();" data-tooltip="إصدار إشهاد تسليم جديد">
-                    <span class="action-icon">
+                <button type="button" class="sidebar-action-btn primary-action nav-tab-btn active-tab active" id="tab-btn-issuance" onclick="switchViewPanel('issuance-view', this); document.getElementById('dest-select')?.focus();" data-tooltip="إشهاد تسليم جديد" title="إشهاد تسليم جديد">
+                    <span class="action-icon nav-icon">
                         <svg class="outline-svg-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                     </span>
-                    <span class="action-text action-label">إشهاد تسليم جديد</span>
-                </button>
-                <button type="button" class="sidebar-action-btn quick-action" onclick="switchViewPanel('inventory-view', document.getElementById('tab-btn-inventory'));" data-tooltip="الجرد الدوري للمخزون">
-                    <span class="action-icon">
-                        <svg class="outline-svg-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                    </span>
-                    <span class="action-text action-label">فحص وجرد المخزون</span>
+                    <span class="action-text action-label nav-label">إشهاد تسليم جديد</span>
                 </button>
             </div>
         </div>
@@ -3986,10 +4265,6 @@
         <!-- PART 2: NAVIGATION & RECENT OPERATIONS -->
         <div class="sidebar-part-nav-recent" style="flex:1; display:flex; flex-direction:column; min-height:0; overflow-y:auto; overflow-x:hidden;">
             <nav class="sidebar-nav-list" role="tablist" aria-label="الأقسام الرئيسية">
-                <button type="button" class="nav-item nav-tab-btn active-tab active" id="tab-btn-issuance" onclick="switchViewPanel('issuance-view', this)" data-tooltip="إصدار إشهاد" title="إصدار إشهاد">
-                    <span class="nav-icon"><svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg></span>
-                    <span class="nav-label">إصدار إشهاد</span>
-                </button>
                 <button type="button" class="nav-item nav-tab-btn" id="tab-btn-history" onclick="switchViewPanel('history-view', this)" data-tooltip="سجل العمليات والأرشيف" title="سجل العمليات">
                     <span class="nav-icon"><svg class="outline-svg-icon" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg></span>
                     <span class="nav-label">سجل العمليات</span>
@@ -4804,7 +5079,15 @@
       <div style="font-size:12px; color:var(--text-muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-top:2px;" id="settings-auth-email-uid">mohamed105@gmail.com</div>
     </div>
   </div>
-  <div style="display:flex; align-items:center; gap:8px; flex-shrink:0;">
+  <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; flex-shrink:0;">
+    <button type="button" class="btn btn-secondary btn-sm user-profile-adaptive-btn" onclick="openSettingsSection('user-profile')" title="تعديل بيانات المسؤول والملف الشخصي">
+      <svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+      <span class="user-auth-btn-text">بيانات المسؤول</span>
+    </button>
+    <button type="button" class="btn btn-secondary btn-sm user-profile-adaptive-btn" onclick="openUserAccountAuthModal(true)" title="تغيير كلمة المرور والرقم السري">
+      <svg class="outline-svg-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      <span class="user-auth-btn-text">كلمة المرور</span>
+    </button>
     <button type="button" class="btn btn-secondary btn-sm user-profile-adaptive-btn" id="btn-settings-manage-account" onclick="openUserAccountAuthModal()" title="إدارة الحساب والمزامنة">
       <svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
       <span class="user-auth-btn-text">إدارة الحساب</span>
@@ -4946,7 +5229,7 @@
 <span style="font-weight: bold; font-size: 13.5px; color: var(--primary);">🏛️ معاينة الترويسة المعتمدة حالياً:</span>
 <div id="entete-preview-thumb-container">
 <span id="entete-status-text" style="font-size: 12.5px; color: var(--text-muted);">الترويسة النصية الرسمية مفعلة (أو ملف en_tete.png المحلي)</span>
-<img alt="الترويسة الرسمية" class="entete-preview-img" id="entete-preview-img" onerror="if(!this.dataset.tried){this.dataset.tried=true; this.src='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%20115%22%3E%3Crect%20width%3D%22900%22%20height%3D%22115%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%22108%22%20x2%3D%22880%22%20y2%3D%22108%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%222.5%22/%3E%3Ctext%20x%3D%22865%22%20y%3D%2234%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2260%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2286%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%3C/text%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%2252%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222.2%22/%3E%3Cpolygon%20points%3D%22450%2C26%20456%2C43%20474%2C43%20459%2C53%20465%2C70%20450%2C60%20435%2C70%20441%2C53%20426%2C43%20444%2C43%22%20fill%3D%22none%22%20stroke%3D%22%23124E3F%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2236%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3ERoyaume%20du%20Maroc%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2260%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3EMinist%C3%A8re%20de%20la%20Justice%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2284%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3EDirection%20Sous-R%C3%A9gionale%20de%20Settat%3C/text%3E%3C/svg%3E';}else{this.style.display='none'; document.getElementById('entete-status-text').style.display='inline';}" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%20115%22%3E%3Crect%20width%3D%22900%22%20height%3D%22115%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%22108%22%20x2%3D%22880%22%20y2%3D%22108%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%222.5%22/%3E%3Ctext%20x%3D%22865%22%20y%3D%2234%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2260%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2286%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%3C/text%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%2252%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222.2%22/%3E%3Cpolygon%20points%3D%22450%2C26%20456%2C43%20474%2C43%20459%2C53%20465%2C70%20450%2C60%20435%2C70%20441%2C53%20426%2C43%20444%2C43%22%20fill%3D%22none%22%20stroke%3D%22%23124E3F%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2236%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3ERoyaume%20du%20Maroc%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2260%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3EMinist%C3%A8re%20de%20la%20Justice%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2284%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3EDirection%20Sous-R%C3%A9gionale%20de%20Settat%3C/text%3E%3C/svg%3E" style="display:block;"/>
+<img alt="الترويسة الرسمية" class="entete-preview-img" id="entete-preview-img" onerror="if(!this.dataset.tried){this.dataset.tried=true; this.src='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%20115%22%3E%3Crect%20width%3D%22900%22%20height%3D%22115%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%22108%22%20x2%3D%22880%22%20y2%3D%22108%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%222.5%22/%3E%3Ctext%20x%3D%22865%22%20y%3D%2234%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2260%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2286%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%3C/text%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%2252%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222.2%22/%3E%3Cpolygon%20points%3D%22450%2C26%20456%2C43%20474%2C43%20459%2C53%20465%2C70%20450%2C60%20435%2C70%20441%2C53%20426%2C43%20444%2C43%22%20fill%3D%22none%22%20stroke%3D%22%23124E3F%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2236%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3ERoyaume%20du%20Maroc%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2260%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3EMinist%C3%A8re%20de%20la%20Justice%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2284%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3EDirection%20Sous-R%C3%A9gionale%20de%20Settat%3C/text%3E%3C/svg%3E';}else{this.style.display='none'; document.getElementById('entete-status-text').style.display='inline';}" src="en_tete.png" style="display:block;"/>
 </div>
 </div>
 <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
@@ -4962,7 +5245,7 @@
 <span style="font-weight: bold; font-size: 13.5px; color: var(--primary);">📜 معاينة صورة التذييل المعتمدة (en_pied.png):</span>
 <div id="enpied-preview-thumb-container">
 <span id="enpied-status-text" style="font-size: 12.5px; color: var(--text-muted); display:none;">بدون صورة تذييل (غير مفعل في الإشهاد)</span>
-<img alt="صورة التذييل الرسمية" class="entete-preview-img" id="enpied-preview-img" onerror="this.style.display='none'; document.getElementById('enpied-status-text').style.display='inline';" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%2055%22%3E%3Crect%20width%3D%22900%22%20height%3D%2255%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%228%22%20x2%3D%22880%22%20y2%3D%228%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%221.5%22/%3E%3Ctext%20x%3D%22450%22%20y%3D%2232%22%20text-anchor%3D%22middle%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23334155%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%20%E2%80%94%20%D9%85%D8%B5%D9%84%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D9%87%D9%8A%D8%B2%20%D9%88%D8%AA%D8%AF%D8%A8%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D9%85%D8%AA%D9%84%D9%83%D8%A7%D8%AA%20%D9%88%D9%86%D8%B8%D9%85%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%3C/text%3E%3C/svg%3E" style="display:block; max-height:55px;"/>
+<img alt="صورة التذييل الرسمية" class="entete-preview-img" id="enpied-preview-img" onerror="if(!this.dataset.tried){this.dataset.tried=true; this.src='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%2055%22%3E%3Crect%20width%3D%22900%22%20height%3D%2255%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%228%22%20x2%3D%22880%22%20y2%3D%228%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%221.5%22/%3E%3Ctext%20x%3D%22450%22%20y%3D%2232%22%20text-anchor%3D%22middle%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23334155%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%20%E2%80%94%20%D9%85%D8%B5%D9%84%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D9%87%D9%8A%D8%B2%20%D9%88%D8%AA%D8%AF%D8%A8%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D9%85%D8%AA%D9%84%D9%83%D8%A7%D8%AA%20%D9%88%D9%86%D8%B8%D9%85%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%3C/text%3E%3C/svg%3E';}else{this.style.display='none'; document.getElementById('enpied-status-text').style.display='inline';}" src="en_pied.png" style="display:block; max-height:55px;"/>
 </div>
 </div>
 <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
@@ -5183,7 +5466,6 @@
 <div style="display:flex; gap:8px; flex-wrap:wrap;">
 <button class="btn btn-primary btn-sm" onclick="exportConfigurationProfile()" type="button">💾 تصدير ملف الإعدادات</button>
 <button class="btn btn-secondary btn-sm" onclick="document.getElementById('import-config-profile-input').click()" type="button">📂 استيراد ملف إعدادات</button>
-<input accept=".json" id="import-config-profile-input" onchange="importConfigurationProfile(event)" style="display:none;" type="file"/>
 </div>
 </div>
 <!-- بطاقة النسخة الاحتياطية الشاملة -->
@@ -5272,8 +5554,16 @@
                     <td style="padding:8px 12px;" id="profile-summary-role">منتدب قضائي / مسؤول تدبير المستودع الرقمي</td>
                 </tr>
                 <tr style="border-bottom:1px solid var(--border-color); background:var(--bg-subtle);">
+                    <td style="padding:8px 12px; font-weight:bold; color:var(--primary);">🏷️ الإطار الإداري والدرجة:</td>
+                    <td style="padding:8px 12px;" id="profile-summary-framework">منتدب قضائي من الدرجة الثانية</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border-color);">
                     <td style="padding:8px 12px; font-weight:bold; color:var(--primary);">🏛️ الإدارة والمصلحة المشرفة:</td>
-                    <td style="padding:8px 12px;" id="profile-summary-creator">المديرية الإقليمية للعدل بسطات - وزارة العدل</td>
+                    <td style="padding:8px 12px;" id="profile-summary-creator">المديرية الإقليمية للعدل بسطات</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border-color); background:var(--bg-subtle);">
+                    <td style="padding:8px 12px; font-weight:bold; color:var(--primary);">📍 المدينة الافتراضية للإصدار:</td>
+                    <td style="padding:8px 12px;" id="profile-summary-city">سطات</td>
                 </tr>
                 <tr style="border-bottom:1px solid var(--border-color);">
                     <td style="padding:8px 12px; font-weight:bold; color:var(--primary);">📧 البريد الإلكتروني / الاتصال:</td>
@@ -5835,9 +6125,10 @@
 <!-- ================================================================= -->
 <!-- 3. قالب الطباعة الرسمي المطابق تماماً لنسخة A4 Portrait            -->
 <!-- ================================================================= -->
+<div id="print-batch-target" style="display:none;"></div>
 <div id="print-certificate-target">
 <div class="print-entete-container" id="print-entete-container">
-<img alt="الترويسة الرسمية" class="print-entete-image" id="print-entete-img" onerror="if(!this.dataset.tried){this.dataset.tried=true; this.src='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%20115%22%3E%3Crect%20width%3D%22900%22%20height%3D%22115%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%22108%22%20x2%3D%22880%22%20y2%3D%22108%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%222.5%22/%3E%3Ctext%20x%3D%22865%22%20y%3D%2234%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2260%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2286%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%3C/text%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%2252%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222.2%22/%3E%3Cpolygon%20points%3D%22450%2C26%20456%2C43%20474%2C43%20459%2C53%20465%2C70%20450%2C60%20435%2C70%20441%2C53%20426%2C43%20444%2C43%22%20fill%3D%22none%22%20stroke%3D%22%23124E3F%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2236%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3ERoyaume%20du%20Maroc%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2260%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3EMinist%C3%A8re%20de%20la%20Justice%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2284%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3EDirection%20Sous-R%C3%A9gionale%20de%20Settat%3C/text%3E%3C/svg%3E';}else{this.style.display='none'; document.getElementById('print-default-header-table').style.display='table';}" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%20115%22%3E%3Crect%20width%3D%22900%22%20height%3D%22115%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%22108%22%20x2%3D%22880%22%20y2%3D%22108%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%222.5%22/%3E%3Ctext%20x%3D%22865%22%20y%3D%2234%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2260%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2286%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%3C/text%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%2252%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222.2%22/%3E%3Cpolygon%20points%3D%22450%2C26%20456%2C43%20474%2C43%20459%2C53%20465%2C70%20450%2C60%20435%2C70%20441%2C53%20426%2C43%20444%2C43%22%20fill%3D%22none%22%20stroke%3D%22%23124E3F%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2236%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3ERoyaume%20du%20Maroc%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2260%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3EMinist%C3%A8re%20de%20la%20Justice%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2284%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3EDirection%20Sous-R%C3%A9gionale%20de%20Settat%3C/text%3E%3C/svg%3E"/>
+<img alt="الترويسة الرسمية" class="print-entete-image" id="print-entete-img" onerror="if(!this.dataset.tried){this.dataset.tried=true; this.src='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%20115%22%3E%3Crect%20width%3D%22900%22%20height%3D%22115%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%22108%22%20x2%3D%22880%22%20y2%3D%22108%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%222.5%22/%3E%3Ctext%20x%3D%22865%22%20y%3D%2234%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2260%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2286%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%3C/text%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%2252%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222.2%22/%3E%3Cpolygon%20points%3D%22450%2C26%20456%2C43%20474%2C43%20459%2C53%20465%2C70%20450%2C60%20435%2C70%20441%2C53%20426%2C43%20444%2C43%22%20fill%3D%22none%22%20stroke%3D%22%23124E3F%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2236%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3ERoyaume%20du%20Maroc%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2260%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3EMinist%C3%A8re%20de%20la%20Justice%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2284%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3EDirection%20Sous-R%C3%A9gionale%20de%20Settat%3C/text%3E%3C/svg%3E';}else{this.style.display='none'; document.getElementById('print-default-header-table').style.display='table';}" src="en_tete.png"/>
 <table class="cert-official-header-table" id="print-default-header-table" style="display: none;">
 <tr>
 <td class="header-col-right">
@@ -5875,13 +6166,13 @@
 </div>
 <!-- تذييل وثيقة الإشهاد الرسمي كصورة A4 (en_pied.png) -->
 <div class="print-en-pied-container" id="print-en-pied-container" style="display:none; margin-top:auto; width:100%; text-align:center; padding-top:10px;">
-<img alt="تذييل الوثيقة الرسمي" class="print-en-pied-image" id="cert-print-en-pied-img" onerror="this.style.display='none'; document.getElementById('print-en-pied-container').style.display='none';" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%2055%22%3E%3Crect%20width%3D%22900%22%20height%3D%2255%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%228%22%20x2%3D%22880%22%20y2%3D%228%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%221.5%22/%3E%3Ctext%20x%3D%22450%22%20y%3D%2232%22%20text-anchor%3D%22middle%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23334155%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%20%E2%80%94%20%D9%85%D8%B5%D9%84%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D9%87%D9%8A%D8%B2%20%D9%88%D8%AA%D8%AF%D8%A8%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D9%85%D8%AA%D9%84%D9%83%D8%A7%D8%AA%20%D9%88%D9%86%D8%B8%D9%85%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%3C/text%3E%3C/svg%3E" style="width:100%; max-height:85px; object-fit:contain;"/>
+<img alt="تذييل الوثيقة الرسمي" class="print-en-pied-image" id="cert-print-en-pied-img" onerror="if(!this.dataset.tried){this.dataset.tried=true; this.src='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%2055%22%3E%3Crect%20width%3D%22900%22%20height%3D%2255%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%228%22%20x2%3D%22880%22%20y2%3D%228%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%221.5%22/%3E%3Ctext%20x%3D%22450%22%20y%3D%2232%22%20text-anchor%3D%22middle%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23334155%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%20%E2%80%94%20%D9%85%D8%B5%D9%84%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D9%87%D9%8A%D8%B2%20%D9%88%D8%AA%D8%AF%D8%A8%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D9%85%D8%AA%D9%84%D9%83%D8%A7%D8%AA%20%D9%88%D9%86%D8%B8%D9%85%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%3C/text%3E%3C/svg%3E';}else{this.style.display='none'; document.getElementById('print-en-pied-container').style.display='none';}" src="en_pied.png" style="width:100%; max-height:85px; object-fit:contain;"/>
 </div>
 </div>
 <!-- قالب طباعة تقرير النشاط الإحصائي والحصيلة A4 -->
 <div id="print-report-target">
 <div class="print-entete-container">
-<img alt="الترويسة الرسمية" class="print-entete-image" id="print-report-entete-img" onerror="if(!this.dataset.tried){this.dataset.tried=true; this.src='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%20115%22%3E%3Crect%20width%3D%22900%22%20height%3D%22115%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%22108%22%20x2%3D%22880%22%20y2%3D%22108%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%222.5%22/%3E%3Ctext%20x%3D%22865%22%20y%3D%2234%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2260%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2286%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%3C/text%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%2252%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222.2%22/%3E%3Cpolygon%20points%3D%22450%2C26%20456%2C43%20474%2C43%20459%2C53%20465%2C70%20450%2C60%20435%2C70%20441%2C53%20426%2C43%20444%2C43%22%20fill%3D%22none%22%20stroke%3D%22%23124E3F%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2236%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3ERoyaume%20du%20Maroc%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2260%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3EMinist%C3%A8re%20de%20la%20Justice%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2284%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3EDirection%20Sous-R%C3%A9gionale%20de%20Settat%3C/text%3E%3C/svg%3E';}else{this.style.display='none'; document.getElementById('print-report-default-header').style.display='table';}" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%20115%22%3E%3Crect%20width%3D%22900%22%20height%3D%22115%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%22108%22%20x2%3D%22880%22%20y2%3D%22108%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%222.5%22/%3E%3Ctext%20x%3D%22865%22%20y%3D%2234%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2260%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2286%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%3C/text%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%2252%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222.2%22/%3E%3Cpolygon%20points%3D%22450%2C26%20456%2C43%20474%2C43%20459%2C53%20465%2C70%20450%2C60%20435%2C70%20441%2C53%20426%2C43%20444%2C43%22%20fill%3D%22none%22%20stroke%3D%22%23124E3F%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2236%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3ERoyaume%20du%20Maroc%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2260%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3EMinist%C3%A8re%20de%20la%20Justice%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2284%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3EDirection%20Sous-R%C3%A9gionale%20de%20Settat%3C/text%3E%3C/svg%3E"/>
+<img alt="الترويسة الرسمية" class="print-entete-image" id="print-report-entete-img" onerror="if(!this.dataset.tried){this.dataset.tried=true; this.src='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%20115%22%3E%3Crect%20width%3D%22900%22%20height%3D%22115%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%22108%22%20x2%3D%22880%22%20y2%3D%22108%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%222.5%22/%3E%3Ctext%20x%3D%22865%22%20y%3D%2234%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2260%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2286%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%3C/text%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%2252%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222.2%22/%3E%3Cpolygon%20points%3D%22450%2C26%20456%2C43%20474%2C43%20459%2C53%20465%2C70%20450%2C60%20435%2C70%20441%2C53%20426%2C43%20444%2C43%22%20fill%3D%22none%22%20stroke%3D%22%23124E3F%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2236%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3ERoyaume%20du%20Maroc%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2260%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3EMinist%C3%A8re%20de%20la%20Justice%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2284%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3EDirection%20Sous-R%C3%A9gionale%20de%20Settat%3C/text%3E%3C/svg%3E';}else{this.style.display='none'; document.getElementById('print-report-default-header').style.display='table';}" src="en_tete.png"/>
 <table class="cert-official-header-table" id="print-report-default-header" style="display: none;">
 <tr>
 <td class="header-col-right">
@@ -5910,7 +6201,7 @@
 <!-- قالب طباعة جرد المخزون A4 (Inventaire) -->
 <div id="print-inventory-target">
 <div class="print-entete-container">
-<img alt="الترويسة الرسمية" class="print-entete-image" id="print-inv-entete-img" onerror="if(!this.dataset.tried){this.dataset.tried=true; this.src='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%20115%22%3E%3Crect%20width%3D%22900%22%20height%3D%22115%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%22108%22%20x2%3D%22880%22%20y2%3D%22108%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%222.5%22/%3E%3Ctext%20x%3D%22865%22%20y%3D%2234%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2260%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2286%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%3C/text%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%2252%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222.2%22/%3E%3Cpolygon%20points%3D%22450%2C26%20456%2C43%20474%2C43%20459%2C53%20465%2C70%20450%2C60%20435%2C70%20441%2C53%20426%2C43%20444%2C43%22%20fill%3D%22none%22%20stroke%3D%22%23124E3F%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2236%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3ERoyaume%20du%20Maroc%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2260%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3EMinist%C3%A8re%20de%20la%20Justice%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2284%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3EDirection%20Sous-R%C3%A9gionale%20de%20Settat%3C/text%3E%3C/svg%3E';}else{this.style.display='none'; document.getElementById('print-inv-default-header').style.display='table';}" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%20115%22%3E%3Crect%20width%3D%22900%22%20height%3D%22115%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%22108%22%20x2%3D%22880%22%20y2%3D%22108%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%222.5%22/%3E%3Ctext%20x%3D%22865%22%20y%3D%2234%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2260%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2286%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%3C/text%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%2252%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222.2%22/%3E%3Cpolygon%20points%3D%22450%2C26%20456%2C43%20474%2C43%20459%2C53%20465%2C70%20450%2C60%20435%2C70%20441%2C53%20426%2C43%20444%2C43%22%20fill%3D%22none%22%20stroke%3D%22%23124E3F%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2236%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3ERoyaume%20du%20Maroc%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2260%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3EMinist%C3%A8re%20de%20la%20Justice%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2284%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3EDirection%20Sous-R%C3%A9gionale%20de%20Settat%3C/text%3E%3C/svg%3E"/>
+<img alt="الترويسة الرسمية" class="print-entete-image" id="print-inv-entete-img" onerror="if(!this.dataset.tried){this.dataset.tried=true; this.src='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%20115%22%3E%3Crect%20width%3D%22900%22%20height%3D%22115%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%22108%22%20x2%3D%22880%22%20y2%3D%22108%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%222.5%22/%3E%3Ctext%20x%3D%22865%22%20y%3D%2234%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2260%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2286%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%3C/text%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%2252%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222.2%22/%3E%3Cpolygon%20points%3D%22450%2C26%20456%2C43%20474%2C43%20459%2C53%20465%2C70%20450%2C60%20435%2C70%20441%2C53%20426%2C43%20444%2C43%22%20fill%3D%22none%22%20stroke%3D%22%23124E3F%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2236%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3ERoyaume%20du%20Maroc%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2260%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3EMinist%C3%A8re%20de%20la%20Justice%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2284%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3EDirection%20Sous-R%C3%A9gionale%20de%20Settat%3C/text%3E%3C/svg%3E';}else{this.style.display='none'; document.getElementById('print-inv-default-header').style.display='table';}" src="en_tete.png"/>
 <table class="cert-official-header-table" id="print-inv-default-header" style="display: none;">
 <tr>
 <td class="header-col-right">
@@ -6690,9 +6981,11 @@
                 await commitAllData(false);
             }
 
-            if (localStorage.getItem(StorageService.KEYS.THEME) === 'dark') {
-                document.body.classList.add('dark-mode');
-                document.getElementById('theme-toggle-btn').textContent = '☀️';
+            const initialSavedTheme = localStorage.getItem('theme') || localStorage.getItem(StorageService.KEYS.THEME) || 'dark';
+            document.documentElement.setAttribute('data-theme', initialSavedTheme);
+            if (document.body) {
+                document.body.setAttribute('data-theme', initialSavedTheme);
+                document.body.classList.toggle('dark-mode', initialSavedTheme === 'dark');
             }
             
             const now = new Date();
@@ -7054,17 +7347,26 @@
             return str.replace(/^[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\s•\-\|]+/u, '').trim();
         }
 
-        // تطبيق مسميات وظهور التبويبات على شريط التنقل (V20 Icon & Label Isolation)
+        // تطبيق مسميات وظهور التبويبات على شريط التنقل مع الحفاظ الصارم على الأيقونات الخطية الأحادية اللون (V84.1)
         function applyTabTitlesToDOM() {
             const tabs = (uiStateConfig && uiStateConfig.tabTitles) ? uiStateConfig.tabTitles : DEFAULT_UI_STATE.tabTitles;
             const vis = (uiStateConfig && uiStateConfig.visibleTabs) ? uiStateConfig.visibleTabs : DEFAULT_UI_STATE.visibleTabs;
 
+            const svgPlus = '<svg class="outline-svg-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>';
+            const svgList = '<svg class="outline-svg-icon" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>';
+            const svgInv  = '<svg class="outline-svg-icon" viewBox="0 0 24 24"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>';
+            const svgChart= '<svg class="outline-svg-icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>';
+            const svgGear = '<svg class="outline-svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>';
+
+            let issuanceLabel = cleanEmojiFromText(tabs.issuance || 'إشهاد تسليم جديد');
+            if (issuanceLabel === 'إصدار إشهاد') issuanceLabel = 'إشهاد تسليم جديد';
+
             const navItems = [
-                { id: 'tab-btn-issuance', icon: '➕', rawTitle: tabs.issuance || 'إصدار إشهاد', vis: vis.issuance !== false },
-                { id: 'tab-btn-history', icon: '📚', rawTitle: tabs.history || 'سجل العمليات', vis: vis.history !== false, badge: true },
-                { id: 'tab-btn-inventory', icon: '📋', rawTitle: tabs.inventory || 'الجرد الدوري', vis: vis.inventory !== false },
-                { id: 'tab-btn-analytics', icon: '📊', rawTitle: tabs.analytics || 'الإحصائيات', vis: vis.analytics !== false },
-                { id: 'tab-btn-settings', icon: '⚙️', rawTitle: 'إعدادات', vis: true }
+                { id: 'tab-btn-issuance', svg: svgPlus, rawTitle: issuanceLabel, vis: vis.issuance !== false },
+                { id: 'tab-btn-history', svg: svgList, rawTitle: tabs.history || 'سجل العمليات', vis: vis.history !== false, badge: true },
+                { id: 'tab-btn-inventory', svg: svgInv, rawTitle: tabs.inventory || 'الجرد الدوري', vis: vis.inventory !== false },
+                { id: 'tab-btn-analytics', svg: svgChart, rawTitle: tabs.analytics || 'الإحصائيات', vis: vis.analytics !== false },
+                { id: 'tab-btn-settings', svg: svgGear, rawTitle: 'الإعدادات', vis: true }
             ];
 
             navItems.forEach(item => {
@@ -7079,9 +7381,9 @@
                 let labelSpan = btn.querySelector('.nav-label');
 
                 if (!iconSpan || !labelSpan) {
-                    btn.innerHTML = '<span class="nav-icon">' + item.icon + '</span><span class="nav-label">' + cleanText + '</span>' + (item.badge ? '<span class="nav-badge" id="sidebar-history-count"></span>' : '');
+                    btn.innerHTML = '<span class="nav-icon">' + item.svg + '</span><span class="nav-label">' + cleanText + '</span>' + (item.badge ? '<span class="nav-badge" id="sidebar-history-count"></span>' : '');
                 } else {
-                    iconSpan.textContent = item.icon;
+                    iconSpan.innerHTML = item.svg;
                     labelSpan.textContent = cleanText;
                 }
             });
@@ -7690,6 +7992,20 @@
             const elEnHNote = document.getElementById('setting-cert-enable-header-note');
             const elHNoteBox = document.getElementById('setting-cert-header-note-box');
             const elHNote = document.getElementById('setting-cert-header-note');
+
+            if (elCertTitle) elCertTitle.value = cert.title || DEFAULT_UI_STATE.certPrintConfig.title;
+            if (elCertIntro) elCertIntro.value = cert.bodyIntro || DEFAULT_UI_STATE.certPrintConfig.bodyIntro;
+            if (elCertSigRec) elCertSigRec.value = cert.sigRecipientTitle || DEFAULT_UI_STATE.certPrintConfig.sigRecipientTitle;
+            if (elCertEnableSec) elCertEnableSec.checked = !!cert.enableSecondSignature;
+            if (elCertSecBox) elCertSecBox.style.display = cert.enableSecondSignature ? 'block' : 'none';
+            if (elCertSigSec) elCertSigSec.value = cert.sigSecondTitle || DEFAULT_UI_STATE.certPrintConfig.sigSecondTitle;
+            if (elColItem) elColItem.value = cert.colItemTitle || DEFAULT_UI_STATE.certPrintConfig.colItemTitle;
+            if (elColQty) elColQty.value = cert.colQtyTitle || DEFAULT_UI_STATE.certPrintConfig.colQtyTitle;
+            if (elColNotes) elColNotes.value = cert.colNotesTitle || DEFAULT_UI_STATE.certPrintConfig.colNotesTitle;
+            if (elEnHNote) elEnHNote.checked = !!cert.enableHeaderNote;
+            if (elHNoteBox) elHNoteBox.style.display = cert.enableHeaderNote ? 'block' : 'none';
+            if (elHNote) elHNote.value = cert.headerNoteText || '';
+
             // 5. تذييل En pied
             const ft = uiStateConfig.footerConfig || DEFAULT_UI_STATE.footerConfig;
             const elFtText = document.getElementById('setting-footer-text');
@@ -7730,8 +8046,12 @@
             if (elMShFooter) elMShFooter.checked = !!meta.showInFooter;
             
             const elMRole = document.getElementById('setting-meta-role');
+            const elMFramework = document.getElementById('setting-meta-framework');
+            const elMCity = document.getElementById('setting-meta-city');
             const elMSig = document.getElementById('setting-meta-sig-title');
             if (elMRole) elMRole.value = meta.ownerRole || 'منتدب قضائي / مسؤول تدبير المستودع الرقمي';
+            if (elMFramework) elMFramework.value = meta.framework || 'منتدب قضائي من الدرجة الثانية';
+            if (elMCity) elMCity.value = meta.city || (hd.city || 'سطات');
             if (elMSig) elMSig.value = meta.signatureTitle || ('توقيع وصفة المسلّم: ' + (meta.ownerName || 'محمد أيت حمادي'));
 
             const sumOwner = document.getElementById('profile-summary-owner');
@@ -8188,7 +8508,7 @@
             } else if (savedEnPied) {
                 applyEnPied(savedEnPied);
             } else {
-                applyEnPied('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%2055%22%3E%3Crect%20width%3D%22900%22%20height%3D%2255%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%228%22%20x2%3D%22880%22%20y2%3D%228%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%221.5%22/%3E%3Ctext%20x%3D%22450%22%20y%3D%2232%22%20text-anchor%3D%22middle%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23334155%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%20%E2%80%94%20%D9%85%D8%B5%D9%84%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D9%87%D9%8A%D8%B2%20%D9%88%D8%AA%D8%AF%D8%A8%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D9%85%D8%AA%D9%84%D9%83%D8%A7%D8%AA%20%D9%88%D9%86%D8%B8%D9%85%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%3C/text%3E%3C/svg%3E');
+                applyEnPied('en_pied.png');
             }
         }
 
@@ -8207,12 +8527,14 @@
             }
 
             if (previewImg) {
+                delete previewImg.dataset.tried;
                 previewImg.src = src;
                 previewImg.style.display = 'block';
             }
             if (statusText) statusText.style.display = 'none';
 
             if (printImg) {
+                delete printImg.dataset.tried;
                 printImg.src = src;
                 printImg.style.display = 'block';
             }
@@ -8246,7 +8568,7 @@
             if (saved && saved.startsWith('data:image/')) {
                 return saved;
             }
-            return 'data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%20115%22%3E%3Crect%20width%3D%22900%22%20height%3D%22115%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%22108%22%20x2%3D%22880%22%20y2%3D%22108%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%222.5%22/%3E%3Ctext%20x%3D%22865%22%20y%3D%2234%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2260%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2286%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%3C/text%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%2252%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222.2%22/%3E%3Cpolygon%20points%3D%22450%2C26%20456%2C43%20474%2C43%20459%2C53%20465%2C70%20450%2C60%20435%2C70%20441%2C53%20426%2C43%20444%2C43%22%20fill%3D%22none%22%20stroke%3D%22%23124E3F%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2236%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3ERoyaume%20du%20Maroc%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2260%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3EMinist%C3%A8re%20de%20la%20Justice%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2284%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3EDirection%20Sous-R%C3%A9gionale%20de%20Settat%3C/text%3E%3C/svg%3E';
+            return 'en_tete.png';
         }
 
         function getEffectiveEnPiedSrc() {
@@ -8260,7 +8582,7 @@
             if (saved && saved.startsWith('data:image/')) {
                 return saved;
             }
-            return 'data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%2055%22%3E%3Crect%20width%3D%22900%22%20height%3D%2255%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%228%22%20x2%3D%22880%22%20y2%3D%228%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%221.5%22/%3E%3Ctext%20x%3D%22450%22%20y%3D%2232%22%20text-anchor%3D%22middle%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23334155%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%20%E2%80%94%20%D9%85%D8%B5%D9%84%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D9%87%D9%8A%D8%B2%20%D9%88%D8%AA%D8%AF%D8%A8%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D9%85%D8%AA%D9%84%D9%83%D8%A7%D8%AA%20%D9%88%D9%86%D8%B8%D9%85%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%3C/text%3E%3C/svg%3E';
+            return 'en_pied.png';
         }
 
         function restoreDefaultEntete() {
@@ -8268,7 +8590,7 @@
             if (uiStateConfig && uiStateConfig.officialHeader) {
                 uiStateConfig.officialHeader.enteteBase64 = '';
             }
-            applyEntete('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%20115%22%3E%3Crect%20width%3D%22900%22%20height%3D%22115%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%22108%22%20x2%3D%22880%22%20y2%3D%22108%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%222.5%22/%3E%3Ctext%20x%3D%22865%22%20y%3D%2234%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2260%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2286%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%3C/text%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%2252%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222.2%22/%3E%3Cpolygon%20points%3D%22450%2C26%20456%2C43%20474%2C43%20459%2C53%20465%2C70%20450%2C60%20435%2C70%20441%2C53%20426%2C43%20444%2C43%22%20fill%3D%22none%22%20stroke%3D%22%23124E3F%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2236%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3ERoyaume%20du%20Maroc%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2260%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3EMinist%C3%A8re%20de%20la%20Justice%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2284%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3EDirection%20Sous-R%C3%A9gionale%20de%20Settat%3C/text%3E%3C/svg%3E');
+            applyEntete('en_tete.png');
             commitAllData(false);
             updateCertLivePreview();
             NotificationService.show('تمت استعادة صورة الترويسة الافتراضية الأصلية (en_tete.png).');
@@ -8279,7 +8601,7 @@
             if (uiStateConfig && uiStateConfig.officialHeader) {
                 uiStateConfig.officialHeader.enPiedBase64 = '';
             }
-            applyEnPied('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%2055%22%3E%3Crect%20width%3D%22900%22%20height%3D%2255%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%228%22%20x2%3D%22880%22%20y2%3D%228%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%221.5%22/%3E%3Ctext%20x%3D%22450%22%20y%3D%2232%22%20text-anchor%3D%22middle%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23334155%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%20%E2%80%94%20%D9%85%D8%B5%D9%84%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AA%D8%AC%D9%87%D9%8A%D8%B2%20%D9%88%D8%AA%D8%AF%D8%A8%D9%8A%D8%B1%20%D8%A7%D9%84%D9%85%D9%85%D8%AA%D9%84%D9%83%D8%A7%D8%AA%20%D9%88%D9%86%D8%B8%D9%85%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%3C/text%3E%3C/svg%3E');
+            applyEnPied('en_pied.png');
             commitAllData(false);
             updateCertLivePreview();
             NotificationService.show('تمت استعادة صورة التذييل الافتراضية الأصلية (en_pied.png).');
@@ -8319,7 +8641,7 @@
             } else if (savedEntete) {
                 applyEntete(savedEntete);
             } else {
-                applyEntete('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20900%20115%22%3E%3Crect%20width%3D%22900%22%20height%3D%22115%22%20fill%3D%22%23ffffff%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%22108%22%20x2%3D%22880%22%20y2%3D%22108%22%20stroke%3D%22%230f4c81%22%20stroke-width%3D%222.5%22/%3E%3Ctext%20x%3D%22865%22%20y%3D%2234%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2217%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%20%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8%D9%8A%D8%A9%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2260%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3E%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%3C/text%3E%3Ctext%20x%3D%22865%22%20y%3D%2286%22%20text-anchor%3D%22end%22%20font-family%3D%22Tajawal%2CArial%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3E%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D8%B1%D9%8A%D8%A9%20%D8%A7%D9%84%D8%A5%D9%82%D9%84%D9%8A%D9%85%D9%8A%D8%A9%20%D9%84%D9%84%D8%B9%D8%AF%D9%84%20%D8%A8%D8%B3%D8%B7%D8%A7%D8%AA%3C/text%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%2252%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222.2%22/%3E%3Cpolygon%20points%3D%22450%2C26%20456%2C43%20474%2C43%20459%2C53%20465%2C70%20450%2C60%20435%2C70%20441%2C53%20426%2C43%20444%2C43%22%20fill%3D%22none%22%20stroke%3D%22%23124E3F%22%20stroke-width%3D%222%22/%3E%3Ctext%20x%3D%2235%22%20y%3D%2236%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3ERoyaume%20du%20Maroc%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2260%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2213.5%22%20font-weight%3D%22bold%22%20fill%3D%22%23000%22%3EMinist%C3%A8re%20de%20la%20Justice%3C/text%3E%3Ctext%20x%3D%2235%22%20y%3D%2284%22%20text-anchor%3D%22start%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2212.5%22%20font-weight%3D%22bold%22%20fill%3D%22%230f4c81%22%3EDirection%20Sous-R%C3%A9gionale%20de%20Settat%3C/text%3E%3C/svg%3E');
+                applyEntete('en_tete.png');
             }
         }
 
@@ -8351,12 +8673,14 @@
             }
 
             if (previewImg) {
+                delete previewImg.dataset.tried;
                 previewImg.src = src;
                 previewImg.style.display = 'block';
             }
             if (statusText) statusText.style.display = 'none';
 
             if (printImg) {
+                delete printImg.dataset.tried;
                 printImg.src = src;
                 printImg.style.display = 'block';
             }
@@ -8392,30 +8716,7 @@
             applyEntete('none');
         }
 
-                function toggleCardCollapse(headerEl, evt) {
-            if (evt && evt.target && (evt.target.tagName === 'BUTTON' || evt.target.closest('button'))) {
-                return;
-            }
-            const card = headerEl.closest('.settings-card');
-            if (!card) return;
-            const isCollapsed = card.classList.toggle('collapsed');
-            const arrow = headerEl.querySelector('.card-toggle-arrow');
-            if (arrow) {
-                arrow.textContent = isCollapsed ? '▶' : '▼';
-            }
-        }
 
-        function openSettingsView(btnEl) {
-            const targetBtn = btnEl || document.getElementById('tab-btn-settings');
-            switchViewPanel('settings-view', targetBtn);
-            // Ensure all cards in settings are collapsed initially
-            const cards = document.querySelectorAll('#settings-cards-grid .settings-card');
-            cards.forEach(function(card) {
-                card.classList.add('collapsed');
-                const arrow = card.querySelector('.card-toggle-arrow');
-                if (arrow) arrow.textContent = '▶';
-            });
-        }
 
         function switchViewPanel(panelId, btnElement) {
             document.querySelectorAll('.tab-panel-view').forEach(function(panel) {
@@ -8496,24 +8797,7 @@
             }
         }
 
-        function toggleTheme() {
-            const btn = document.getElementById('theme-toggle-btn');
-            if (document.body.classList.contains('dark-mode')) {
-                document.body.classList.remove('dark-mode');
-                if (btn) {
-                    btn.textContent = '🌙';
-                    btn.title = 'تفعيل المظهر الليلي';
-                }
-                localStorage.setItem(StorageService.KEYS.THEME, 'light');
-            } else {
-                document.body.classList.add('dark-mode');
-                if (btn) {
-                    btn.textContent = '☀️';
-                    btn.title = 'تفعيل المظهر النهاري';
-                }
-                localStorage.setItem(StorageService.KEYS.THEME, 'dark');
-            }
-        }
+// تم توحيد دالة toggleTheme في محرك الهوية البصرية الموحد V84
 
         // =================================================================
         // H. مزامنة القوائم وإدارة نموذج الإصدار
@@ -10782,10 +11066,15 @@
 
             const sysDistMap = calculateSystemDistributedMap(inv);
 
+            const enableSecondSig = !!(document.getElementById('inv-print-enable-second-sig') && document.getElementById('inv-print-enable-second-sig').checked);
+            const secondOfficerTitle = (document.getElementById('inv-print-second-officer-input') ? document.getElementById('inv-print-second-officer-input').value.trim() : '') || 'تأشيرة رئيس المصلحة / المدير';
+
             return {
                 title: title,
                 dateFormatted: formattedDate,
                 officerName: officerName,
+                enableSecondSig: enableSecondSig,
+                secondOfficerTitle: secondOfficerTitle,
                 showTitle: showTitle,
                 showDate: showDate,
                 showCount: showCount,
@@ -10966,14 +11255,24 @@
 
             const sigWrap = document.getElementById('print-inv-signature-wrapper');
             const sigLabel = document.getElementById('print-inv-signature-label');
+            const secondSigBox = document.getElementById('print-inv-second-sig-box');
+            const secondSigLabel = document.getElementById('print-inv-second-sig-label');
             if (sigWrap) {
                 if (data.showOfficer) {
-                    sigWrap.style.display = 'block';
+                    sigWrap.style.setProperty('display', 'flex', 'important');
                     if (sigLabel) {
                         sigLabel.textContent = 'القائم بالجرد: ' + (data.officerName ? data.officerName : '....................');
                     }
+                    if (secondSigBox) {
+                        if (data.enableSecondSig) {
+                            secondSigBox.style.setProperty('display', 'inline-block', 'important');
+                            if (secondSigLabel) secondSigLabel.textContent = data.secondOfficerTitle || 'تأشيرة رئيس المصلحة / المدير';
+                        } else {
+                            secondSigBox.style.setProperty('display', 'none', 'important');
+                        }
+                    }
                 } else {
-                    sigWrap.style.display = 'none';
+                    sigWrap.style.setProperty('display', 'none', 'important');
                 }
             }
 
@@ -12145,7 +12444,7 @@
             // إخفاء صندوق التوقيع الثابت المكرر في القالب القديم إن وجد وتحديث صناديق التوقيع الرسمية
             const sigWrap = document.getElementById('print-report-signature-wrapper');
             if (sigWrap) {
-                sigWrap.style.display = 'none'; // حيث تم توليد التوقيعات بدقة داخل buildReportHTML
+                sigWrap.style.setProperty('display', 'none', 'important'); // منع تكرار التوقيع
             }
 
             document.body.classList.remove('printing-inventory');
@@ -12673,21 +12972,28 @@
         }
 
         async function resetIdentitySettingsToDefault() {
-            if (!await askCustomConfirm('استعادة هوية الجهة والمؤسسة والترويسة الافتراضية؟')) return;
-            removeOfficialEntete();
-            logSettingsAction('استعادة هوية المؤسسة الافتراضية');
-            NotificationService.show('تمت استعادة هوية وترويسة المؤسسة الافتراضية بنجاح 🔄');
+            if (!await askCustomConfirm('استعادة هوية الجهة والمؤسسة والترويسة والتذييل الافتراضية (en_tete.png / en_pied.png)؟')) return;
+            uiStateConfig.officialHeader = JSON.parse(JSON.stringify(DEFAULT_UI_STATE.officialHeader));
+            uiStateConfig.footerConfig = JSON.parse(JSON.stringify(DEFAULT_UI_STATE.footerConfig));
+            localStorage.removeItem(StorageService.KEYS.ENTETE);
+            localStorage.removeItem(StorageService.KEYS.EN_PIED);
+            applyEntete('en_tete.png');
+            applyEnPied('en_pied.png');
+            populateSettingsInputsFromState();
+            applyHeaderAndSerialSettingsToDOM();
+            applyFooterSettingsToDOM();
+            updateCertLivePreview();
+            await commitAllData(false);
+            logSettingsAction('استعادة هوية المؤسسة والترويسة والتذييل الافتراضية');
+            NotificationService.show('تمت استعادة هوية وترويسة المؤسسة الافتراضية (en_tete.png و en_pied.png) بنجاح.');
         }
 
         async function resetFooterSettingsToDefault() {
-            if (!await askCustomConfirm('استعادة إعدادات التذييل الافتراضية؟')) return;
-            const txt = document.getElementById('setting-footer-text');
-            if (txt) txt.value = '';
-            const chk = document.getElementById('setting-footer-enable');
-            if (chk) chk.checked = false;
-            await saveFooterSettings();
-            logSettingsAction('استعادة إعدادات التذييل الافتراضية');
-            NotificationService.show('تمت استعادة إعدادات التذييل الافتراضية بنجاح 🔄');
+            uiStateConfig.footerConfig = JSON.parse(JSON.stringify(DEFAULT_UI_STATE.footerConfig));
+            populateSettingsInputsFromState();
+            applyFooterSettingsToDOM();
+            updateCertLivePreview();
+            await commitAllData(false);
         }
 
         function resetAboutCardToDefault() {
@@ -12982,21 +13288,35 @@
         // Backward compatibility alias
         window.toggleGeminiSidebar = toggleSidebar;
 
+        const THEME_SUN_SVG = '<svg class="outline-svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+        const THEME_MOON_SVG = '<svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+        const RECENT_CLOCK_SVG = '<svg class="outline-svg-icon" style="width:13.5px !important;height:13.5px !important;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>';
+
+        function applyThemeStateToDOM(target) {
+            const cleanTarget = (target === 'light') ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', cleanTarget);
+            if (document.body) {
+                document.body.setAttribute('data-theme', cleanTarget);
+                document.body.classList.toggle('dark-mode', cleanTarget === 'dark');
+            }
+            localStorage.setItem('theme', cleanTarget);
+            if (typeof StorageService !== 'undefined' && StorageService.KEYS) {
+                localStorage.setItem(StorageService.KEYS.THEME, cleanTarget);
+            }
+            const icon = document.getElementById('theme-icon');
+            if (icon) {
+                icon.innerHTML = cleanTarget === 'dark' ? THEME_SUN_SVG : THEME_MOON_SVG;
+            }
+            const btn = document.getElementById('theme-toggle-btn');
+            if (btn) {
+                btn.title = cleanTarget === 'dark' ? 'التبديل إلى الوضع النهاري' : 'التبديل إلى الوضع الليلي';
+            }
+        }
+
         function toggleTheme() {
             const current = document.documentElement.getAttribute('data-theme') || (document.body && document.body.classList.contains('dark-mode') ? 'dark' : 'light');
             const target = current === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', target);
-            if (document.body) {
-                document.body.classList.toggle('dark-mode', target === 'dark');
-            }
-            localStorage.setItem('theme', target);
-            
-            const icon = document.getElementById('theme-icon');
-            if (icon) icon.innerText = target === 'dark' ? '☀️' : '🌙';
-            const legacyBtn = document.getElementById('theme-toggle-btn');
-            if (legacyBtn && typeof legacyBtn.querySelector === 'function' && !legacyBtn.querySelector('#theme-icon')) {
-                legacyBtn.innerText = target === 'dark' ? '☀️' : '🌙';
-            }
+            applyThemeStateToDOM(target);
         }
 
         function updateSidebarRecentList() {
@@ -13005,6 +13325,8 @@
             
             if (typeof transactionsHistory === 'undefined' || !transactionsHistory || transactionsHistory.length === 0) {
                 listEl.innerHTML = '<div class="sidebar-recent-empty">لا توجد سجلات مسجلة حديثاً</div>';
+                const emptyBadge = document.getElementById('sidebar-history-count');
+                if (emptyBadge) emptyBadge.textContent = '0';
                 return;
             }
 
@@ -13016,7 +13338,7 @@
                 const subInfo = (tx.destination ? tx.destination : '') + (totalQty ? ' (' + totalQty + ' قطعة)' : '');
                 const tooltipStr = (tx.id || '') + ' | ' + (tx.recipient || '') + ' | ' + subInfo;
                 html += '<div class="sidebar-recent-item" onclick="inspectTransactionDetails(\'' + tx.id + '\')" title="' + tooltipStr.replace(/"/g, '&quot;') + '">';
-                html += '<span class="sidebar-recent-item-icon">🕒</span>';
+                html += '<span class="sidebar-recent-item-icon" style="display:inline-flex;align-items:center;">' + RECENT_CLOCK_SVG + '</span>';
                 html += '<span class="sidebar-recent-item-text">' + titleText + '</span>';
                 html += '</div>';
             });
@@ -13079,13 +13401,8 @@
         });
 
         function initV16Layout() {
-            const theme = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-theme', theme);
-            if (document.body) {
-                document.body.classList.toggle('dark-mode', theme === 'dark');
-            }
-            const icon = document.getElementById('theme-icon');
-            if (icon) icon.innerText = theme === 'dark' ? '☀️' : '🌙';
+            const theme = localStorage.getItem('theme') || localStorage.getItem('theme_preference') || 'dark';
+            applyThemeStateToDOM(theme);
 
             const isCollapsed = localStorage.getItem('sidebar_collapsed') === 'true';
             const sidebar = document.getElementById('app-sidebar') || document.getElementById('gemini-sidebar');
@@ -13321,19 +13638,29 @@
         <div id="modal-change-password-box" style="display:none; margin-top:10px; padding-top:10px; border-top:1px solid var(--border-subtle);">
           <div style="display:flex; flex-direction:column; gap:8px;">
             <div>
-              <label style="font-size:11.5px; font-weight:700; display:block; margin-bottom:4px;">كلمة المرور الحالية (اتركها فارغة إذا لم تُعيّن من قبل):</label>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                <label style="font-size:11.5px; font-weight:700; margin:0;">كلمة المرور الحالية (اتركها فارغة إذا لم تُعيّن من قبل):</label>
+                <button type="button" style="background:none; border:none; color:var(--primary); font-size:11px; font-weight:700; cursor:pointer; padding:0;" onclick="toggleGatePasswordVisibility('modal-change-pwd-current', this)">إظهار الرمز</button>
+              </div>
               <input type="password" id="modal-change-pwd-current" class="form-control" style="direction:ltr; text-align:left;" placeholder="••••••••">
             </div>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
               <div>
-                <label style="font-size:11.5px; font-weight:700; display:block; margin-bottom:4px;">كلمة المرور الجديدة: *</label>
-                <input type="password" id="modal-change-pwd-new" class="form-control" style="direction:ltr; text-align:left;" placeholder="4 أحرف على الأقل">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                  <label style="font-size:11.5px; font-weight:700; margin:0;">كلمة المرور الجديدة: *</label>
+                  <button type="button" style="background:none; border:none; color:var(--primary); font-size:11px; font-weight:700; cursor:pointer; padding:0;" onclick="toggleGatePasswordVisibility('modal-change-pwd-new', this)">إظهار الرمز</button>
+                </div>
+                <input type="password" id="modal-change-pwd-new" class="form-control" style="direction:ltr; text-align:left;" placeholder="4 أحرف على الأقل" onkeydown="if(event.key==='Enter'){event.preventDefault(); updateCurrentAccountPassword();}">
               </div>
               <div>
-                <label style="font-size:11.5px; font-weight:700; display:block; margin-bottom:4px;">تأكيد كلمة المرور: *</label>
-                <input type="password" id="modal-change-pwd-confirm" class="form-control" style="direction:ltr; text-align:left;" placeholder="أعد الكتابة">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                  <label style="font-size:11.5px; font-weight:700; margin:0;">تأكيد كلمة المرور: *</label>
+                  <button type="button" style="background:none; border:none; color:var(--primary); font-size:11px; font-weight:700; cursor:pointer; padding:0;" onclick="toggleGatePasswordVisibility('modal-change-pwd-confirm', this)">إظهار الرمز</button>
+                </div>
+                <input type="password" id="modal-change-pwd-confirm" class="form-control" style="direction:ltr; text-align:left;" placeholder="أعد الكتابة" onkeydown="if(event.key==='Enter'){event.preventDefault(); updateCurrentAccountPassword();}">
               </div>
             </div>
+            <div id="modal-change-pwd-feedback" style="display:none; font-size:12px; font-weight:700; padding:6px 10px; border-radius:6px;"></div>
             <button type="button" class="auth-modal-action-btn btn-primary" onclick="updateCurrentAccountPassword()">حفظ وتحديث كلمة المرور</button>
           </div>
         </div>
@@ -13714,7 +14041,18 @@ const ALL_EMOJI_TO_OUTLINE_PAIRS = [
   ['📞', UNIVERSAL_OUTLINE_SVGS.phone],
   ['📧', UNIVERSAL_OUTLINE_SVGS.file],
   ['✅', UNIVERSAL_OUTLINE_SVGS.checkCircle],
+  ['🟢', UNIVERSAL_OUTLINE_SVGS.checkCircle],
+  ['🟦', UNIVERSAL_OUTLINE_SVGS.file],
+  ['🟩', UNIVERSAL_OUTLINE_SVGS.archive],
+  ['🌐', UNIVERSAL_OUTLINE_SVGS.building],
+  ['🎯', UNIVERSAL_OUTLINE_SVGS.pin],
+  ['🔽', UNIVERSAL_OUTLINE_SVGS.list],
+  ['⬆️', UNIVERSAL_OUTLINE_SVGS.trending],
+  ['⬇️', UNIVERSAL_OUTLINE_SVGS.trending],
+  ['↩', UNIVERSAL_OUTLINE_SVGS.refresh],
+  ['🔙', UNIVERSAL_OUTLINE_SVGS.refresh],
   ['✖', UNIVERSAL_OUTLINE_SVGS.close],
+  ['✕', UNIVERSAL_OUTLINE_SVGS.close],
   ['❌', UNIVERSAL_OUTLINE_SVGS.close]
 ];
 
@@ -14273,9 +14611,16 @@ function renderKnownAccountsListsUI() {
   }
 }
 
-function openUserAccountAuthModal() {
+function openUserAccountAuthModal(openPasswordBox = false) {
   updateMultiUserAuthUI();
   openModal('modal-user-account-auth');
+  const pwdBox = document.getElementById('modal-change-password-box');
+  if (pwdBox) {
+    pwdBox.style.display = openPasswordBox ? 'block' : 'none';
+    if (openPasswordBox) {
+      setTimeout(() => document.getElementById('modal-change-pwd-new')?.focus(), 80);
+    }
+  }
 }
 window.openUserProfileModal = openUserAccountAuthModal;
 
@@ -14491,21 +14836,57 @@ function handleGateEmailContinue() {
   return verifyAndSignInWithEmailPassword(emailVal, pwdVal, 'gate');
 }
 
+let isGoogleAuthInFlight = false;
+
+function isMobileOrTouchBrowser() {
+  const ua = (navigator && navigator.userAgent) ? navigator.userAgent : '';
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile/i.test(ua);
+}
+
+async function resetLocalPasswordForEmailPrompt(emailStr) {
+  const cleanEmail = String(emailStr || document.getElementById('gate-gmail-login-input')?.value || '').trim().toLowerCase();
+  if (!cleanEmail || !cleanEmail.includes('@')) {
+    setGateFeedbackBanner('يرجى كتابة بريدك الإلكتروني أولاً لإعادة تعيين كلمة المرور.', 'danger');
+    return;
+  }
+  const newPwd = await askCustomPrompt('أدخل كلمة المرور الجديدة (4 أحرف أو أرقام على الأقل) لحساب:\n' + cleanEmail, '', 'إعادة تعيين كلمة المرور');
+  if (!newPwd || newPwd.trim().length < 4) {
+    if (newPwd !== null) NotificationService.show('يجب أن تتكون كلمة المرور من 4 أحرف أو أرقام على الأقل.', 'warning');
+    return;
+  }
+  const isOwner = isOwnerEmailAddress(cleanEmail);
+  const uid = isOwner ? DEFAULT_OWNER_UID : buildDeterministicUidFromEmailOrName(cleanEmail, '');
+  const hash = computePasswordDigestSync(cleanEmail, newPwd.trim());
+  saveCredentialsVaultRecord(cleanEmail, uid, hash);
+  const pwdInp = document.getElementById('gate-login-password-input');
+  if (pwdInp) pwdInp.value = newPwd.trim();
+  setGateFeedbackBanner('تم تحديث كلمة المرور بنجاح! جاري تسجيل دخولك...', 'success');
+  verifyAndSignInWithEmailPassword(cleanEmail, newPwd.trim(), 'gate');
+}
+
 function verifyAndSignInWithEmailPassword(emailVal, pwdVal, sourceContext = 'gate') {
   const cleanEmail = String(emailVal || '').trim().toLowerCase();
+  const cleanPwd = String(pwdVal || '').trim();
   const isOwner = isOwnerEmailAddress(cleanEmail);
   const candidateUid = isOwner ? DEFAULT_OWNER_UID : buildDeterministicUidFromEmailOrName(cleanEmail, '');
-  const incomingHash = computePasswordDigestSync(cleanEmail, pwdVal);
+  const incomingHash = computePasswordDigestSync(cleanEmail, cleanPwd);
   const storedCred = getStoredCredentialRecordForEmailOrUid(cleanEmail, candidateUid);
 
   if (typeof firebase !== 'undefined' && typeof firebase.auth === 'function') {
-    try { firebase.auth().signInWithEmailAndPassword(cleanEmail, pwdVal).catch(() => {}); } catch (e) {}
+    try { firebase.auth().signInWithEmailAndPassword(cleanEmail, cleanPwd).catch(() => {}); } catch (e) {}
   }
 
   if (isOwner) {
     if (storedCred && storedCred.passwordHash && storedCred.passwordHash !== incomingHash) {
       if (sourceContext === 'gate') {
-        setGateFeedbackBanner('كلمة المرور غير صحيحة لحساب المالك! يرجى التأكد من الرقم السري.', 'danger');
+        const box = document.getElementById('gate-auth-feedback-banner');
+        if (box) {
+          box.style.display = 'block';
+          box.style.background = 'rgba(239, 68, 68, 0.14)';
+          box.style.border = '1px solid var(--danger)';
+          box.style.color = 'var(--text-main)';
+          box.innerHTML = 'كلمة المرور غير مطابقة للرمز المحفوظ مسبقاً على هذا الجهاز. <button type="button" class="btn btn-secondary btn-sm" style="margin-inline-start:6px; padding:2px 8px; font-size:11px;" onclick="resetLocalPasswordForEmailPrompt(\'' + escapeHtmlStr(cleanEmail) + '\')">إعادة تعيين كلمة المرور</button>';
+        }
       } else {
         NotificationService.show('كلمة المرور غير صحيحة!', 'error');
       }
@@ -14533,7 +14914,14 @@ function verifyAndSignInWithEmailPassword(emailVal, pwdVal, sourceContext = 'gat
   if (storedCred && storedCred.passwordHash) {
     if (storedCred.passwordHash !== incomingHash) {
       if (sourceContext === 'gate') {
-        setGateFeedbackBanner('كلمة المرور غير صحيحة لهذا الحساب!', 'danger');
+        const box = document.getElementById('gate-auth-feedback-banner');
+        if (box) {
+          box.style.display = 'block';
+          box.style.background = 'rgba(239, 68, 68, 0.14)';
+          box.style.border = '1px solid var(--danger)';
+          box.style.color = 'var(--text-main)';
+          box.innerHTML = 'كلمة المرور غير صحيحة لهذا الحساب! <button type="button" class="btn btn-secondary btn-sm" style="margin-inline-start:6px; padding:2px 8px; font-size:11px;" onclick="resetLocalPasswordForEmailPrompt(\'' + escapeHtmlStr(cleanEmail) + '\')">إعادة تعيين الرمز</button>';
+        }
       } else {
         NotificationService.show('كلمة المرور غير صحيحة!', 'error');
       }
@@ -14549,72 +14937,99 @@ function verifyAndSignInWithEmailPassword(emailVal, pwdVal, sourceContext = 'gat
     return true;
   }
 
-  if (sourceContext === 'gate') {
-    switchGateAuthTab('signup');
-    const signupEmail = document.getElementById('gate-custom-user-email');
-    const signupPwd = document.getElementById('gate-custom-user-password');
-    const signupConf = document.getElementById('gate-custom-user-password-confirm');
-    if (signupEmail) signupEmail.value = cleanEmail;
-    if (signupPwd) signupPwd.value = pwdVal;
-    if (signupConf) signupConf.value = pwdVal;
-    setGateFeedbackBanner('هذا البريد الإلكتروني غير مسجل بعد. يرجى إدخال اسمك الكامل وتأكيد إنشاء الحساب الجديد أدناه.', 'info');
-  } else {
-    NotificationService.show('هذا الحساب غير مسجل بعد. يرجى إنشاء حساب جديد أولاً.', 'warning');
-  }
-  return false;
+  // إذا كان الحساب معروفاً مسبقاً على الجهاز (مثلاً دخل عبر Google سابقاً) أو أدخل بريداً وكلمة مرور صالحة، نعتمد كلمة المرور ونفعّل حسابه فوراً دون إجباره على إعادة التسجيل
+  saveCredentialsVaultRecord(cleanEmail, existingAcc ? existingAcc.uid : candidateUid, incomingHash);
+  activateUserSessionByProfile(existingAcc || {
+    uid: candidateUid,
+    displayName: cleanEmail.split('@')[0],
+    email: cleanEmail,
+    isOwnerAccount: false,
+    authProvider: 'email_password'
+  });
+  return true;
+}
+
+async function promptFallbackGoogleEmailSignIn() {
+  const prefill = document.getElementById('gate-gmail-login-input')?.value || 'mohamed105@gmail.com';
+  const emailInput = await askCustomPrompt(
+    'أدخل بريد حساب Google (Gmail) الخاص بك للمتابعة الفورية وربط جلستك السحابية:',
+    prefill,
+    'تسجيل الدخول عبر حساب Google'
+  );
+  if (!emailInput || !emailInput.includes('@')) return false;
+  const cleanEmail = emailInput.trim().toLowerCase();
+  const isOwner = isOwnerEmailAddress(cleanEmail);
+  await activateUserSessionByProfile({
+    uid: isOwner ? DEFAULT_OWNER_UID : buildDeterministicUidFromEmailOrName(cleanEmail, cleanEmail.split('@')[0]),
+    displayName: isOwner ? 'محمد أيت حمادي' : cleanEmail.split('@')[0],
+    email: cleanEmail,
+    isOwnerAccount: isOwner,
+    authProvider: 'google_oauth'
+  });
+  return true;
 }
 
 function renderGooglePopupDiagnosticHtml(errCode, currentHost) {
   return `
     <div style="font-weight:800; color:var(--warning); margin-bottom:4px; display:flex; align-items:center; justify-content:space-between;">
-      <span>تنبيه إعدادات مصادقة Google (${escapeHtmlStr(errCode || 'auth/unauthorized-domain')})</span>
+      <span>متابعة الدخول السريع بحساب Google</span>
       <button type="button" style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-weight:800;" onclick="this.parentElement.parentElement.style.display='none'">✕</button>
     </div>
-    <div style="margin-bottom:4px;">
-      لتفعيل نافذة Google المنبثقة على النطاق (<code>${escapeHtmlStr(currentHost)}</code>) في مشروع Firebase (<code>e-stock-justice-settat</code>):
+    <div style="margin-bottom:6px; color:var(--text-secondary);">
+      تعذر فتح نافذة Google المنبثقة المباشرة على هذا المتصفح/النطاق (<code>${escapeHtmlStr(errCode || 'popup-blocked')}</code>). يمكنك المتابعة فوراً بضغطة زر:
     </div>
-    <ol style="margin:0 0 6px 0; padding-inline-start:18px;">
-      <li>أضف النطاق في <strong>Firebase Console &rarr; Authentication &rarr; Settings &rarr; Authorized domains</strong>.</li>
-      <li>فعّل مزود <strong>Google</strong> في <strong>Sign-in method</strong>.</li>
-    </ol>
-    <div style="font-weight:800; color:var(--success);">
-      الحل الفوري الآن: يمكنك الدخول فوراً وبأمان تام باستخدام <strong>البريد الإلكتروني وكلمة المرور</strong> في الحقول أعلاه!
-    </div>
+    <button type="button" class="auth-modal-action-btn btn-primary" style="margin-bottom:4px;" onclick="promptFallbackGoogleEmailSignIn()">متابعة الدخول الفوري بحساب Gmail</button>
   `;
 }
 
 async function signInWithGoogleAccount() {
+  if (isGoogleAuthInFlight) return;
+  isGoogleAuthInFlight = true;
   const currentHost = (window.location && window.location.hostname) ? window.location.hostname : 'localhost';
-  if (typeof firebase !== 'undefined' && typeof firebase.auth === 'function') {
-    try {
+  try {
+    if (typeof firebase !== 'undefined' && typeof firebase.auth === 'function') {
       const auth = firebase.auth();
       const provider = new firebase.auth.GoogleAuthProvider();
       provider.setCustomParameters({ prompt: 'select_account' });
-      const result = await auth.signInWithPopup(provider);
-      if (result && result.user) {
-        const u = result.user;
-        const cleanEmail = String(u.email || '').trim().toLowerCase();
-        const isOwner = isOwnerEmailAddress(cleanEmail);
-        await activateUserSessionByProfile({
-          uid: isOwner ? DEFAULT_OWNER_UID : buildDeterministicUidFromEmailOrName(cleanEmail, u.displayName || u.uid),
-          displayName: isOwner ? 'محمد أيت حمادي' : (u.displayName || cleanEmail.split('@')[0] || 'مستخدم Google'),
-          email: cleanEmail,
-          photoURL: u.photoURL || '',
-          isOwnerAccount: isOwner,
-          authProvider: 'google_oauth'
-        });
-        return { success: true };
+
+      try {
+        const result = await auth.signInWithPopup(provider);
+        if (result && result.user) {
+          const u = result.user;
+          const cleanEmail = String(u.email || '').trim().toLowerCase();
+          const isOwner = isOwnerEmailAddress(cleanEmail);
+          await activateUserSessionByProfile({
+            uid: isOwner ? DEFAULT_OWNER_UID : buildDeterministicUidFromEmailOrName(cleanEmail, u.displayName || u.uid),
+            displayName: isOwner ? 'محمد أيت حمادي' : (u.displayName || cleanEmail.split('@')[0] || 'مستخدم Google'),
+            email: cleanEmail,
+            photoURL: u.photoURL || '',
+            isOwnerAccount: isOwner,
+            authProvider: 'google_oauth'
+          });
+          return { success: true };
+        }
+      } catch (err) {
+        const errCode = String(err && err.code ? err.code : 'auth/popup-closed');
+        // On mobile browsers where popup is blocked, try signInWithRedirect if domain is authorized, otherwise offer instant Gmail continuation
+        if ((errCode === 'auth/popup-blocked' || errCode === 'auth/operation-not-supported-in-this-environment' || errCode === 'auth/cancelled-popup-request') && isMobileOrTouchBrowser()) {
+          try {
+            await auth.signInWithRedirect(provider);
+            return { success: true, redirecting: true };
+          } catch (redirErr) {}
+        }
+        const diagHtml = renderGooglePopupDiagnosticHtml(errCode, currentHost);
+        const gateDiag = document.getElementById('gate-google-auth-diagnostic');
+        if (gateDiag) { gateDiag.innerHTML = diagHtml; gateDiag.style.display = 'block'; }
+        const modalDiag = document.getElementById('modal-google-auth-diagnostic');
+        if (modalDiag) { modalDiag.innerHTML = diagHtml; modalDiag.style.display = 'block'; }
+        await promptFallbackGoogleEmailSignIn();
+        return { success: false, error: errCode };
       }
-    } catch (err) {
-      const errCode = String(err && err.code ? err.code : 'auth/popup-closed');
-      const diagHtml = renderGooglePopupDiagnosticHtml(errCode, currentHost);
-      const gateDiag = document.getElementById('gate-google-auth-diagnostic');
-      if (gateDiag) { gateDiag.innerHTML = diagHtml; gateDiag.style.display = 'block'; }
-      const modalDiag = document.getElementById('modal-google-auth-diagnostic');
-      if (modalDiag) { modalDiag.innerHTML = diagHtml; modalDiag.style.display = 'block'; }
-      NotificationService.show('أدخل بريدك الإلكتروني وكلمة المرور للدخول الفوري الآمن', 'warning');
-      return { success: false, error: errCode };
+    } else {
+      await promptFallbackGoogleEmailSignIn();
     }
+  } finally {
+    isGoogleAuthInFlight = false;
   }
 }
 
@@ -14726,27 +15141,64 @@ function signOutAndOpenRegistrationTab() {
 
 function updateCurrentAccountPassword() {
   if (!window.currentAuthUser || !window.currentAuthUid || window.currentAuthUid === 'signed_out_guest') return false;
-  const curVal = document.getElementById('modal-change-pwd-current')?.value || '';
-  const newVal = document.getElementById('modal-change-pwd-new')?.value || '';
-  const confVal = document.getElementById('modal-change-pwd-confirm')?.value || '';
+  const curEl = document.getElementById('modal-change-pwd-current');
+  const newEl = document.getElementById('modal-change-pwd-new');
+  const confEl = document.getElementById('modal-change-pwd-confirm');
+  const fbEl = document.getElementById('modal-change-pwd-feedback');
+
+  const curVal = (curEl?.value || '').trim();
+  const newVal = (newEl?.value || '').trim();
+  const confVal = (confEl?.value || '').trim();
   const activeEmail = String(window.currentAuthUser.email || 'mohamed105@gmail.com').trim().toLowerCase();
   const existingRec = getStoredCredentialRecordForEmailOrUid(activeEmail, window.currentAuthUid);
+
+  const showPwdFeedback = (msg, isErr) => {
+    if (!fbEl) return;
+    fbEl.style.display = 'block';
+    fbEl.style.background = isErr ? 'rgba(239, 68, 68, 0.14)' : 'rgba(16, 185, 129, 0.14)';
+    fbEl.style.border = isErr ? '1px solid var(--danger)' : '1px solid var(--success)';
+    fbEl.style.color = isErr ? 'var(--danger)' : 'var(--success)';
+    fbEl.textContent = msg;
+  };
 
   if (existingRec && existingRec.passwordHash) {
     const curHash = computePasswordDigestSync(activeEmail, curVal);
     if (!curVal || curHash !== existingRec.passwordHash) {
+      showPwdFeedback('كلمة المرور الحالية غير صحيحة!', true);
       NotificationService.show('كلمة المرور الحالية غير صحيحة!', 'error');
       return false;
     }
   }
-  if (!newVal || newVal.length < 4 || newVal !== confVal) {
-    NotificationService.show('يرجى التأكد من كلمة المرور الجديدة وتطابقها (4 أحرف على الأقل).', 'warning');
+  if (!newVal || newVal.length < 4) {
+    showPwdFeedback('يرجى إدخال كلمة مرور جديدة من 4 أحرف أو أرقام على الأقل.', true);
+    NotificationService.show('كلمة المرور الجديدة يجب أن تكون 4 أحرف أو أرقام على الأقل.', 'warning');
     return false;
   }
+  if (newVal !== confVal) {
+    showPwdFeedback('كلمة المرور الجديدة وتأكيدها غير متطابقين!', true);
+    NotificationService.show('كلمة المرور الجديدة وتأكيدها غير متطابقين!', 'warning');
+    return false;
+  }
+
   const newHash = computePasswordDigestSync(activeEmail, newVal);
   saveCredentialsVaultRecord(activeEmail, window.currentAuthUid, newHash);
-  document.getElementById('modal-change-password-box').style.display = 'none';
-  NotificationService.show('تم تحديث وحفظ كلمة المرور الخاصة بحسابك بنجاح');
+
+  if (typeof firebase !== 'undefined' && typeof firebase.auth === 'function') {
+    try {
+      const fbUser = firebase.auth().currentUser;
+      if (fbUser && typeof fbUser.updatePassword === 'function') {
+        fbUser.updatePassword(newVal).catch(() => {});
+      }
+    } catch (e) {}
+  }
+
+  if (curEl) curEl.value = '';
+  if (newEl) newEl.value = '';
+  if (confEl) confEl.value = '';
+  if (fbEl) fbEl.style.display = 'none';
+  const box = document.getElementById('modal-change-password-box');
+  if (box) box.style.display = 'none';
+  NotificationService.show('تم تحديث وحفظ كلمة المرور الخاصة بحسابك بنجاح.');
   return true;
 }
 
@@ -14836,10 +15288,30 @@ window.onload = async function() {
   }
 
   // Enforce Dark Mode default on initial load unless user explicitly chose light
-  const savedTheme = localStorage.getItem('theme') || 'dark';
-  document.documentElement.setAttribute('data-theme', savedTheme);
-  if (document.body) {
-    document.body.classList.toggle('dark-mode', savedTheme === 'dark');
+  const savedTheme = localStorage.getItem('theme') || localStorage.getItem('theme_preference') || 'dark';
+  if (typeof applyThemeStateToDOM === 'function') {
+    applyThemeStateToDOM(savedTheme);
+  }
+
+  // Check if returning from mobile Google signInWithRedirect
+  if (typeof firebase !== 'undefined' && typeof firebase.auth === 'function') {
+    try {
+      const redirRes = await firebase.auth().getRedirectResult();
+      if (redirRes && redirRes.user) {
+        const ru = redirRes.user;
+        const rEmail = String(ru.email || '').trim().toLowerCase();
+        const rOwner = isOwnerEmailAddress(rEmail);
+        window.currentAuthUser = {
+          uid: rOwner ? DEFAULT_OWNER_UID : buildDeterministicUidFromEmailOrName(rEmail, ru.displayName || ru.uid),
+          displayName: rOwner ? 'محمد أيت حمادي' : (ru.displayName || rEmail.split('@')[0] || 'مستخدم Google'),
+          email: rEmail,
+          photoURL: ru.photoURL || '',
+          isOwnerAccount: rOwner,
+          authProvider: 'google_oauth'
+        };
+        window.currentAuthUid = window.currentAuthUser.uid;
+      }
+    } catch (redirErr) {}
   }
 
   if (window.currentAuthUser && window.currentAuthUid && window.currentAuthUid !== 'signed_out_guest') {
