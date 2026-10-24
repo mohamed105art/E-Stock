@@ -1,0 +1,4698 @@
+{
+    "schemaVersion": "2.5",
+    "exportedAt": "2026-10-07T10:22:36.283Z",
+    "categories": [
+        "طونير طابعات",
+        "طونير طابعات بالألوان",
+        "دروم طابعات",
+        "طونير آلات النسخ",
+        "طونير آلات النسخ بالألوان",
+        "دروم آلات النسخ",
+        "طونير فاكس",
+        "دروم فاكس",
+        "أدوات معلوماتية",
+        "كابلات",
+        "أدوات التخزين"
+    ],
+    "destinations": {
+        "المديرية الإقليمية للعدل بسطات": [
+            "المدير الإقليمي للعدل بسطات",
+            "رئيس مصلحة الموارد البشرية والشؤون المالية بالمديرية الإقليمية للعدل بسطات",
+            "رئيس مصلحة التجهيز وتدبير الممتلكات ونظم المعلومات بالمديرية الإقليمية للعدل بسطات",
+            "رئيس مصلحة حفظ الأرشيف بالمديرية الإقليمية للعدل بسطات",
+            "طاهر بادي",
+            "حليمة حديف",
+            "يوسف الشتوي",
+            "عزالدين فناني",
+            "خديجة الكنة",
+            "محمد أيت حمادي",
+            "ابراهيم صرمى",
+            "مريم فقري",
+            "رشيد بنعلا",
+            "يوسف بهاء الدين",
+            "حمزة الفاطيمي",
+            "هجر صغراوي",
+            "علي شكري",
+            "وفاء السمسادي",
+            "هدى وانزة",
+            "الفاطمي الزياني",
+            "محمد نويني",
+            "مليكة مرضي",
+            "إدريس لصفر",
+            "رقية الحراري",
+            "محمد المالكي",
+            "عبد الله مريخ",
+            "بشرى العماري",
+            "الزيتوني هباز",
+            "محمد قسماوي",
+            "ربيع أبو الفضل",
+            "محمد أمين رضوان"
+        ],
+        "محكمة الاستئناف بسطات": [
+            "الرئيس الأول لمحكمة الاستئناف بسطات",
+            "الوكيل العام للملك لدى محكمة الاستئناف بسطات",
+            "رئيس كتابة الضبط بمحكمة الاستئناف بسطات",
+            "رئيس كتابة النيابة العامة لدى محكمة الاستئناف بسطات"
+        ],
+        "المحكمة الابتدائية بسطات": [
+            "رئيس المحكمة الابتدائية بسطات",
+            "وكيل الملك لدى المحكمة الابتدائية بسطات",
+            "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية بسطات"
+        ],
+        "المحكمة الابتدائية ببرشيد": [
+            "رئيس المحكمة الابتدائية ببرشيد",
+            "وكيل الملك لدى المحكمة الابتدائية ببرشيد",
+            "رئيس كتابة الضبط بالمحكمة الابتدائية ببرشيد",
+            "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية ببرشيد"
+        ],
+        "المحكمة الابتدائية بابن احمد": [
+            "رئيس المحكمة الابتدائية بابن احمد",
+            "وكيل الملك لدى المحكمة الابتدائية بابن احمد",
+            "رئيس كتابة الضبط بالمحكمة الابتدائية بابن احمد",
+            "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية بابن احمد"
+        ],
+        "المركز القضائي بالبروج": [
+            "رئيس المركز القضائي بالبروج",
+            "نائب وكيل الملك بالمركز القضائي بالبروج"
+        ]
+    },
+    "items": [
+        {
+            "id": "63d6a5cc",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP CE320A - Imprimante HP Laserjet Pro CP1525N - Noir"
+        },
+        {
+            "id": "96f98587",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP CE321A - Imprimante HP Laserjet Pro CP1525N - Cyan"
+        },
+        {
+            "id": "5df4fae2",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP CE322A - Imprimante HP Laserjet Pro CP1525N - Jaune"
+        },
+        {
+            "id": "3c57981e",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP CE323A - Imprimante HP Laserjet Pro CP1525N - Magenta"
+        },
+        {
+            "id": "f9160b13",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP CE410A - Imprimante HP Laserjet Pro 300 M351a - Noir"
+        },
+        {
+            "id": "ef5c7d9d",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP CE411A - Imprimante HP Laserjet Pro 300 M351a - Cyan"
+        },
+        {
+            "id": "d36f9e33",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP CE412A - Imprimante HP Laserjet Pro 300 M351a - Jaune"
+        },
+        {
+            "id": "6a1adee9",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP CE413A - Imprimante HP Laserjet Pro 300 M351a - Magenta"
+        },
+        {
+            "id": "1cb8970b",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP CF210A - Imprimante HP Laserjet Pro 200 M251n - Noir"
+        },
+        {
+            "id": "fcb10e45",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP CF211A - Imprimante HP Laserjet Pro 200 M251n - Cyan"
+        },
+        {
+            "id": "1c8aee07",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP CF212A - Imprimante HP Laserjet Pro 200 M251n - Jaune"
+        },
+        {
+            "id": "9a3df9e4",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP CF213A - Imprimante HP Laserjet Pro 200 M251n - Magenta"
+        },
+        {
+            "id": "a549c289",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP CF410A - Imprimante HP Laserjet Pro M452dn - Noir"
+        },
+        {
+            "id": "ed7c0c31",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP CF411A - Imprimante HP Laserjet Pro M452dn - Cyan"
+        },
+        {
+            "id": "f12b7795",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP CF412A - Imprimante HP Laserjet Pro M452dn - Jaune"
+        },
+        {
+            "id": "bdff89ce",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP CF413A - Imprimante HP Laserjet Pro M452dn - Magenta"
+        },
+        {
+            "id": "e7523590",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP W2030A (415A) - Imprimante HP Laserjet Pro M454dn - Noir"
+        },
+        {
+            "id": "e210d965",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP W2031A (415A) - Imprimante HP Laserjet Pro M454dn - Cyan"
+        },
+        {
+            "id": "3628fbff",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP W2032A (415A) - Imprimante HP Laserjet Pro M454dn - Jaune"
+        },
+        {
+            "id": "960041df",
+            "category": "طونير طابعات بالألوان",
+            "name": "HP W2033A (415A) - Imprimante HP Laserjet Pro M454dn - Magenta"
+        },
+        {
+            "id": "ed593b5a",
+            "category": "طونير طابعات بالألوان",
+            "name": "Lexmark 70C8HK0 / 70C20K0 - Imprimante Lexmark CS310n - Noir"
+        },
+        {
+            "id": "fb2dff32",
+            "category": "طونير طابعات بالألوان",
+            "name": "Lexmark 70C8HC0 / 70C20C0 - Imprimante Lexmark CS310n - Cyan"
+        },
+        {
+            "id": "df02eb87",
+            "category": "طونير طابعات بالألوان",
+            "name": "Lexmark 70C8HY0 / 70C20Y0 - Imprimante Lexmark CS310n - Jaune"
+        },
+        {
+            "id": "13a73c51",
+            "category": "طونير طابعات بالألوان",
+            "name": "Lexmark 70C8HM0 / 70C20M0 - Imprimante Lexmark CS310n - Magenta"
+        },
+        {
+            "id": "ecc64556",
+            "category": "طونير طابعات بالألوان",
+            "name": "Kyocera TK-5270K - Imprimante Kyocera ECOSYS P6230cdn - Noir"
+        },
+        {
+            "id": "e1ee6b39",
+            "category": "طونير طابعات بالألوان",
+            "name": "Kyocera TK-5270C - Imprimante Kyocera ECOSYS P6230cdn - Cyan"
+        },
+        {
+            "id": "81dcc9f1",
+            "category": "طونير طابعات بالألوان",
+            "name": "Kyocera TK-5270Y - Imprimante Kyocera ECOSYS P6230cdn - Jaune"
+        },
+        {
+            "id": "e8bca694",
+            "category": "طونير طابعات بالألوان",
+            "name": "Kyocera TK-5270M - Imprimante Kyocera ECOSYS P6230cdn - Magenta"
+        },
+        {
+            "id": "48017201",
+            "category": "طونير طابعات",
+            "name": "SAMSUNG MLT- D205S - Imprimante SAMSUNG ML-3710ND - Noir"
+        },
+        {
+            "id": "ecbf1f3c",
+            "category": "طونير طابعات",
+            "name": "SAMSUNG MLT-D203S / MLT-D203L - Imprimante SAMSUNG M3820ND - Noir"
+        },
+        {
+            "id": "b41aaf44",
+            "category": "طونير طابعات",
+            "name": "HP CE505A / CE505X (05A / 05X) - Imprimante HP Laserjet P2055 - Noir"
+        },
+        {
+            "id": "2c796386",
+            "category": "طونير طابعات",
+            "name": "Lexmark 51F5H00 - Imprimante Lexmark MS415 - Noir"
+        },
+        {
+            "id": "10558f2b",
+            "category": "طونير طابعات",
+            "name": "Lexmark A11 E (3500P) - Imprimante Lexmark E260 - Noir"
+        },
+        {
+            "id": "022baf09",
+            "category": "طونير طابعات",
+            "name": "Kyocera TK-3100 - Imprimante Kyocera FS 2100 DN - Noir"
+        },
+        {
+            "id": "3c01e822",
+            "category": "طونير طابعات",
+            "name": "Kyocera TK-3160 - Imprimante Kyocera P3145dn - Noir"
+        },
+        {
+            "id": "09aafef4",
+            "category": "طونير طابعات",
+            "name": "CANON 052H (2200C002) - Imprimante CANON LBP 214DW - Noir"
+        },
+        {
+            "id": "4c820cc9",
+            "category": "طونير طابعات",
+            "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir"
+        },
+        {
+            "id": "b0938886",
+            "category": "طونير طابعات",
+            "name": "MLT-D203L - Imprimante SAMSUNG M3820ND - Noir"
+        },
+        {
+            "id": "9499210e",
+            "category": "طونير طابعات",
+            "name": "HP 151A/151X (W1510A/W1510X) - Imprimante HP LaserJet Pro 4003dn"
+        },
+        {
+            "id": "item_1790265058279",
+            "category": "طونير طابعات",
+            "name": "TL-5120X - PANTUM BP5200dw - Noir"
+        },
+        {
+            "id": "a074643e",
+            "category": "دروم طابعات",
+            "name": "Drum Lexmark 50F0Z00 - Imprimante Lexmark 500z"
+        },
+        {
+            "id": "a02a2469",
+            "category": "دروم طابعات",
+            "name": "Drum Lexmark 70C0P00 - Imprimante Lexmark 700P / CS310n"
+        },
+        {
+            "id": "48081c79",
+            "category": "طونير آلات النسخ بالألوان",
+            "name": "Develop AAV81D0 / TN-328 K - Photocopieur Develop INEO 300i - Noir"
+        },
+        {
+            "id": "d70bd0ad",
+            "category": "طونير آلات النسخ بالألوان",
+            "name": "Develop AAV84D0 / TN-328 C - Photocopieur Develop INEO 300i - Cyan"
+        },
+        {
+            "id": "80e6de3d",
+            "category": "طونير آلات النسخ بالألوان",
+            "name": "Develop AAV82D0 / TN-328 Y - Photocopieur Develop INEO 300i - Jaune"
+        },
+        {
+            "id": "9890d0e9",
+            "category": "طونير آلات النسخ بالألوان",
+            "name": "Develop AAV83D0 / TN-328 M - Photocopieur Develop INEO 300i - Magenta"
+        },
+        {
+            "id": "8eb98f0c",
+            "category": "طونير آلات النسخ بالألوان",
+            "name": "RICOH / GESTETNER 842506 - Photocopieur GESTETNER / RICOH IM C3510 - Noir"
+        },
+        {
+            "id": "e215d27a",
+            "category": "طونير آلات النسخ بالألوان",
+            "name": "RICOH / GESTETNER 842509 - Photocopieur GESTETNER / RICOH IM C3510 - Cyan"
+        },
+        {
+            "id": "51bfb225",
+            "category": "طونير آلات النسخ بالألوان",
+            "name": "RICOH / GESTETNER 842507 - Photocopieur GESTETNER / RICOH IM C3510 - Jaune"
+        },
+        {
+            "id": "8e84dce2",
+            "category": "طونير آلات النسخ بالألوان",
+            "name": "RICOH / GESTETNER 842508 - Photocopieur GESTETNER / RICOH IM C3510 - Magenta"
+        },
+        {
+            "id": "583c348a",
+            "category": "طونير آلات النسخ",
+            "name": "Sharp A3MX315FT - Photocopieur Sharp MX-315 FT / MX-315 N - Noir"
+        },
+        {
+            "id": "7a05dfa0",
+            "category": "طونير آلات النسخ",
+            "name": "RICOH 842125 - Photocopieur Ricoh MP 3055 - Noir"
+        },
+        {
+            "id": "127c2855",
+            "category": "طونير آلات النسخ",
+            "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir"
+        },
+        {
+            "id": "6e9a9c88",
+            "category": "طونير آلات النسخ",
+            "name": "CANON C-EXV33 - Photocopieur CANON IR 2525 / IR 2530 - Noir"
+        },
+        {
+            "id": "9cd39180",
+            "category": "طونير آلات النسخ",
+            "name": "Kyocera TK-475 - Photocopieur KYOCERA MFP 6525 / FS-6525 MFP - Noir"
+        },
+        {
+            "id": "dcb4c5ee",
+            "category": "طونير آلات النسخ",
+            "name": "XEROX 106R01306 - Photocopieur XEROX 5222 - Noir"
+        },
+        {
+            "id": "e807ceef",
+            "category": "طونير آلات النسخ",
+            "name": "Develop TN118K - Photocopieur DEVELOP INEO 226 - Noir"
+        },
+        {
+            "id": "b8512af6",
+            "category": "طونير آلات النسخ",
+            "name": "TRIUMPH ADLER 613011010 - Photocopieur TRIUMPH ADLER 256i - Noir"
+        },
+        {
+            "id": "435c8baa",
+            "category": "طونير آلات النسخ",
+            "name": "XEROX 106R02773 - Photocopieur multifonction Xerox WorkCentre 3025 - Noir"
+        },
+        {
+            "id": "a17598f2",
+            "category": "طونير آلات النسخ",
+            "name": "XEROX 006R04399 - Photocopieur multifonction Xerox B225 - Noir"
+        },
+        {
+            "id": "f69d7080",
+            "category": "طونير آلات النسخ",
+            "name": "Kyocera TK-1110 - Photocopieur multifonction Kyocera FS-1120MFP - Noir"
+        },
+        {
+            "id": "d8d6ac83",
+            "category": "طونير آلات النسخ",
+            "name": "BPNT700 - Photocopieur Sharp BP-50M45 - Noir"
+        },
+        {
+            "id": "4d5e81b0",
+            "category": "طونير فاكس",
+            "name": "Brother TN-2220 - FAX BROTHER 2840 - Noir"
+        },
+        {
+            "id": "9868259e",
+            "category": "دروم آلات النسخ",
+            "name": "Drum Sharp - Photocopieur Sharp MX-M315 - Noir"
+        },
+        {
+            "id": "20e7faa7",
+            "category": "أدوات معلوماتية",
+            "name": "Clavier USB MultiMedia - Bilingue Ar/Fr"
+        },
+        {
+            "id": "d82117fd",
+            "category": "أدوات معلوماتية",
+            "name": "Souris USB optique - Filaire"
+        },
+        {
+            "id": "c829d415",
+            "category": "أدوات معلوماتية",
+            "name": "Appareil téléphone Fixe analogique - Avec afficheur et main libre"
+        },
+        {
+            "id": "7ebc3173",
+            "category": "أدوات معلوماتية",
+            "name": "Piles alcalines type AA 1.5V"
+        },
+        {
+            "id": "9d583013",
+            "category": "أدوات معلوماتية",
+            "name": "Piles alcalines type AAA 1.5V"
+        },
+        {
+            "id": "752c5bf0",
+            "category": "أدوات معلوماتية",
+            "name": "Casque - Avec Microphone"
+        },
+        {
+            "id": "5c3fcc9d",
+            "category": "أدوات معلوماتية",
+            "name": "Webcam - Full HD"
+        },
+        {
+            "id": "7e6414af",
+            "category": "أدوات معلوماتية",
+            "name": "Souris USB Optique - Sans fil"
+        },
+        {
+            "id": "1fb7db24",
+            "category": "أدوات التخزين",
+            "name": "Clé USB 16 Go - 16go"
+        },
+        {
+            "id": "20d75281",
+            "category": "أدوات التخزين",
+            "name": "Clé USB 32 Go - 32go"
+        },
+        {
+            "id": "8b30d3cd",
+            "category": "أدوات التخزين",
+            "name": "Clé USB 64 Go - 64go"
+        },
+        {
+            "id": "df30316d",
+            "category": "أدوات التخزين",
+            "name": "DVD ROM 4.7 GO vierge - Avec pochette"
+        },
+        {
+            "id": "1ed888fc",
+            "category": "أدوات التخزين",
+            "name": "CD-ROM 700 MB vierge - Avec pochette"
+        },
+        {
+            "id": "ef97c2ec",
+            "category": "كابلات",
+            "name": "Câble USB pour imprimante - 1.8m"
+        },
+        {
+            "id": "b802776a",
+            "category": "كابلات",
+            "name": "Câble réseau RJ45 Cat 6 (UTP / F-UTP) - 5m"
+        },
+        {
+            "id": "5bc80501",
+            "category": "كابلات",
+            "name": "Câble VGA HD15 Mâle/Mâle - 1.80m"
+        },
+        {
+            "id": "ac0a1f7d",
+            "category": "كابلات",
+            "name": "Câble HDMI - 5m"
+        },
+        {
+            "id": "d92caf8b",
+            "category": "كابلات",
+            "name": "Câble HDMI - 10m"
+        },
+        {
+            "id": "db9c356e",
+            "category": "كابلات",
+            "name": "Câble RJ9-RJ9 spiralé mâle - 2m"
+        },
+        {
+            "id": "3368de14",
+            "category": "كابلات",
+            "name": "Câble RJ11-RJ11 - 5m"
+        }
+    ],
+    "transactions": [
+        {
+            "id": "CERT-871101",
+            "operationId": "CERT-871101",
+            "annualSerial": "2026/003",
+            "date": "30/09/2026 15:29:06",
+            "isoDate": "2026-09-30",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "هدى وانزة",
+            "reason": "بناءً على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "435c8baa",
+                    "category": "طونير آلات النسخ",
+                    "name": "XEROX 106R02773 - Photocopieur multifonction Xerox WorkCentre 3025 - Noir",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-367642",
+            "operationId": "CERT-367642",
+            "annualSerial": "2026/002",
+            "date": "12/05/2026 08:22:52",
+            "isoDate": "2026-05-12",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "رئيس مصلحة التجهيز وتدبير الممتلكات ونظم المعلومات بالمديرية الإقليمية للعدل بسطات",
+            "reason": "بناءً على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "9d583013",
+                    "category": "أدوات معلوماتية",
+                    "name": "Piles alcalines type AAA 1.5V",
+                    "qty": 8,
+                    "notes": ""
+                },
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-856006",
+            "operationId": "CERT-856006",
+            "date": "25/09/2026 16:54:02",
+            "isoDate": "2026-09-25",
+            "destination": "المحكمة الابتدائية بابن احمد",
+            "recipient": "وكيل الملك لدى المحكمة الابتدائية بابن احمد",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-09-21",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 10,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-811790",
+            "operationId": "CERT-811790",
+            "date": "25/09/2026 16:53:41",
+            "isoDate": "2026-09-25",
+            "destination": "المحكمة الابتدائية بابن احمد",
+            "recipient": "رئيس المحكمة الابتدائية بابن احمد",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-09-21",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 14,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-149368",
+            "operationId": "CERT-149368",
+            "date": "21/09/2026 16:53:18",
+            "isoDate": "2026-09-21",
+            "destination": "المحكمة الابتدائية بابن احمد",
+            "recipient": "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية بابن احمد",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-09-21",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 14,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-513586",
+            "operationId": "CERT-513586",
+            "date": "21/09/2026 16:52:47",
+            "isoDate": "2026-09-21",
+            "destination": "المحكمة الابتدائية بابن احمد",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بابن احمد",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-09-21",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 20,
+                    "notes": ""
+                },
+                {
+                    "id": "item_1790265058279",
+                    "category": "طونير طابعات",
+                    "name": "TL-5120X - PANTUM BP5200dw - Noir",
+                    "qty": 8,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-363a6fb6",
+            "operationId": "363a6fb6",
+            "date": "21/09/2026 15:27:26",
+            "isoDate": "2026-09-21",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-09-21",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "09aafef4",
+                    "category": "طونير طابعات",
+                    "name": "CANON 052H (2200C002) - Imprimante CANON LBP 214DW - Noir",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 8,
+                    "notes": ""
+                },
+                {
+                    "id": "9499210e",
+                    "category": "طونير طابعات",
+                    "name": "HP 151A/151X (W1510A/W1510X) - Imprimante HP LaserJet Pro 4003dn",
+                    "qty": 8,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-368002",
+            "operationId": "CERT-368002",
+            "date": "21/09/2026 16:46:36",
+            "isoDate": "2026-09-21",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى محكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-09-21",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "4d5e81b0",
+                    "category": "طونير فاكس",
+                    "name": "Brother TN-2220 - FAX BROTHER 2840 - Noir",
+                    "qty": 3,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-223174",
+            "operationId": "CERT-223174",
+            "date": "21/09/2026 11:06:35",
+            "isoDate": "2026-09-21",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة الضبط بمحكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-09-21",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "9cd39180",
+                    "category": "طونير آلات النسخ",
+                    "name": "Kyocera TK-475 - Photocopieur KYOCERA MFP 6525 / FS-6525 MFP - Noir",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-838209",
+            "operationId": "CERT-838209",
+            "date": "21/09/2026 11:02:44",
+            "isoDate": "2026-09-21",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "محمد قسماوي",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-09-21",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-673593",
+            "operationId": "CERT-673593",
+            "date": "21/09/2026 10:59:45",
+            "isoDate": "2026-09-21",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "علي شكري",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-09-21",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "9d583013",
+                    "category": "أدوات معلوماتية",
+                    "name": "Piles alcalines type AAA 1.5V",
+                    "qty": 4,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-538703",
+            "operationId": "CERT-538703",
+            "date": "21/09/2026 10:59:21",
+            "isoDate": "2026-09-21",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "هدى وانزة",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-09-21",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-373153",
+            "operationId": "CERT-373153",
+            "date": "21/09/2026 10:23:38",
+            "isoDate": "2026-09-21",
+            "destination": "المركز القضائي بالبروج",
+            "recipient": "نائب وكيل الملك بالمركز القضائي بالبروج",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-09-21",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 4,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-519069",
+            "operationId": "CERT-519069",
+            "date": "21/09/2026 10:23:14",
+            "isoDate": "2026-09-21",
+            "destination": "المركز القضائي بالبروج",
+            "recipient": "رئيس المركز القضائي بالبروج",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-09-21",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 6,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-10b72a87",
+            "operationId": "10b72a87",
+            "date": "16/09/2026 12:29:32",
+            "isoDate": "2026-09-16",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 6,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-4f504b19",
+            "operationId": "4f504b19",
+            "date": "16/09/2026 18:56:09",
+            "isoDate": "2026-09-16",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "b802776a",
+                    "category": "كابلات",
+                    "name": "Câble réseau RJ45 Cat 6 (UTP / F-UTP) - 5m",
+                    "qty": 5,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-336102",
+            "operationId": "CERT-336102",
+            "date": "16/09/2026 14:55:22",
+            "isoDate": "2026-09-16",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "المدير الإقليمي للعدل بسطات",
+            "reason": "توزيع دوري / سنوي",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "48017201",
+                    "category": "طونير طابعات",
+                    "name": "SAMSUNG MLT- D205S - Imprimante SAMSUNG ML-3710ND - Noir",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-15c48855",
+            "operationId": "15c48855",
+            "date": "15/09/2026 10:17:05",
+            "isoDate": "2026-09-15",
+            "destination": "المحكمة الابتدائية ببرشيد",
+            "recipient": "رئيس المحكمة الابتدائية ببرشيد",
+            "reason": "توزيع دوري / سنوي",
+            "channel": "تلقائي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 28,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-d7b8f5e4",
+            "operationId": "d7b8f5e4",
+            "date": "15/09/2026 10:17:07",
+            "isoDate": "2026-09-15",
+            "destination": "المحكمة الابتدائية ببرشيد",
+            "recipient": "وكيل الملك لدى المحكمة الابتدائية ببرشيد",
+            "reason": "توزيع دوري / سنوي",
+            "channel": "تلقائي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 12,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-aaf2929f",
+            "operationId": "aaf2929f",
+            "date": "15/09/2026 10:17:09",
+            "isoDate": "2026-09-15",
+            "destination": "المحكمة الابتدائية ببرشيد",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية ببرشيد",
+            "reason": "توزيع دوري / سنوي",
+            "channel": "تلقائي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 65,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-6f37ca8d",
+            "operationId": "6f37ca8d",
+            "date": "15/09/2026 10:17:11",
+            "isoDate": "2026-09-15",
+            "destination": "المحكمة الابتدائية ببرشيد",
+            "recipient": "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية ببرشيد",
+            "reason": "توزيع دوري / سنوي",
+            "channel": "تلقائي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 25,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-559a8fdb",
+            "operationId": "559a8fdb",
+            "date": "11/09/2026 10:49:43",
+            "isoDate": "2026-09-11",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "محمد نويني",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-a29586d0",
+            "operationId": "a29586d0",
+            "date": "10/09/2026 09:38:01",
+            "isoDate": "2026-09-10",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "المدير الإقليمي للعدل بسطات",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "a549c289",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CF410A - Imprimante HP Laserjet Pro M452dn - Noir",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-e9d2edbf",
+            "operationId": "e9d2edbf",
+            "date": "03/09/2026 10:04:28",
+            "isoDate": "2026-09-03",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة الضبط بمحكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "09aafef4",
+                    "category": "طونير طابعات",
+                    "name": "CANON 052H (2200C002) - Imprimante CANON LBP 214DW - Noir",
+                    "qty": 8,
+                    "notes": ""
+                },
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 12,
+                    "notes": ""
+                },
+                {
+                    "id": "ef97c2ec",
+                    "category": "كابلات",
+                    "name": "Câble USB pour imprimante - 1.8m",
+                    "qty": 6,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-44b0d417",
+            "operationId": "44b0d417",
+            "date": "31/08/2026 13:38:00",
+            "isoDate": "2026-08-31",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى محكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-08-31",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "4d5e81b0",
+                    "category": "طونير فاكس",
+                    "name": "Brother TN-2220 - FAX BROTHER 2840 - Noir",
+                    "qty": 3,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-6d194e15",
+            "operationId": "6d194e15",
+            "date": "24/08/2026 12:38:31",
+            "isoDate": "2026-08-24",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة الضبط بمحكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-08-24",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 10,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-31ea85c3",
+            "operationId": "31ea85c3",
+            "date": "17/08/2026 13:47:20",
+            "isoDate": "2026-08-17",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-08-13",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "9499210e",
+                    "category": "طونير طابعات",
+                    "name": "HP 151A/151X (W1510A/W1510X) - Imprimante HP LaserJet Pro 4003dn",
+                    "qty": 5,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-b6e9021f",
+            "operationId": "b6e9021f",
+            "date": "10/08/2026 09:41:31",
+            "isoDate": "2026-08-10",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة الضبط بمحكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-08-10",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 3,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-c2f24145",
+            "operationId": "c2f24145",
+            "date": "10/08/2026 10:34:16",
+            "isoDate": "2026-08-10",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "رئيس مصلحة الموارد البشرية والشؤون المالية بالمديرية الإقليمية للعدل بسطات",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "2026-08-10",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "583c348a",
+                    "category": "طونير آلات النسخ",
+                    "name": "Sharp A3MX315FT - Photocopieur Sharp MX-315 FT / MX-315 N - Noir",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-0d55cbac",
+            "operationId": "0d55cbac",
+            "date": "04/08/2026 11:01:28",
+            "isoDate": "2026-08-04",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى محكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 3,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-9dfd465c",
+            "operationId": "9dfd465c",
+            "date": "03/08/2026 09:41:06",
+            "isoDate": "2026-08-03",
+            "destination": "المحكمة الابتدائية بابن احمد",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بابن احمد",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "d8d6ac83",
+                    "category": "طونير آلات النسخ",
+                    "name": "BPNT700 - Photocopieur Sharp BP-50M45 - Noir",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "b0938886",
+                    "category": "طونير طابعات",
+                    "name": "MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-62c7f8eb",
+            "operationId": "62c7f8eb",
+            "date": "27/07/2026 14:34:30",
+            "isoDate": "2026-07-27",
+            "destination": "المحكمة الابتدائية ببرشيد",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية ببرشيد",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-07-28",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "7a05dfa0",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH 842125 - Photocopieur Ricoh MP 3055 - Noir",
+                    "qty": 3,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-e3d805b2",
+            "operationId": "e3d805b2",
+            "date": "23/07/2026 13:44:31",
+            "isoDate": "2026-07-23",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-07-22",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "09aafef4",
+                    "category": "طونير طابعات",
+                    "name": "CANON 052H (2200C002) - Imprimante CANON LBP 214DW - Noir",
+                    "qty": 3,
+                    "notes": ""
+                },
+                {
+                    "id": "b0938886",
+                    "category": "طونير طابعات",
+                    "name": "MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 3,
+                    "notes": ""
+                },
+                {
+                    "id": "9499210e",
+                    "category": "طونير طابعات",
+                    "name": "HP 151A/151X (W1510A/W1510X) - Imprimante HP LaserJet Pro 4003dn",
+                    "qty": 4,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-f8c97c4d",
+            "operationId": "f8c97c4d",
+            "date": "22/07/2026 09:44:41",
+            "isoDate": "2026-07-22",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-07-22",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 4,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-261d9494",
+            "operationId": "261d9494",
+            "date": "22/07/2026 11:00:55",
+            "isoDate": "2026-07-22",
+            "destination": "المحكمة الابتدائية ببرشيد",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية ببرشيد",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-07-22",
+            "orderRef": "2026/I/24833",
+            "items": [
+                {
+                    "id": "b0938886",
+                    "category": "طونير طابعات",
+                    "name": "MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 15,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-d263257c",
+            "operationId": "d263257c",
+            "date": "21/07/2026 09:43:17",
+            "isoDate": "2026-07-21",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "حمزة الفاطيمي",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "2026-07-21",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "435c8baa",
+                    "category": "طونير آلات النسخ",
+                    "name": "XEROX 106R02773 - Photocopieur multifonction Xerox WorkCentre 3025 - Noir",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-f0aa8ab5",
+            "operationId": "f0aa8ab5",
+            "date": "20/07/2026 09:53:12",
+            "isoDate": "2026-07-20",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "إدريس لصفر",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "2026-07-20",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "435c8baa",
+                    "category": "طونير آلات النسخ",
+                    "name": "XEROX 106R02773 - Photocopieur multifonction Xerox WorkCentre 3025 - Noir",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-0db0cf3b",
+            "operationId": "0db0cf3b",
+            "date": "20/07/2026 14:27:20",
+            "isoDate": "2026-07-20",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة الضبط بمحكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-07-20",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "b0938886",
+                    "category": "طونير طابعات",
+                    "name": "MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 5,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-0a7d5860",
+            "operationId": "0a7d5860",
+            "date": "20/07/2026 14:39:34",
+            "isoDate": "2026-07-20",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "b0938886",
+                    "category": "طونير طابعات",
+                    "name": "MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 4,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-7eaf0633",
+            "operationId": "7eaf0633",
+            "date": "20/07/2026 14:40:37",
+            "isoDate": "2026-07-20",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى محكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-07-20",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "4d5e81b0",
+                    "category": "طونير فاكس",
+                    "name": "Brother TN-2220 - FAX BROTHER 2840 - Noir",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-1f30dbbc",
+            "operationId": "1f30dbbc",
+            "date": "20/07/2026 14:41:32",
+            "isoDate": "2026-07-20",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "رئيس مصلحة حفظ الأرشيف بالمديرية الإقليمية للعدل بسطات",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "2026-07-20",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "e7523590",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP W2030A (415A) - Imprimante HP Laserjet Pro M454dn - Noir",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-f60cd980",
+            "operationId": "f60cd980",
+            "date": "07/07/2026 10:11:48",
+            "isoDate": "2026-07-07",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى محكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-07-07",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "e215d27a",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "RICOH / GESTETNER 842509 - Photocopieur GESTETNER / RICOH IM C3510 - Cyan",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "8eb98f0c",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "RICOH / GESTETNER 842506 - Photocopieur GESTETNER / RICOH IM C3510 - Noir",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "51bfb225",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "RICOH / GESTETNER 842507 - Photocopieur GESTETNER / RICOH IM C3510 - Jaune",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "8e84dce2",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "RICOH / GESTETNER 842508 - Photocopieur GESTETNER / RICOH IM C3510 - Magenta",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-e6cc5919",
+            "operationId": "e6cc5919",
+            "date": "02/07/2026 09:35:21",
+            "isoDate": "2026-07-02",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-07-02",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "b0938886",
+                    "category": "طونير طابعات",
+                    "name": "MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "9499210e",
+                    "category": "طونير طابعات",
+                    "name": "HP 151A/151X (W1510A/W1510X) - Imprimante HP LaserJet Pro 4003dn",
+                    "qty": 3,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-054c6a58",
+            "operationId": "054c6a58",
+            "date": "22/06/2026 11:35:26",
+            "isoDate": "2026-06-22",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة الضبط بمحكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-06-22",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "b0938886",
+                    "category": "طونير طابعات",
+                    "name": "MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 6,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-162855",
+            "operationId": "CERT-162855",
+            "date": "22/06/2026 10:15:59",
+            "isoDate": "2026-06-22",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "المدير الإقليمي للعدل بسطات",
+            "reason": "توزيع دوري / سنوي",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "48017201",
+                    "category": "طونير طابعات",
+                    "name": "SAMSUNG MLT- D205S - Imprimante SAMSUNG ML-3710ND - Noir",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-bccc1f16",
+            "operationId": "bccc1f16",
+            "date": "19/06/2026 10:26:36",
+            "isoDate": "2026-06-19",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "رئيس مصلحة الموارد البشرية والشؤون المالية بالمديرية الإقليمية للعدل بسطات",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "7e6414af",
+                    "category": "أدوات معلوماتية",
+                    "name": "Souris USB Optique - Sans fil",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-beb8f640",
+            "operationId": "beb8f640",
+            "date": "18/06/2026 22:34:48",
+            "isoDate": "2026-06-18",
+            "destination": "المحكمة الابتدائية ببرشيد",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية ببرشيد",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-06-15",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "b0938886",
+                    "category": "طونير طابعات",
+                    "name": "MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "9499210e",
+                    "category": "طونير طابعات",
+                    "name": "HP 151A/151X (W1510A/W1510X) - Imprimante HP LaserJet Pro 4003dn",
+                    "qty": 4,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-ccee772d",
+            "operationId": "ccee772d",
+            "date": "18/06/2026 13:31:26",
+            "isoDate": "2026-06-18",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "9499210e",
+                    "category": "طونير طابعات",
+                    "name": "HP 151A/151X (W1510A/W1510X) - Imprimante HP LaserJet Pro 4003dn",
+                    "qty": 5,
+                    "notes": ""
+                },
+                {
+                    "id": "b0938886",
+                    "category": "طونير طابعات",
+                    "name": "MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 3,
+                    "notes": ""
+                },
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-9e5757df",
+            "operationId": "9e5757df",
+            "date": "18/06/2026 22:38:16",
+            "isoDate": "2026-06-18",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة الضبط بمحكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-06-18",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "b802776a",
+                    "category": "كابلات",
+                    "name": "Câble réseau RJ45 Cat 6 (UTP / F-UTP) - 5m",
+                    "qty": 10,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-23a19700",
+            "operationId": "23a19700",
+            "date": "16/06/2026 12:33:39",
+            "isoDate": "2026-06-16",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "حليمة حديف",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "7a05dfa0",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH 842125 - Photocopieur Ricoh MP 3055 - Noir",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-625133fa",
+            "operationId": "625133fa",
+            "date": "15/06/2026 11:04:16",
+            "isoDate": "2026-06-15",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى محكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-06-15",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "b802776a",
+                    "category": "كابلات",
+                    "name": "Câble réseau RJ45 Cat 6 (UTP / F-UTP) - 5m",
+                    "qty": 6,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-cb55e5f6",
+            "operationId": "cb55e5f6",
+            "date": "09/06/2026 17:04:04",
+            "isoDate": "2026-06-09",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "علي شكري",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "2026-06-08",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-33b6b79d",
+            "operationId": "33b6b79d",
+            "date": "09/06/2026 08:11:55",
+            "isoDate": "2026-06-09",
+            "destination": "المحكمة الابتدائية ببرشيد",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية ببرشيد",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-06-05",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 3,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-c3379932",
+            "operationId": "c3379932",
+            "date": "09/06/2026 08:11:59",
+            "isoDate": "2026-06-09",
+            "destination": "المحكمة الابتدائية بابن احمد",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بابن احمد",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-06-08",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 3,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-b3a5fd5e",
+            "operationId": "b3a5fd5e",
+            "date": "08/06/2026 14:56:30",
+            "isoDate": "2026-06-08",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-06-08",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 3,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-f8b1a7fd",
+            "operationId": "f8b1a7fd",
+            "date": "05/06/2026 14:02:23",
+            "isoDate": "2026-06-05",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى محكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-06-03",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "ecc64556",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Kyocera TK-5270K - Imprimante Kyocera ECOSYS P6230cdn - Noir",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "e1ee6b39",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Kyocera TK-5270C - Imprimante Kyocera ECOSYS P6230cdn - Cyan",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "81dcc9f1",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Kyocera TK-5270Y - Imprimante Kyocera ECOSYS P6230cdn - Jaune",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "e8bca694",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Kyocera TK-5270M - Imprimante Kyocera ECOSYS P6230cdn - Magenta",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-ee52ae31",
+            "operationId": "ee52ae31",
+            "date": "25/05/2026 12:34:42",
+            "isoDate": "2026-05-25",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-05-25",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 6,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-e2bf67d1",
+            "operationId": "e2bf67d1",
+            "date": "20/05/2026 09:52:12",
+            "isoDate": "2026-05-20",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-05-19",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "9499210e",
+                    "category": "طونير طابعات",
+                    "name": "HP 151A/151X (W1510A/W1510X) - Imprimante HP LaserJet Pro 4003dn",
+                    "qty": 4,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-0989013b",
+            "operationId": "0989013b",
+            "date": "14/05/2026 11:00:27",
+            "isoDate": "2026-05-14",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة الضبط بمحكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-05-13",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "9cd39180",
+                    "category": "طونير آلات النسخ",
+                    "name": "Kyocera TK-475 - Photocopieur KYOCERA MFP 6525 / FS-6525 MFP - Noir",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-5da4ebbd",
+            "operationId": "5da4ebbd",
+            "date": "13/05/2026 10:17:36",
+            "isoDate": "2026-05-13",
+            "destination": "المحكمة الابتدائية ببرشيد",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية ببرشيد",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-05-08",
+            "orderRef": "2026/I/15870",
+            "items": [
+                {
+                    "id": "9499210e",
+                    "category": "طونير طابعات",
+                    "name": "HP 151A/151X (W1510A/W1510X) - Imprimante HP LaserJet Pro 4003dn",
+                    "qty": 4,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-bf4731b3",
+            "operationId": "bf4731b3",
+            "date": "13/05/2026 11:57:37",
+            "isoDate": "2026-05-13",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة الضبط بمحكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-05-13",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-2979d459",
+            "operationId": "2979d459",
+            "date": "07/05/2026 10:10:22",
+            "isoDate": "2026-05-07",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "رئيس مصلحة التجهيز وتدبير الممتلكات ونظم المعلومات بالمديرية الإقليمية للعدل بسطات",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "2026-05-07",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "7e6414af",
+                    "category": "أدوات معلوماتية",
+                    "name": "Souris USB Optique - Sans fil",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-0f4a0e48",
+            "operationId": "0f4a0e48",
+            "date": "04/05/2026 10:17:29",
+            "isoDate": "2026-05-04",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة الضبط بمحكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "",
+            "orderRef": "2026/i/14377",
+            "items": [
+                {
+                    "id": "09aafef4",
+                    "category": "طونير طابعات",
+                    "name": "CANON 052H (2200C002) - Imprimante CANON LBP 214DW - Noir",
+                    "qty": 6,
+                    "notes": ""
+                },
+                {
+                    "id": "b0938886",
+                    "category": "طونير طابعات",
+                    "name": "MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 6,
+                    "notes": ""
+                },
+                {
+                    "id": "9499210e",
+                    "category": "طونير طابعات",
+                    "name": "HP 151A/151X (W1510A/W1510X) - Imprimante HP LaserJet Pro 4003dn",
+                    "qty": 4,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-396f50c3",
+            "operationId": "396f50c3",
+            "date": "04/05/2026 13:46:48",
+            "isoDate": "2026-05-04",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-05-04",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-5bbeda36",
+            "operationId": "5bbeda36",
+            "date": "30/04/2026 10:52:09",
+            "isoDate": "2026-04-30",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "الوكيل العام للملك لدى محكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-04-30",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-29c6a54b",
+            "operationId": "29c6a54b",
+            "date": "29/04/2026 21:19:52",
+            "isoDate": "2026-04-29",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-04-28",
+            "orderRef": "2026/E/25231",
+            "items": [
+                {
+                    "id": "09aafef4",
+                    "category": "طونير طابعات",
+                    "name": "CANON 052H (2200C002) - Imprimante CANON LBP 214DW - Noir",
+                    "qty": 6,
+                    "notes": ""
+                },
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 6,
+                    "notes": ""
+                },
+                {
+                    "id": "9499210e",
+                    "category": "طونير طابعات",
+                    "name": "HP 151A/151X (W1510A/W1510X) - Imprimante HP LaserJet Pro 4003dn",
+                    "qty": 3,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-0f2146cc",
+            "operationId": "0f2146cc",
+            "date": "24/04/2026 10:20:41",
+            "isoDate": "2026-04-24",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "محمد نويني",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-41c0cbe9",
+            "operationId": "41c0cbe9",
+            "date": "20/04/2026 11:00:13",
+            "isoDate": "2026-04-20",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "رئيس مصلحة الموارد البشرية والشؤون المالية بالمديرية الإقليمية للعدل بسطات",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "2026-04-20",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "e7523590",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP W2030A (415A) - Imprimante HP Laserjet Pro M454dn - Noir",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "e210d965",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP W2031A (415A) - Imprimante HP Laserjet Pro M454dn - Cyan",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "3628fbff",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP W2032A (415A) - Imprimante HP Laserjet Pro M454dn - Jaune",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "960041df",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP W2033A (415A) - Imprimante HP Laserjet Pro M454dn - Magenta",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-ddc2b7cb",
+            "operationId": "ddc2b7cb",
+            "date": "14/04/2026 19:24:54",
+            "isoDate": "2026-04-14",
+            "destination": "المحكمة الابتدائية ببرشيد",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية ببرشيد",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-04-13",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 3,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-dd767af3",
+            "operationId": "dd767af3",
+            "date": "14/04/2026 19:24:56",
+            "isoDate": "2026-04-14",
+            "destination": "المحكمة الابتدائية ببرشيد",
+            "recipient": "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية ببرشيد",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-04-07",
+            "orderRef": "2026/e/19673",
+            "items": [
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 3,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-f8ecac9a",
+            "operationId": "f8ecac9a",
+            "date": "08/04/2026 19:24:12",
+            "isoDate": "2026-04-08",
+            "destination": "المحكمة الابتدائية ببرشيد",
+            "recipient": "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية ببرشيد",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-04-07",
+            "orderRef": "2026/e/19673",
+            "items": [
+                {
+                    "id": "09aafef4",
+                    "category": "طونير طابعات",
+                    "name": "CANON 052H (2200C002) - Imprimante CANON LBP 214DW - Noir",
+                    "qty": 6,
+                    "notes": ""
+                },
+                {
+                    "id": "3628fbff",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP W2032A (415A) - Imprimante HP Laserjet Pro M454dn - Jaune",
+                    "qty": 3,
+                    "notes": ""
+                },
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 6,
+                    "notes": ""
+                },
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "583c348a",
+                    "category": "طونير آلات النسخ",
+                    "name": "Sharp A3MX315FT - Photocopieur Sharp MX-315 FT / MX-315 N - Noir",
+                    "qty": 3,
+                    "notes": ""
+                },
+                {
+                    "id": "2c796386",
+                    "category": "طونير طابعات",
+                    "name": "Lexmark 51F5H00 - Imprimante Lexmark MS415 - Noir",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "ecbf1f3c",
+                    "category": "طونير طابعات",
+                    "name": "SAMSUNG MLT-D203S / MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "e210d965",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP W2031A (415A) - Imprimante HP Laserjet Pro M454dn - Cyan",
+                    "qty": 3,
+                    "notes": ""
+                },
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 3,
+                    "notes": ""
+                },
+                {
+                    "id": "e7523590",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP W2030A (415A) - Imprimante HP Laserjet Pro M454dn - Noir",
+                    "qty": 3,
+                    "notes": ""
+                },
+                {
+                    "id": "7a05dfa0",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH 842125 - Photocopieur Ricoh MP 3055 - Noir",
+                    "qty": 3,
+                    "notes": ""
+                },
+                {
+                    "id": "4d5e81b0",
+                    "category": "طونير فاكس",
+                    "name": "Brother TN-2220 - FAX BROTHER 2840 - Noir",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "960041df",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP W2033A (415A) - Imprimante HP Laserjet Pro M454dn - Magenta",
+                    "qty": 3,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-432b2b7a",
+            "operationId": "432b2b7a",
+            "date": "08/04/2026 11:48:05",
+            "isoDate": "2026-04-08",
+            "destination": "المحكمة الابتدائية بابن احمد",
+            "recipient": "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية بابن احمد",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-04-08",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "752c5bf0",
+                    "category": "أدوات معلوماتية",
+                    "name": "Casque - Avec Microphone",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "5c3fcc9d",
+                    "category": "أدوات معلوماتية",
+                    "name": "Webcam - Full HD",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-229389a9",
+            "operationId": "229389a9",
+            "date": "07/04/2026 10:00:00",
+            "isoDate": "2026-04-07",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى محكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-04-07",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "9499210e",
+                    "category": "طونير طابعات",
+                    "name": "HP 151A/151X (W1510A/W1510X) - Imprimante HP LaserJet Pro 4003dn",
+                    "qty": 4,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-174d7763",
+            "operationId": "174d7763",
+            "date": "06/04/2026 10:00:00",
+            "isoDate": "2026-04-06",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-04-06",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 4,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-0df9f4a7",
+            "operationId": "0df9f4a7",
+            "date": "03/04/2026 09:54:00",
+            "isoDate": "2026-04-03",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-04-02",
+            "orderRef": "428/26",
+            "items": [
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-50282c4e",
+            "operationId": "50282c4e",
+            "date": "01/04/2026 00:43:00",
+            "isoDate": "2026-04-01",
+            "destination": "المحكمة الابتدائية ببرشيد",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية ببرشيد",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-03-26",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "7a05dfa0",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH 842125 - Photocopieur Ricoh MP 3055 - Noir",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 8,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-d5eeb7ff",
+            "operationId": "d5eeb7ff",
+            "date": "30/03/2026 13:01:55",
+            "isoDate": "2026-03-30",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-03-30",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "9499210e",
+                    "category": "طونير طابعات",
+                    "name": "HP 151A/151X (W1510A/W1510X) - Imprimante HP LaserJet Pro 4003dn",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-d0a70b3b",
+            "operationId": "d0a70b3b",
+            "date": "30/03/2026 14:07:22",
+            "isoDate": "2026-03-30",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "2026-03-30",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "9499210e",
+                    "category": "طونير طابعات",
+                    "name": "HP 151A/151X (W1510A/W1510X) - Imprimante HP LaserJet Pro 4003dn",
+                    "qty": 8,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-3663adb3",
+            "operationId": "3663adb3",
+            "date": "25/03/2026 15:01:44",
+            "isoDate": "2026-03-25",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "محمد أيت حمادي",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "2026-03-25",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "752c5bf0",
+                    "category": "أدوات معلوماتية",
+                    "name": "Casque - Avec Microphone",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-7ca76b0b",
+            "operationId": "7ca76b0b",
+            "date": "24/03/2026 18:52:35",
+            "isoDate": "2026-03-24",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "هاتف مباشر",
+            "status": "استجابة كلية",
+            "orderDate": "2026-03-24",
+            "orderRef": "هاتفيا ومستعجل بخصوص انتخابات القضاة",
+            "items": [
+                {
+                    "id": "ef97c2ec",
+                    "category": "كابلات",
+                    "name": "Câble USB pour imprimante - 1.8m",
+                    "qty": 5,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-34b8ff6e",
+            "operationId": "34b8ff6e",
+            "date": "24/03/2026 14:32:59",
+            "isoDate": "2026-03-24",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة الضبط بمحكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-03-24",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-194693f9",
+            "operationId": "194693f9",
+            "date": "19/03/2026 01:58:33",
+            "isoDate": "2026-03-19",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة الضبط بمحكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "9499210e",
+                    "category": "طونير طابعات",
+                    "name": "HP 151A/151X (W1510A/W1510X) - Imprimante HP LaserJet Pro 4003dn",
+                    "qty": 6,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-32551ac1",
+            "operationId": "32551ac1",
+            "date": "19/03/2026 12:57:29",
+            "isoDate": "2026-03-19",
+            "destination": "المحكمة الابتدائية بابن احمد",
+            "recipient": "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية بابن احمد",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-03-19",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "bdff89ce",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CF413A - Imprimante HP Laserjet Pro M452dn - Magenta",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "ed7c0c31",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CF411A - Imprimante HP Laserjet Pro M452dn - Cyan",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "a549c289",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CF410A - Imprimante HP Laserjet Pro M452dn - Noir",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "f12b7795",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CF412A - Imprimante HP Laserjet Pro M452dn - Jaune",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-d66d48fe",
+            "operationId": "d66d48fe",
+            "date": "19/03/2026 12:58:03",
+            "isoDate": "2026-03-19",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "الوكيل العام للملك لدى محكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-1fd0b598",
+            "operationId": "1fd0b598",
+            "date": "18/03/2026 17:23:28",
+            "isoDate": "2026-03-18",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-5624433d",
+            "operationId": "5624433d",
+            "date": "18/03/2026 17:23:32",
+            "isoDate": "2026-03-18",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "يوسف بهاء الدين",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-8105d9ee",
+            "operationId": "8105d9ee",
+            "date": "18/03/2026 10:00:00",
+            "isoDate": "2026-03-18",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-55dbf28c",
+            "operationId": "55dbf28c",
+            "date": "10/03/2026 10:00:00",
+            "isoDate": "2026-03-10",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "محمد أمين رضوان",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "2026-03-10",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "b802776a",
+                    "category": "كابلات",
+                    "name": "Câble réseau RJ45 Cat 6 (UTP / F-UTP) - 5m",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-e5ff3bc3",
+            "operationId": "e5ff3bc3",
+            "date": "02/03/2026 10:00:00",
+            "isoDate": "2026-03-02",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "ef97c2ec",
+                    "category": "كابلات",
+                    "name": "Câble USB pour imprimante - 1.8m",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-6a350f79",
+            "operationId": "6a350f79",
+            "date": "23/02/2026 10:00:00",
+            "isoDate": "2026-02-23",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-02-23",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "b802776a",
+                    "category": "كابلات",
+                    "name": "Câble réseau RJ45 Cat 6 (UTP / F-UTP) - 5m",
+                    "qty": 10,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-a7ddacef",
+            "operationId": "a7ddacef",
+            "date": "23/02/2026 10:05:00",
+            "isoDate": "2026-02-23",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى محكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-02-23",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "ef97c2ec",
+                    "category": "كابلات",
+                    "name": "Câble USB pour imprimante - 1.8m",
+                    "qty": 5,
+                    "notes": ""
+                },
+                {
+                    "id": "b802776a",
+                    "category": "كابلات",
+                    "name": "Câble réseau RJ45 Cat 6 (UTP / F-UTP) - 5m",
+                    "qty": 5,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-9a6659d9",
+            "operationId": "9a6659d9",
+            "date": "10/02/2026 10:00:00",
+            "isoDate": "2026-02-10",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "إدريس لصفر",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "022baf09",
+                    "category": "طونير طابعات",
+                    "name": "Kyocera TK-3100 - Imprimante Kyocera FS 2100 DN - Noir",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-f18b878d",
+            "operationId": "f18b878d",
+            "date": "06/02/2026 10:00:00",
+            "isoDate": "2026-02-06",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "توزيع دوري / سنوي",
+            "channel": "تلقائي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 3,
+                    "notes": ""
+                },
+                {
+                    "id": "583c348a",
+                    "category": "طونير آلات النسخ",
+                    "name": "Sharp A3MX315FT - Photocopieur Sharp MX-315 FT / MX-315 N - Noir",
+                    "qty": 4,
+                    "notes": ""
+                },
+                {
+                    "id": "7a05dfa0",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH 842125 - Photocopieur Ricoh MP 3055 - Noir",
+                    "qty": 4,
+                    "notes": ""
+                },
+                {
+                    "id": "e215d27a",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "RICOH / GESTETNER 842509 - Photocopieur GESTETNER / RICOH IM C3510 - Cyan",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "e807ceef",
+                    "category": "طونير آلات النسخ",
+                    "name": "Develop TN118K - Photocopieur DEVELOP INEO 226 - Noir",
+                    "qty": 4,
+                    "notes": ""
+                },
+                {
+                    "id": "51bfb225",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "RICOH / GESTETNER 842507 - Photocopieur GESTETNER / RICOH IM C3510 - Jaune",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "9cd39180",
+                    "category": "طونير آلات النسخ",
+                    "name": "Kyocera TK-475 - Photocopieur KYOCERA MFP 6525 / FS-6525 MFP - Noir",
+                    "qty": 4,
+                    "notes": ""
+                },
+                {
+                    "id": "8e84dce2",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "RICOH / GESTETNER 842508 - Photocopieur GESTETNER / RICOH IM C3510 - Magenta",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "8eb98f0c",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "RICOH / GESTETNER 842506 - Photocopieur GESTETNER / RICOH IM C3510 - Noir",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-61338922",
+            "operationId": "61338922",
+            "date": "06/02/2026 10:15:00",
+            "isoDate": "2026-02-06",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "توزيع دوري / سنوي",
+            "channel": "تلقائي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "b41aaf44",
+                    "category": "طونير طابعات",
+                    "name": "HP CE505A / CE505X (05A / 05X) - Imprimante HP Laserjet P2055 - Noir",
+                    "qty": 6,
+                    "notes": ""
+                },
+                {
+                    "id": "e8bca694",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Kyocera TK-5270M - Imprimante Kyocera ECOSYS P6230cdn - Magenta",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "022baf09",
+                    "category": "طونير طابعات",
+                    "name": "Kyocera TK-3100 - Imprimante Kyocera FS 2100 DN - Noir",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "e1ee6b39",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Kyocera TK-5270C - Imprimante Kyocera ECOSYS P6230cdn - Cyan",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "09aafef4",
+                    "category": "طونير طابعات",
+                    "name": "CANON 052H (2200C002) - Imprimante CANON LBP 214DW - Noir",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "ecc64556",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Kyocera TK-5270K - Imprimante Kyocera ECOSYS P6230cdn - Noir",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "81dcc9f1",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Kyocera TK-5270Y - Imprimante Kyocera ECOSYS P6230cdn - Jaune",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "ecbf1f3c",
+                    "category": "طونير طابعات",
+                    "name": "SAMSUNG MLT-D203S / MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 40,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-0afca9d0",
+            "operationId": "0afca9d0",
+            "date": "05/02/2026 10:00:00",
+            "isoDate": "2026-02-05",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة الضبط بمحكمة الاستئناف بسطات",
+            "reason": "توزيع دوري / سنوي",
+            "channel": "تلقائي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "3628fbff",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP W2032A (415A) - Imprimante HP Laserjet Pro M454dn - Jaune",
+                    "qty": 4,
+                    "notes": ""
+                },
+                {
+                    "id": "ecc64556",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Kyocera TK-5270K - Imprimante Kyocera ECOSYS P6230cdn - Noir",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "e8bca694",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Kyocera TK-5270M - Imprimante Kyocera ECOSYS P6230cdn - Magenta",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "e1ee6b39",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Kyocera TK-5270C - Imprimante Kyocera ECOSYS P6230cdn - Cyan",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "3c57981e",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CE323A - Imprimante HP Laserjet Pro CP1525N - Magenta",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "81dcc9f1",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Kyocera TK-5270Y - Imprimante Kyocera ECOSYS P6230cdn - Jaune",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "63d6a5cc",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CE320A - Imprimante HP Laserjet Pro CP1525N - Noir",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "e7523590",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP W2030A (415A) - Imprimante HP Laserjet Pro M454dn - Noir",
+                    "qty": 4,
+                    "notes": ""
+                },
+                {
+                    "id": "fb2dff32",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Lexmark 70C8HC0 / 70C20C0 - Imprimante Lexmark CS310n - Cyan",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "e210d965",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP W2031A (415A) - Imprimante HP Laserjet Pro M454dn - Cyan",
+                    "qty": 4,
+                    "notes": ""
+                },
+                {
+                    "id": "df02eb87",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Lexmark 70C8HY0 / 70C20Y0 - Imprimante Lexmark CS310n - Jaune",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "5df4fae2",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CE322A - Imprimante HP Laserjet Pro CP1525N - Jaune",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "960041df",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP W2033A (415A) - Imprimante HP Laserjet Pro M454dn - Magenta",
+                    "qty": 4,
+                    "notes": ""
+                },
+                {
+                    "id": "ed593b5a",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Lexmark 70C8HK0 / 70C20K0 - Imprimante Lexmark CS310n - Noir",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "96f98587",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CE321A - Imprimante HP Laserjet Pro CP1525N - Cyan",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "13a73c51",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Lexmark 70C8HM0 / 70C20M0 - Imprimante Lexmark CS310n - Magenta",
+                    "qty": 10,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-bd9a0063",
+            "operationId": "bd9a0063",
+            "date": "05/02/2026 10:15:00",
+            "isoDate": "2026-02-05",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى محكمة الاستئناف بسطات",
+            "reason": "توزيع دوري / سنوي",
+            "channel": "تلقائي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "b41aaf44",
+                    "category": "طونير طابعات",
+                    "name": "HP CE505A / CE505X (05A / 05X) - Imprimante HP Laserjet P2055 - Noir",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "ecbf1f3c",
+                    "category": "طونير طابعات",
+                    "name": "SAMSUNG MLT-D203S / MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 40,
+                    "notes": ""
+                },
+                {
+                    "id": "63d6a5cc",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CE320A - Imprimante HP Laserjet Pro CP1525N - Noir",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "3c57981e",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CE323A - Imprimante HP Laserjet Pro CP1525N - Magenta",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "5df4fae2",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CE322A - Imprimante HP Laserjet Pro CP1525N - Jaune",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "09aafef4",
+                    "category": "طونير طابعات",
+                    "name": "CANON 052H (2200C002) - Imprimante CANON LBP 214DW - Noir",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "022baf09",
+                    "category": "طونير طابعات",
+                    "name": "Kyocera TK-3100 - Imprimante Kyocera FS 2100 DN - Noir",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "96f98587",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CE321A - Imprimante HP Laserjet Pro CP1525N - Cyan",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-24afc5f0",
+            "operationId": "24afc5f0",
+            "date": "04/02/2026 10:00:00",
+            "isoDate": "2026-02-04",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة الضبط بمحكمة الاستئناف بسطات",
+            "reason": "توزيع دوري / سنوي",
+            "channel": "تلقائي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "583c348a",
+                    "category": "طونير آلات النسخ",
+                    "name": "Sharp A3MX315FT - Photocopieur Sharp MX-315 FT / MX-315 N - Noir",
+                    "qty": 3,
+                    "notes": ""
+                },
+                {
+                    "id": "4d5e81b0",
+                    "category": "طونير فاكس",
+                    "name": "Brother TN-2220 - FAX BROTHER 2840 - Noir",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "7a05dfa0",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH 842125 - Photocopieur Ricoh MP 3055 - Noir",
+                    "qty": 3,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-0e5f55a4",
+            "operationId": "0e5f55a4",
+            "date": "04/02/2026 10:15:00",
+            "isoDate": "2026-02-04",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة الضبط بمحكمة الاستئناف بسطات",
+            "reason": "توزيع دوري / سنوي",
+            "channel": "تلقائي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "09aafef4",
+                    "category": "طونير طابعات",
+                    "name": "CANON 052H (2200C002) - Imprimante CANON LBP 214DW - Noir",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "022baf09",
+                    "category": "طونير طابعات",
+                    "name": "Kyocera TK-3100 - Imprimante Kyocera FS 2100 DN - Noir",
+                    "qty": 10,
+                    "notes": ""
+                },
+                {
+                    "id": "ecbf1f3c",
+                    "category": "طونير طابعات",
+                    "name": "SAMSUNG MLT-D203S / MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 40,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-54d63305",
+            "operationId": "54d63305",
+            "date": "04/02/2026 10:30:00",
+            "isoDate": "2026-02-04",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة النيابة العامة لدى محكمة الاستئناف بسطات",
+            "reason": "توزيع دوري / سنوي",
+            "channel": "تلقائي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 3,
+                    "notes": ""
+                },
+                {
+                    "id": "8eb98f0c",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "RICOH / GESTETNER 842506 - Photocopieur GESTETNER / RICOH IM C3510 - Noir",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "7a05dfa0",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH 842125 - Photocopieur Ricoh MP 3055 - Noir",
+                    "qty": 4,
+                    "notes": ""
+                },
+                {
+                    "id": "583c348a",
+                    "category": "طونير آلات النسخ",
+                    "name": "Sharp A3MX315FT - Photocopieur Sharp MX-315 FT / MX-315 N - Noir",
+                    "qty": 4,
+                    "notes": ""
+                },
+                {
+                    "id": "4d5e81b0",
+                    "category": "طونير فاكس",
+                    "name": "Brother TN-2220 - FAX BROTHER 2840 - Noir",
+                    "qty": 4,
+                    "notes": ""
+                },
+                {
+                    "id": "51bfb225",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "RICOH / GESTETNER 842507 - Photocopieur GESTETNER / RICOH IM C3510 - Jaune",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "8e84dce2",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "RICOH / GESTETNER 842508 - Photocopieur GESTETNER / RICOH IM C3510 - Magenta",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "e215d27a",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "RICOH / GESTETNER 842509 - Photocopieur GESTETNER / RICOH IM C3510 - Cyan",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-90ab6674",
+            "operationId": "90ab6674",
+            "date": "03/02/2026 10:00:00",
+            "isoDate": "2026-02-03",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "محمد نويني",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "2026-02-03",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "7ebc3173",
+                    "category": "أدوات معلوماتية",
+                    "name": "Piles alcalines type AA 1.5V",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "9d583013",
+                    "category": "أدوات معلوماتية",
+                    "name": "Piles alcalines type AAA 1.5V",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-6e4e41ab",
+            "operationId": "6e4e41ab",
+            "date": "02/02/2026 10:00:00",
+            "isoDate": "2026-02-02",
+            "destination": "محكمة الاستئناف بسطات",
+            "recipient": "رئيس كتابة الضبط بمحكمة الاستئناف بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة جزئية (حسب المتوفر)",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "9499210e",
+                    "category": "طونير طابعات",
+                    "name": "HP 151A/151X (W1510A/W1510X) - Imprimante HP LaserJet Pro 4003dn",
+                    "qty": 6,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-48385416",
+            "operationId": "48385416",
+            "date": "02/02/2026 10:15:00",
+            "isoDate": "2026-02-02",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "وكيل الملك لدى المحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "2026-02-02",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "3368de14",
+                    "category": "كابلات",
+                    "name": "Câble RJ11-RJ11 - 5m",
+                    "qty": 1,
+                    "notes": ""
+                },
+                {
+                    "id": "c829d415",
+                    "category": "أدوات معلوماتية",
+                    "name": "Appareil téléphone Fixe analogique - Avec afficheur et main libre",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-b0bcd7ac",
+            "operationId": "b0bcd7ac",
+            "date": "02/02/2026 10:30:00",
+            "isoDate": "2026-02-02",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "المدير الإقليمي للعدل بسطات",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "2026-02-02",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "ed7c0c31",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CF411A - Imprimante HP Laserjet Pro M452dn - Cyan",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-20956850",
+            "operationId": "20956850",
+            "date": "19/01/2026 10:00:00",
+            "isoDate": "2026-01-19",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "5bc80501",
+                    "category": "كابلات",
+                    "name": "Câble VGA HD15 Mâle/Mâle - 1.80m",
+                    "qty": 3,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-a662c75d",
+            "operationId": "a662c75d",
+            "date": "19/01/2026 10:15:00",
+            "isoDate": "2026-01-19",
+            "destination": "المحكمة الابتدائية بسطات",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بسطات",
+            "reason": "بناء على طلب",
+            "channel": "كتاب",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "20e7faa7",
+                    "category": "أدوات معلوماتية",
+                    "name": "Clavier USB MultiMedia - Bilingue Ar/Fr",
+                    "qty": 5,
+                    "notes": ""
+                },
+                {
+                    "id": "d82117fd",
+                    "category": "أدوات معلوماتية",
+                    "name": "Souris USB optique - Filaire",
+                    "qty": 5,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-5dc204cd",
+            "operationId": "5dc204cd",
+            "date": "19/01/2026 10:30:00",
+            "isoDate": "2026-01-19",
+            "destination": "المديرية الإقليمية للعدل بسطات",
+            "recipient": "علي شكري",
+            "reason": "بناء على طلب",
+            "channel": "شفهي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "022baf09",
+                    "category": "طونير طابعات",
+                    "name": "Kyocera TK-3100 - Imprimante Kyocera FS 2100 DN - Noir",
+                    "qty": 1,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-ce651cd2",
+            "operationId": "ce651cd2",
+            "date": "29/12/2025 09:31:34",
+            "isoDate": "2025-12-29",
+            "destination": "المحكمة الابتدائية بابن احمد",
+            "recipient": "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية بابن احمد",
+            "reason": "توزيع دوري / سنوي",
+            "channel": "تلقائي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "7a05dfa0",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH 842125 - Photocopieur Ricoh MP 3055 - Noir",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "583c348a",
+                    "category": "طونير آلات النسخ",
+                    "name": "Sharp A3MX315FT - Photocopieur Sharp MX-315 FT / MX-315 N - Noir",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "4d5e81b0",
+                    "category": "طونير فاكس",
+                    "name": "Brother TN-2220 - FAX BROTHER 2840 - Noir",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "ecbf1f3c",
+                    "category": "طونير طابعات",
+                    "name": "SAMSUNG MLT-D203S / MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 20,
+                    "notes": ""
+                },
+                {
+                    "id": "09aafef4",
+                    "category": "طونير طابعات",
+                    "name": "CANON 052H (2200C002) - Imprimante CANON LBP 214DW - Noir",
+                    "qty": 4,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-16d5b6c6",
+            "operationId": "16d5b6c6",
+            "date": "29/12/2025 10:00:00",
+            "isoDate": "2025-12-29",
+            "destination": "المحكمة الابتدائية بابن احمد",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية بابن احمد",
+            "reason": "توزيع دوري / سنوي",
+            "channel": "تلقائي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "583c348a",
+                    "category": "طونير آلات النسخ",
+                    "name": "Sharp A3MX315FT - Photocopieur Sharp MX-315 FT / MX-315 N - Noir",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "4d5e81b0",
+                    "category": "طونير فاكس",
+                    "name": "Brother TN-2220 - FAX BROTHER 2840 - Noir",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "7a05dfa0",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH 842125 - Photocopieur Ricoh MP 3055 - Noir",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "ecbf1f3c",
+                    "category": "طونير طابعات",
+                    "name": "SAMSUNG MLT-D203S / MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 40,
+                    "notes": ""
+                },
+                {
+                    "id": "09aafef4",
+                    "category": "طونير طابعات",
+                    "name": "CANON 052H (2200C002) - Imprimante CANON LBP 214DW - Noir",
+                    "qty": 4,
+                    "notes": ""
+                },
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-0e56b718",
+            "operationId": "0e56b718",
+            "date": "29/12/2025 10:15:00",
+            "isoDate": "2025-12-29",
+            "destination": "المحكمة الابتدائية ببرشيد",
+            "recipient": "رئيس كتابة النيابة العامة لدى المحكمة الابتدائية ببرشيد",
+            "reason": "توزيع دوري / سنوي",
+            "channel": "تلقائي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "583c348a",
+                    "category": "طونير آلات النسخ",
+                    "name": "Sharp A3MX315FT - Photocopieur Sharp MX-315 FT / MX-315 N - Noir",
+                    "qty": 4,
+                    "notes": ""
+                },
+                {
+                    "id": "ecbf1f3c",
+                    "category": "طونير طابعات",
+                    "name": "SAMSUNG MLT-D203S / MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 20,
+                    "notes": ""
+                },
+                {
+                    "id": "4d5e81b0",
+                    "category": "طونير فاكس",
+                    "name": "Brother TN-2220 - FAX BROTHER 2840 - Noir",
+                    "qty": 2,
+                    "notes": ""
+                },
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 4,
+                    "notes": ""
+                },
+                {
+                    "id": "7a05dfa0",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH 842125 - Photocopieur Ricoh MP 3055 - Noir",
+                    "qty": 4,
+                    "notes": ""
+                }
+            ]
+        },
+        {
+            "id": "CERT-cba065a8",
+            "operationId": "cba065a8",
+            "date": "29/12/2025 10:30:00",
+            "isoDate": "2025-12-29",
+            "destination": "المحكمة الابتدائية ببرشيد",
+            "recipient": "رئيس كتابة الضبط بالمحكمة الابتدائية ببرشيد",
+            "reason": "توزيع دوري / سنوي",
+            "channel": "تلقائي",
+            "status": "استجابة كلية",
+            "orderDate": "",
+            "orderRef": "",
+            "items": [
+                {
+                    "id": "3c01e822",
+                    "category": "طونير طابعات",
+                    "name": "Kyocera TK-3160 - Imprimante Kyocera P3145dn - Noir",
+                    "qty": 6,
+                    "notes": ""
+                },
+                {
+                    "id": "583c348a",
+                    "category": "طونير آلات النسخ",
+                    "name": "Sharp A3MX315FT - Photocopieur Sharp MX-315 FT / MX-315 N - Noir",
+                    "qty": 4,
+                    "notes": ""
+                },
+                {
+                    "id": "ecbf1f3c",
+                    "category": "طونير طابعات",
+                    "name": "SAMSUNG MLT-D203S / MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "qty": 80,
+                    "notes": ""
+                },
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "qty": 8,
+                    "notes": ""
+                },
+                {
+                    "id": "4d5e81b0",
+                    "category": "طونير فاكس",
+                    "name": "Brother TN-2220 - FAX BROTHER 2840 - Noir",
+                    "qty": 2,
+                    "notes": ""
+                }
+            ]
+        }
+    ],
+    "inventories": [
+        {
+            "id": "INV-718015",
+            "isoDate": "2026-09-25",
+            "dateFormatted": "25/09/2026",
+            "title": "جرد بتاريخ 25/09/2026",
+            "notes": "",
+            "createdAt": "2026-09-25T22:18:38.015Z",
+            "comparedToId": null,
+            "comparedToDate": null,
+            "items": [
+                {
+                    "id": "63d6a5cc",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CE320A - Imprimante HP Laserjet Pro CP1525N - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "96f98587",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CE321A - Imprimante HP Laserjet Pro CP1525N - Cyan",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "5df4fae2",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CE322A - Imprimante HP Laserjet Pro CP1525N - Jaune",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "3c57981e",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CE323A - Imprimante HP Laserjet Pro CP1525N - Magenta",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "f9160b13",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CE410A - Imprimante HP Laserjet Pro 300 M351a - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "ef5c7d9d",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CE411A - Imprimante HP Laserjet Pro 300 M351a - Cyan",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "d36f9e33",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CE412A - Imprimante HP Laserjet Pro 300 M351a - Jaune",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "6a1adee9",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CE413A - Imprimante HP Laserjet Pro 300 M351a - Magenta",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "1cb8970b",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CF210A - Imprimante HP Laserjet Pro 200 M251n - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "fcb10e45",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CF211A - Imprimante HP Laserjet Pro 200 M251n - Cyan",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "1c8aee07",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CF212A - Imprimante HP Laserjet Pro 200 M251n - Jaune",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "9a3df9e4",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CF213A - Imprimante HP Laserjet Pro 200 M251n - Magenta",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "a549c289",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CF410A - Imprimante HP Laserjet Pro M452dn - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "ed7c0c31",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CF411A - Imprimante HP Laserjet Pro M452dn - Cyan",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "f12b7795",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CF412A - Imprimante HP Laserjet Pro M452dn - Jaune",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "bdff89ce",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP CF413A - Imprimante HP Laserjet Pro M452dn - Magenta",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "e7523590",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP W2030A (415A) - Imprimante HP Laserjet Pro M454dn - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "e210d965",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP W2031A (415A) - Imprimante HP Laserjet Pro M454dn - Cyan",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "3628fbff",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP W2032A (415A) - Imprimante HP Laserjet Pro M454dn - Jaune",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "960041df",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "HP W2033A (415A) - Imprimante HP Laserjet Pro M454dn - Magenta",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "ed593b5a",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Lexmark 70C8HK0 / 70C20K0 - Imprimante Lexmark CS310n - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "fb2dff32",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Lexmark 70C8HC0 / 70C20C0 - Imprimante Lexmark CS310n - Cyan",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "df02eb87",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Lexmark 70C8HY0 / 70C20Y0 - Imprimante Lexmark CS310n - Jaune",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "13a73c51",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Lexmark 70C8HM0 / 70C20M0 - Imprimante Lexmark CS310n - Magenta",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "ecc64556",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Kyocera TK-5270K - Imprimante Kyocera ECOSYS P6230cdn - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "e1ee6b39",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Kyocera TK-5270C - Imprimante Kyocera ECOSYS P6230cdn - Cyan",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "81dcc9f1",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Kyocera TK-5270Y - Imprimante Kyocera ECOSYS P6230cdn - Jaune",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "e8bca694",
+                    "category": "طونير طابعات بالألوان",
+                    "name": "Kyocera TK-5270M - Imprimante Kyocera ECOSYS P6230cdn - Magenta",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "48017201",
+                    "category": "طونير طابعات",
+                    "name": "SAMSUNG MLT- D205S - Imprimante SAMSUNG ML-3710ND - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "ecbf1f3c",
+                    "category": "طونير طابعات",
+                    "name": "SAMSUNG MLT-D203S / MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "b41aaf44",
+                    "category": "طونير طابعات",
+                    "name": "HP CE505A / CE505X (05A / 05X) - Imprimante HP Laserjet P2055 - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "2c796386",
+                    "category": "طونير طابعات",
+                    "name": "Lexmark 51F5H00 - Imprimante Lexmark MS415 - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "10558f2b",
+                    "category": "طونير طابعات",
+                    "name": "Lexmark A11 E (3500P) - Imprimante Lexmark E260 - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "022baf09",
+                    "category": "طونير طابعات",
+                    "name": "Kyocera TK-3100 - Imprimante Kyocera FS 2100 DN - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "3c01e822",
+                    "category": "طونير طابعات",
+                    "name": "Kyocera TK-3160 - Imprimante Kyocera P3145dn - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "09aafef4",
+                    "category": "طونير طابعات",
+                    "name": "CANON 052H (2200C002) - Imprimante CANON LBP 214DW - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "4c820cc9",
+                    "category": "طونير طابعات",
+                    "name": "CANON 057H (3010C002) - Imprimante CANON LBP 226DW - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "b0938886",
+                    "category": "طونير طابعات",
+                    "name": "MLT-D203L - Imprimante SAMSUNG M3820ND - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "9499210e",
+                    "category": "طونير طابعات",
+                    "name": "HP 151A/151X (W1510A/W1510X) - Imprimante HP LaserJet Pro 4003dn",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "item_1790265058279",
+                    "category": "طونير طابعات",
+                    "name": "TL-5120X - PANTUM BP5200dw - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "a074643e",
+                    "category": "دروم طابعات",
+                    "name": "Drum Lexmark 50F0Z00 - Imprimante Lexmark 500z",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "a02a2469",
+                    "category": "دروم طابعات",
+                    "name": "Drum Lexmark 70C0P00 - Imprimante Lexmark 700P / CS310n",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "48081c79",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "Develop AAV81D0 / TN-328 K - Photocopieur Develop INEO 300i - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "d70bd0ad",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "Develop AAV84D0 / TN-328 C - Photocopieur Develop INEO 300i - Cyan",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "80e6de3d",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "Develop AAV82D0 / TN-328 Y - Photocopieur Develop INEO 300i - Jaune",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "9890d0e9",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "Develop AAV83D0 / TN-328 M - Photocopieur Develop INEO 300i - Magenta",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "8eb98f0c",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "RICOH / GESTETNER 842506 - Photocopieur GESTETNER / RICOH IM C3510 - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "e215d27a",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "RICOH / GESTETNER 842509 - Photocopieur GESTETNER / RICOH IM C3510 - Cyan",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "51bfb225",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "RICOH / GESTETNER 842507 - Photocopieur GESTETNER / RICOH IM C3510 - Jaune",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "8e84dce2",
+                    "category": "طونير آلات النسخ بالألوان",
+                    "name": "RICOH / GESTETNER 842508 - Photocopieur GESTETNER / RICOH IM C3510 - Magenta",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "583c348a",
+                    "category": "طونير آلات النسخ",
+                    "name": "Sharp A3MX315FT - Photocopieur Sharp MX-315 FT / MX-315 N - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "7a05dfa0",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH 842125 - Photocopieur Ricoh MP 3055 - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "127c2855",
+                    "category": "طونير آلات النسخ",
+                    "name": "RICOH / GESTETNER 842135 - Photocopieur RICOH / GESTETNER MP2014H - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "6e9a9c88",
+                    "category": "طونير آلات النسخ",
+                    "name": "CANON C-EXV33 - Photocopieur CANON IR 2525 / IR 2530 - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "9cd39180",
+                    "category": "طونير آلات النسخ",
+                    "name": "Kyocera TK-475 - Photocopieur KYOCERA MFP 6525 / FS-6525 MFP - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "dcb4c5ee",
+                    "category": "طونير آلات النسخ",
+                    "name": "XEROX 106R01306 - Photocopieur XEROX 5222 - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "e807ceef",
+                    "category": "طونير آلات النسخ",
+                    "name": "Develop TN118K - Photocopieur DEVELOP INEO 226 - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "b8512af6",
+                    "category": "طونير آلات النسخ",
+                    "name": "TRIUMPH ADLER 613011010 - Photocopieur TRIUMPH ADLER 256i - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "435c8baa",
+                    "category": "طونير آلات النسخ",
+                    "name": "XEROX 106R02773 - Photocopieur multifonction Xerox WorkCentre 3025 - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "a17598f2",
+                    "category": "طونير آلات النسخ",
+                    "name": "XEROX 006R04399 - Photocopieur multifonction Xerox B225 - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "f69d7080",
+                    "category": "طونير آلات النسخ",
+                    "name": "Kyocera TK-1110 - Photocopieur multifonction Kyocera FS-1120MFP - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "d8d6ac83",
+                    "category": "طونير آلات النسخ",
+                    "name": "BPNT700 - Photocopieur Sharp BP-50M45 - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "4d5e81b0",
+                    "category": "طونير فاكس",
+                    "name": "Brother TN-2220 - FAX BROTHER 2840 - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "9868259e",
+                    "category": "دروم آلات النسخ",
+                    "name": "Drum Sharp - Photocopieur Sharp MX-M315 - Noir",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "20e7faa7",
+                    "category": "أدوات معلوماتية",
+                    "name": "Clavier USB MultiMedia - Bilingue Ar/Fr",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "d82117fd",
+                    "category": "أدوات معلوماتية",
+                    "name": "Souris USB optique - Filaire",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "c829d415",
+                    "category": "أدوات معلوماتية",
+                    "name": "Appareil téléphone Fixe analogique - Avec afficheur et main libre",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "7ebc3173",
+                    "category": "أدوات معلوماتية",
+                    "name": "Piles alcalines type AA 1.5V",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "9d583013",
+                    "category": "أدوات معلوماتية",
+                    "name": "Piles alcalines type AAA 1.5V",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "752c5bf0",
+                    "category": "أدوات معلوماتية",
+                    "name": "Casque - Avec Microphone",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "5c3fcc9d",
+                    "category": "أدوات معلوماتية",
+                    "name": "Webcam - Full HD",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "7e6414af",
+                    "category": "أدوات معلوماتية",
+                    "name": "Souris USB Optique - Sans fil",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "1fb7db24",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 16 Go - 16go",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "20d75281",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 32 Go - 32go",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "8b30d3cd",
+                    "category": "أدوات التخزين",
+                    "name": "Clé USB 64 Go - 64go",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "df30316d",
+                    "category": "أدوات التخزين",
+                    "name": "DVD ROM 4.7 GO vierge - Avec pochette",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "1ed888fc",
+                    "category": "أدوات التخزين",
+                    "name": "CD-ROM 700 MB vierge - Avec pochette",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "ef97c2ec",
+                    "category": "كابلات",
+                    "name": "Câble USB pour imprimante - 1.8m",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "b802776a",
+                    "category": "كابلات",
+                    "name": "Câble réseau RJ45 Cat 6 (UTP / F-UTP) - 5m",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "5bc80501",
+                    "category": "كابلات",
+                    "name": "Câble VGA HD15 Mâle/Mâle - 1.80m",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "ac0a1f7d",
+                    "category": "كابلات",
+                    "name": "Câble HDMI - 5m",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "d92caf8b",
+                    "category": "كابلات",
+                    "name": "Câble HDMI - 10m",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "db9c356e",
+                    "category": "كابلات",
+                    "name": "Câble RJ9-RJ9 spiralé mâle - 2m",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                },
+                {
+                    "id": "3368de14",
+                    "category": "كابلات",
+                    "name": "Câble RJ11-RJ11 - 5m",
+                    "prevQty": null,
+                    "actualQty": 0,
+                    "condition": "جيدة",
+                    "notes": ""
+                }
+            ]
+        }
+    ],
+    "savedNotes": [
+        "حصة شهرية عادية",
+        "بناء على طلب المصلحة",
+        "تعويض طونير فارغ",
+        "تسليم فوري للاستعمال الإداري",
+        "حصة إضافية"
+    ],
+    "uiState": {
+        "itemsPerPage": 10,
+        "isArchiveGroupedByMonth": false,
+        "orderAccordionOpen": false,
+        "kpiOrder": [
+            "kpi-ops",
+            "kpi-items",
+            "kpi-month",
+            "kpi-dests",
+            "kpi-satisfaction",
+            "kpi-ondemand"
+        ],
+        "kpiHidden": [],
+        "chartOrder": [
+            "chart-dests",
+            "chart-items",
+            "chart-cats",
+            "chart-months"
+        ],
+        "chartHidden": [],
+        "invThresholds": {
+            "critical": 30,
+            "limited": 100,
+            "available": 200
+        },
+        "officialHeader": {
+            "ministry": "المملكة المغربية - وزارة العدل",
+            "directorate": "المديرية الإقليمية للعدل بسطات",
+            "amazigh": "ⵜⴰⴳⵍⴷⵉⵜ ⵏ ⵍⵎⵖⵔⵉⴱ\nⵜⴰⵎⴰⵡⴰⵙⵜ ⵏ ⵜⵣⵔⴼⵜ",
+            "enableAnnualSerial": false
+        },
+        "tabTitles": {
+            "issuance": "📝 إصدار إشهادات التسليم",
+            "history": "📚 سجل العمليات والأرشيف",
+            "inventory": "📋 الجرد الدوري (Inventaire)",
+            "analytics": "📊 الإحصائيات والتقارير"
+        },
+        "visibleTabs": {
+            "issuance": true,
+            "history": true,
+            "inventory": true,
+            "analytics": true
+        },
+        "certPrintConfig": {
+            "title": "إشـهـاد",
+            "bodyIntro": "بتاريخ {date} ، أشهد أنا الموقع (ة) أسفله، السيد (ة) {recipient}، أنني تسلمت المواد والمعدات المبينة أسفله:",
+            "recipientRoleLabel": "المستلم:",
+            "deliveryOfficerLabel": "المسؤول عن التسليم:",
+            "sigRecipientTitle": "توقيع وتأشيرات المستلم",
+            "enableSecondSignature": false,
+            "sigSecondTitle": "توقيع وخاتم أمين المستودع",
+            "colItemTitle": "بيان المادة والمواصفات",
+            "colQtyTitle": "الكمية",
+            "colNotesTitle": "الملاحظات",
+            "showColNotes": true,
+            "enableHeaderNote": false,
+            "headerNoteText": "",
+            "enableFooterNote": false,
+            "footerNoteText": ""
+        },
+        "orderRouting": {
+            "channels": [
+                "كتاب",
+                "إرسالية",
+                "هاتف مباشر",
+                "شفهي",
+                "أخرى"
+            ],
+            "reasons": [
+                "بناءً على طلب",
+                "توزيع دوري / سنوي",
+                "حصة إضافية / استثنائية",
+                "تعويض عطب فني",
+                "استعجالي",
+                "تجهيز مكتب أو مصلحة",
+                "أخرى"
+            ],
+            "statuses": [
+                "استجابة كلية",
+                "استجابة جزئية (حسب المتوفر)",
+                "تسليم فوري",
+                "دفعة أولى (في انتظار الباقي)",
+                "تعويض مؤقت",
+                "أخرى"
+            ],
+            "recipientTypes": [
+                "موظف / مستفيد فردي",
+                "مصلحة أو قسم",
+                "محكمة أو مركز قضائي",
+                "وحدة إدارية أو مكتب",
+                "أخرى"
+            ],
+            "roles": [
+                "المستلم",
+                "المسلم",
+                "المسؤول عن المخزون",
+                "القائم بالجرد",
+                "رئيس المصلحة"
+            ]
+        },
+        "footerConfig": {
+            "enableUiFooter": false,
+            "enablePrintCertFooter": false,
+            "enablePrintInvFooter": false,
+            "footerText": "المنظومة الرقمية لتدبير المخزون وإصدار إشهادات التسليم",
+            "includeProjectInfo": false,
+            "includeContactInfo": false,
+            "includeVersion": true
+        },
+        "projectMeta": {
+            "ownerName": "محمد أيت حمادي",
+            "projectName": "المنظومة الرقمية لتدبير المخزون وإصدار إشهادات التسليم",
+            "creatorEntity": "المديرية الإقليمية للعدل بسطات",
+            "contactEmail": "",
+            "contactPhone": "",
+            "preferredContact": "البريد الإلكتروني",
+            "creationDate": "شتنبر 2026",
+            "firstReleaseDate": "2026-09-21",
+            "versionNumber": "2.5 Enterprise",
+            "lastUpdateDate": "2026-09-27",
+            "projectDescription": "منظومة إدارية مستقلة لتدبير المخزون وتتبع التوزيع وإصدار إشهادات التسليم الرسمية وإجراء الجرد الدوري وتحليل مؤشرات النشاط.",
+            "showInAbout": true,
+            "showInFooter": false,
+            "showInPrintCert": false
+        },
+        "settingsAuditLog": [
+            {
+                "time": "2026-10-07 10:22",
+                "action": "إنشاء وتنزيل نسخة احتياطية شاملة لكافة البيانات (JSON)"
+            },
+            {
+                "time": "2026-10-07 10:22",
+                "action": "تصدير ملف تهيئة الإعدادات (JSON)"
+            }
+        ],
+        "lastAnnualSerialTracker": {
+            "2026": 3
+        },
+        "lastFullBackupDate": "2026-10-07T10:22:36.280Z",
+        "archiveGroupingMode": "month"
+    }
+}

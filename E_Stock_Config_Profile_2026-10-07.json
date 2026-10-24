@@ -1,0 +1,117 @@
+{
+    "appIdentifier": "E_STOCK_JUSTICE_PROFILE",
+    "profileVersion": "2.5",
+    "exportedAt": "2026-10-07T10:22:12.113Z",
+    "officialHeader": {
+        "ministry": "المملكة المغربية - وزارة العدل",
+        "directorate": "المديرية الإقليمية للعدل بسطات",
+        "amazigh": "ⵜⴰⴳⵍⴷⵉⵜ ⵏ ⵍⵎⵖⵔⵉⴱ\nⵜⴰⵎⴰⵡⴰⵙⵜ ⵏ ⵜⵣⵔⴼⵜ",
+        "enableAnnualSerial": false
+    },
+    "projectMeta": {
+        "ownerName": "محمد أيت حمادي",
+        "projectName": "المنظومة الرقمية لتدبير المخزون وإصدار إشهادات التسليم",
+        "creatorEntity": "المديرية الإقليمية للعدل بسطات",
+        "contactEmail": "",
+        "contactPhone": "",
+        "preferredContact": "البريد الإلكتروني",
+        "creationDate": "شتنبر 2026",
+        "firstReleaseDate": "2026-09-21",
+        "versionNumber": "2.5 Enterprise",
+        "lastUpdateDate": "2026-09-27",
+        "projectDescription": "منظومة إدارية مستقلة لتدبير المخزون وتتبع التوزيع وإصدار إشهادات التسليم الرسمية وإجراء الجرد الدوري وتحليل مؤشرات النشاط.",
+        "showInAbout": true,
+        "showInFooter": false,
+        "showInPrintCert": false
+    },
+    "footerConfig": {
+        "enableUiFooter": false,
+        "enablePrintCertFooter": false,
+        "enablePrintInvFooter": false,
+        "footerText": "المنظومة الرقمية لتدبير المخزون وإصدار إشهادات التسليم",
+        "includeProjectInfo": false,
+        "includeContactInfo": false,
+        "includeVersion": true
+    },
+    "certPrintConfig": {
+        "title": "إشـهـاد",
+        "bodyIntro": "بتاريخ {date} ، أشهد أنا الموقع (ة) أسفله، السيد (ة) {recipient}، أنني تسلمت المواد والمعدات المبينة أسفله:",
+        "recipientRoleLabel": "المستلم:",
+        "deliveryOfficerLabel": "المسؤول عن التسليم:",
+        "sigRecipientTitle": "توقيع وتأشيرات المستلم",
+        "enableSecondSignature": false,
+        "sigSecondTitle": "توقيع وخاتم أمين المستودع",
+        "colItemTitle": "بيان المادة والمواصفات",
+        "colQtyTitle": "الكمية",
+        "colNotesTitle": "الملاحظات",
+        "showColNotes": true,
+        "enableHeaderNote": false,
+        "headerNoteText": "",
+        "enableFooterNote": false,
+        "footerNoteText": ""
+    },
+    "tabTitles": {
+        "issuance": "📝 إصدار إشهادات التسليم",
+        "history": "📚 سجل العمليات والأرشيف",
+        "inventory": "📋 الجرد الدوري (Inventaire)",
+        "analytics": "📊 الإحصائيات والتقارير"
+    },
+    "visibleTabs": {
+        "issuance": true,
+        "history": true,
+        "inventory": true,
+        "analytics": true
+    },
+    "orderRouting": {
+        "channels": [
+            "كتاب",
+            "إرسالية",
+            "هاتف مباشر",
+            "شفهي",
+            "أخرى"
+        ],
+        "reasons": [
+            "بناءً على طلب",
+            "توزيع دوري / سنوي",
+            "حصة إضافية / استثنائية",
+            "تعويض عطب فني",
+            "استعجالي",
+            "تجهيز مكتب أو مصلحة",
+            "أخرى"
+        ],
+        "statuses": [
+            "استجابة كلية",
+            "استجابة جزئية (حسب المتوفر)",
+            "تسليم فوري",
+            "دفعة أولى (في انتظار الباقي)",
+            "تعويض مؤقت",
+            "أخرى"
+        ],
+        "recipientTypes": [
+            "موظف / مستفيد فردي",
+            "مصلحة أو قسم",
+            "محكمة أو مركز قضائي",
+            "وحدة إدارية أو مكتب",
+            "أخرى"
+        ],
+        "roles": [
+            "المستلم",
+            "المسلم",
+            "المسؤول عن المخزون",
+            "القائم بالجرد",
+            "رئيس المصلحة"
+        ]
+    },
+    "invThresholds": {
+        "critical": 30,
+        "limited": 100,
+        "available": 200
+    },
+    "savedNotesPresets": [
+        "حصة شهرية عادية",
+        "بناء على طلب المصلحة",
+        "تعويض طونير فارغ",
+        "تسليم فوري للاستعمال الإداري",
+        "حصة إضافية"
+    ]
+}
