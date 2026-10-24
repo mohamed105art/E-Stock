@@ -4,6 +4,20 @@
 <head>
 <script>
 (function() {
+  try {
+    var _lsTest = window.localStorage.getItem('theme');
+  } catch (err) {
+    var _memStore = {};
+    Object.defineProperty(window, 'localStorage', {
+      value: {
+        getItem: function(k) { return Object.prototype.hasOwnProperty.call(_memStore, k) ? _memStore[k] : null; },
+        setItem: function(k, v) { _memStore[k] = String(v); },
+        removeItem: function(k) { delete _memStore[k]; },
+        clear: function() { _memStore = {}; }
+      },
+      configurable: true
+    });
+  }
   var t = localStorage.getItem('theme') || localStorage.getItem('theme_preference') || 'dark';
   document.documentElement.setAttribute('data-theme', t);
   document.addEventListener('DOMContentLoaded', function() {
@@ -4208,6 +4222,294 @@
             }
         }
 
+    
+        /* ============================================================================
+           V84.5 DEFINITIVE ARCHITECTURAL & RESPONSIVE OVERHAUL
+           1. Strict Viewport Containment (2-4px Safety Margin, Zero Left Overflow)
+           2. Page 1 Vertical Form Stack & Harmonized Final Action Bar
+           3. Page 2 Reordered Table & Smooth Horizontal Scroll
+           4. Page 3 Pure Vertical Inventory Controls
+           5. Page 4 Colored KPI Cards & Compact Line-Icon Chart Controls
+           6. Universal Line-Icon-Only Mobile Buttons (.icon-only-mobile)
+           ============================================================================ */
+
+        /* 1. Strict Global Viewport & Container Containment */
+        .app-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 16px 14px 36px 14px !important;
+            box-sizing: border-box !important;
+            overflow-x: hidden !important;
+        }
+
+        .tab-panel-view,
+        .form-panel,
+        .preview-panel,
+        .history-section,
+        .settings-card,
+        .recent-ops-bar {
+            width: calc(100% - 4px) !important;
+            max-width: calc(100% - 4px) !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            box-sizing: border-box !important;
+            border-radius: var(--radius-lg, 14px) !important;
+        }
+
+        /* 2. Page 1 (#issuance-view): Single Vertical Column Stack & 100% Uniform Fields */
+        #issuance-view .main-layout,
+        .main-layout.issuance-vertical-stack {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 18px !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            align-items: stretch !important;
+        }
+
+        .issuance-vertical-fields {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 14px !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        .issuance-vertical-fields > .form-group,
+        .issuance-vertical-fields > div {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin-bottom: 0 !important;
+        }
+
+        .issuance-vertical-fields .form-control,
+        #issuance-view .form-control,
+        #inventory-view .form-control {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        #btn-continue-to-items:disabled {
+            opacity: 0.5 !important;
+            cursor: not-allowed !important;
+            background: var(--bg-subtle) !important;
+            color: var(--text-muted) !important;
+            border: 1px dashed var(--border-strong) !important;
+            box-shadow: none !important;
+        }
+
+        /* Final Certificate Action Bar: Harmonized Horizontal Row */
+        .final-cert-actions-bar {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            gap: 8px !important;
+            flex-wrap: wrap !important;
+            padding-top: 16px !important;
+            margin-top: 16px !important;
+            border-top: 1px solid var(--border-subtle) !important;
+            width: 100% !important;
+        }
+
+        .final-cert-actions-bar > .btn {
+            flex: 1 1 auto !important;
+            min-height: 40px !important;
+            height: 40px !important;
+            padding: 0 12px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 6px !important;
+            font-size: 12.5px !important;
+            font-weight: 700 !important;
+            border-radius: 8px !important;
+            white-space: nowrap !important;
+        }
+
+        #btn-clear-cart {
+            background: rgba(239, 68, 68, 0.14) !important;
+            color: #ef4444 !important;
+            border: 1.5px solid rgba(239, 68, 68, 0.45) !important;
+        }
+        #btn-clear-cart:hover {
+            background: #ef4444 !important;
+            color: #ffffff !important;
+            border-color: #ef4444 !important;
+        }
+
+        /* 3. Page 2 (#history-view): Smooth Horizontal Table Scroll */
+        #history-view .table-responsive,
+        #inventory-view .table-responsive,
+        #issuance-view .table-responsive {
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+            border-radius: 8px !important;
+        }
+
+        #history-view .data-table {
+            min-width: 720px !important;
+        }
+
+        /* 4. Page 3 (#inventory-view): Pure Vertical Form & Filter Layout */
+        #new-inventory-creator-box > div[style*="grid"] {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 12px !important;
+            align-items: stretch !important;
+        }
+        #new-inventory-creator-box > div[style*="grid"] > div {
+            width: 100% !important;
+        }
+
+        /* 5. Page 4 (#analytics-view): Distinct Colored KPI Cards & Matching Numbers */
+        #kpi-card-ops {
+            border: 1.5px solid #3b82f6 !important;
+            border-top: 4px solid #3b82f6 !important;
+            background: linear-gradient(180deg, rgba(59, 130, 246, 0.08) 0%, var(--bg-card) 100%) !important;
+        }
+        #kpi-card-ops .val { color: #3b82f6 !important; }
+
+        #kpi-card-items {
+            border: 1.5px solid #10b981 !important;
+            border-top: 4px solid #10b981 !important;
+            background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, var(--bg-card) 100%) !important;
+        }
+        #kpi-card-items .val { color: #10b981 !important; }
+
+        #kpi-card-month {
+            border: 1.5px solid #f59e0b !important;
+            border-top: 4px solid #f59e0b !important;
+            background: linear-gradient(180deg, rgba(245, 158, 11, 0.08) 0%, var(--bg-card) 100%) !important;
+        }
+        #kpi-card-month .val { color: #f59e0b !important; }
+
+        #kpi-card-dests {
+            border: 1.5px solid #8b5cf6 !important;
+            border-top: 4px solid #8b5cf6 !important;
+            background: linear-gradient(180deg, rgba(139, 92, 246, 0.08) 0%, var(--bg-card) 100%) !important;
+        }
+        #kpi-card-dests .val { color: #8b5cf6 !important; }
+
+        #kpi-card-satisfaction {
+            border: 1.5px solid #06b6d4 !important;
+            border-top: 4px solid #06b6d4 !important;
+            background: linear-gradient(180deg, rgba(6, 182, 212, 0.08) 0%, var(--bg-card) 100%) !important;
+        }
+        #kpi-card-satisfaction .val { color: #06b6d4 !important; }
+
+        #kpi-card-ondemand {
+            border: 1.5px solid #ec4899 !important;
+            border-top: 4px solid #ec4899 !important;
+            background: linear-gradient(180deg, rgba(236, 72, 153, 0.08) 0%, var(--bg-card) 100%) !important;
+        }
+        #kpi-card-ondemand .val { color: #ec4899 !important; }
+
+        /* Active state for compact chart mode & top limit icon buttons */
+        .action-icon-btn.active-chart-mode,
+        .action-icon-btn.active-top-btn {
+            background: var(--primary) !important;
+            color: #ffffff !important;
+            border-color: var(--primary) !important;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.35) !important;
+        }
+
+        /* 6. Mobile & Small Screen Icon-Only Buttons & Zero Horizontal Overflow */
+        @media (max-width: 768px) {
+            #app-main,
+            .app-main,
+            #app-sidebar ~ #app-main {
+                margin-right: 64px !important;
+                margin-inline-start: 64px !important;
+                width: calc(100% - 64px) !important;
+                max-width: calc(100% - 64px) !important;
+                padding-left: 2px !important;
+                padding-right: 2px !important;
+                box-sizing: border-box !important;
+                overflow-x: hidden !important;
+            }
+
+            .app-container {
+                padding: 10px 6px 32px 6px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .form-panel,
+            .preview-panel,
+            .history-section,
+            .settings-card,
+            .recent-ops-bar {
+                width: calc(100% - 4px) !important;
+                max-width: calc(100% - 4px) !important;
+                padding: 14px 10px !important;
+                border-radius: 12px !important;
+            }
+
+            /* Convert designated buttons to pure line-icons on mobile */
+            .icon-only-mobile .btn-responsive-text {
+                display: none !important;
+            }
+            .icon-only-mobile {
+                min-width: 38px !important;
+                width: auto !important;
+                padding: 0 10px !important;
+                justify-content: center !important;
+            }
+            .final-cert-actions-bar {
+                flex-wrap: nowrap !important;
+                gap: 6px !important;
+            }
+            .final-cert-actions-bar > .btn {
+                flex: 1 1 0 !important;
+                min-width: 40px !important;
+                padding: 0 !important;
+            }
+            #bi-charts-grid-container {
+                grid-template-columns: minmax(0, 1fr) !important;
+            }
+            .stats-dashboard {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 10px !important;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .stats-dashboard {
+                grid-template-columns: minmax(0, 1fr) !important;
+            }
+        }
+
+    
+        /* Explicit Light Mode Override after Dark Mode rules */
+        html[data-theme="light"],
+        html[data-theme="light"] body,
+        body[data-theme="light"]:not(.dark-mode) {
+            --bg-app: #f4f7fb !important;
+            --bg-body: #f4f7fb !important;
+            --bg-sidebar: #ffffff !important;
+            --bg-header: rgba(255, 255, 255, 0.94) !important;
+            --bg-surface: #ffffff !important;
+            --bg-card: #ffffff !important;
+            --bg-card-hover: #f1f5f9 !important;
+            --bg-muted: #f8fafc !important;
+            --bg-subtle: #f8fafc !important;
+            --text-main: #0f172a !important;
+            --text-secondary: #334155 !important;
+            --text-muted: #64748b !important;
+            --border-subtle: #cbd5e1 !important;
+            --border-color: #cbd5e1 !important;
+            --border-strong: #94a3b8 !important;
+            --primary: #1d4ed8 !important;
+            --primary-hover: #1e40af !important;
+            --primary-soft: rgba(29, 78, 216, 0.1) !important;
+            background-color: #f4f7fb !important;
+            color: #0f172a !important;
+        }
+
     </style>
     <!-- Firebase App, Authentication & Cloud Firestore SDKs (CDN) -->
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -4359,31 +4661,35 @@
 <button class="btn btn-secondary btn-sm" onclick="cancelEditTransactionMode()">✖ إلغاء التعديل</button>
 </div>
 </div>
-<div class="main-layout">
-<div class="form-panel">
+<div class="main-layout issuance-vertical-stack">
+<div class="form-panel" id="issuance-step-1-panel">
 <h2 class="section-title">
-<span>بيانات مستلم ومستفيد المواد</span>
+<span>1. بيانات مستلم ومستفيد المواد</span>
 <div style="display:inline-flex; align-items:center; gap:6px;">
-<button class="btn btn-secondary btn-sm" onclick="saveCurrentAsTemplate()" title="حفظ التشكيلة الحالية كقالب سريع">⭐ حفظ كقالب</button>
+<button class="btn btn-secondary btn-sm icon-only-mobile" id="btn-save-as-template" onclick="saveCurrentAsTemplate()" title="حفظ التشكيلة الحالية كقالب سريع" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+<span class="btn-responsive-text">حفظ كقالب</span>
+</button>
 <div id="quick-templates-dropdown-container" style="display:none; align-items:center; gap:4px;">
-<select class="form-control" id="quick-templates-select" onchange="handleTemplateSelectChange(this.value)" style="font-size:12px; padding:3px 8px; max-width:180px;">
+<select class="form-control" id="quick-templates-select" onchange="handleTemplateSelectChange(this.value)" style="font-size:12px; padding:3px 8px; max-width:170px;">
 <option value="">-- اختر قالباً محفوظاً --</option>
 </select>
-<button class="btn btn-danger btn-sm" id="btn-delete-selected-template" onclick="deleteSelectedTemplateFromDropdown()" style="padding:2px 7px; font-size:11px;" title="حذف القالب المحدد" type="button">🗑️</button>
+<button class="btn btn-danger btn-sm action-icon-btn" id="btn-delete-selected-template" onclick="deleteSelectedTemplateFromDropdown()" style="padding:2px 7px; font-size:11px;" title="حذف القالب المحدد" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+</button>
 </div>
 </div>
 </h2>
 <!-- شريط القوالب السريعة إن وجدت -->
 <div class="template-chips" id="templates-bar" style="display:none;"></div>
-<div class="flex-row" style="margin-bottom: 16px;">
-<div class="form-group" style="flex: 2;">
+<div class="issuance-vertical-fields">
+<div class="form-group">
 <label for="cert-date-input">تاريخ الإشهاد (إمكانية التعديل):</label>
 <input class="form-control" id="cert-date-input" onchange="markDataUnsaved()" type="date"/>
 </div>
-<div class="form-group" style="flex: 1;">
+<div class="form-group">
 <label for="cert-time-input">التوقيت (اختياري):</label>
 <input class="form-control" id="cert-time-input" onchange="markDataUnsaved()" step="1" type="time"/>
-</div>
 </div>
 <div class="form-group">
 <label for="dest-select">الوجهة المستفيدة (المحكمة / المركز):</label>
@@ -4393,24 +4699,27 @@
 </div>
 <div class="form-group">
 <label for="recipient-select">المستلم:</label>
-<div class="flex-row">
 <select class="form-control" id="recipient-select" onchange="updateRecipientLabel(); markDataUnsaved();">
 <option value="">-- اختر المستلم --</option>
 </select>
-</div>
 <div class="checkbox-container">
 <input id="custom-recipient-toggle" onchange="toggleCustomRecipient(); markDataUnsaved();" type="checkbox"/>
 <label for="custom-recipient-toggle">كتابة مستلم غير مدرج بالقائمة</label>
 </div>
 <input class="form-control" id="custom-recipient-input" oninput="updateRecipientLabel(); markDataUnsaved();" placeholder="اكتب اسم المستلم وصفته..." style="display:none; margin-top:10px;" type="text"/>
 </div>
-<!-- حاوية التتبع الإحصائي المطوية والذكية -->
-<div class="advanced-accordion">
-<div class="accordion-header" onclick="toggleOrderAccordion()">
-<span>📊 تفاصيل ومسار الطلب (اختياري للإحصاء وتتبع الأداء)</span>
-<span id="accordion-arrow">▼</span>
 </div>
-<div class="accordion-content" id="accordion-body">
+<!-- حاوية التتبع الإحصائي المطوية والذكية (مطوية افتراضياً) -->
+<div class="advanced-accordion" style="margin-top:8px;">
+<div class="accordion-header" onclick="toggleOrderAccordion()">
+<span style="display:inline-flex; align-items:center; gap:6px;">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+<span>تفاصيل ومسار الطلب (اختياري للإحصاء وتتبع الأداء)</span>
+</span>
+<span id="accordion-arrow" style="display:inline-flex; align-items:center; transition:transform 0.2s ease;">▼</span>
+</div>
+<div class="accordion-content" id="accordion-body" style="display:none;">
+<div class="issuance-vertical-fields">
 <div class="form-group">
 <label for="order-reason-select">سبب ونوع التوزيع:</label>
 <select class="form-control" id="order-reason-select" onchange="markDataUnsaved()">
@@ -4423,7 +4732,6 @@
 <option value="أخرى">أخرى</option>
 </select>
 </div>
-<div class="flex-row">
 <div class="form-group">
 <label for="order-channel-select">شكل / قناة التوصل بالطلب:</label>
 <select class="form-control" id="order-channel-select" onchange="markDataUnsaved()">
@@ -4445,8 +4753,6 @@
 <option value="أخرى">أخرى</option>
 </select>
 </div>
-</div>
-<div class="flex-row" style="margin-top:10px;">
 <div class="form-group">
 <label for="order-date-input">تاريخ الطلب:</label>
 <input class="form-control" id="order-date-input" onchange="markDataUnsaved()" type="date"/>
@@ -4458,23 +4764,35 @@
 </div>
 </div>
 </div>
-<h2 class="section-title" style="margin-top: 22px;">إضافة المواد للإشهاد</h2>
+<!-- زر المتابعة لقسم إضافة المواد (معطل حتى يتم اختيار الوجهة والمستلم) -->
+<button class="btn btn-primary" disabled id="btn-continue-to-items" onclick="revealIssuanceStep2(true)" style="width:100%; margin-top:10px; font-weight:700;" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+<span id="btn-continue-to-items-text">اختر الوجهة والمستلم للمتابعة لإضافة المواد</span>
+</button>
+
+<!-- القسم الثاني: إضافة المواد للإشهاد (يظهر بعد تحديد الوجهة والمستلم) -->
+<div id="issuance-step-2-box" style="display:none; margin-top:22px; padding-top:18px; border-top:2px dashed var(--border-subtle);">
+<h2 class="section-title" style="margin-top:0;">
+<span>2. إضافة المواد للإشهاد</span>
+<span id="step-2-active-badge" style="font-size:11.5px; color:var(--success); font-weight:700;">جاهز لإدراج المواد</span>
+</h2>
+<div class="issuance-vertical-fields">
 <div class="form-group">
-<label for="category-select">تصفية حسب الصنف:</label>
+<label for="category-select">تصفية حسب الصنف (<span id="lbl-category-count">11</span>):</label>
 <select class="form-control" id="category-select" onchange="handleCategoryChange()">
 <option value="">-- كل الأصناف --</option>
 </select>
 </div>
 <div class="form-group">
-<label for="item-search">المادة :</label>
-<div style="position: relative;">
+<label for="item-search">المادة (<span id="lbl-items-count">66</span>):</label>
+<div style="position: relative; width: 100%;">
 <input autocomplete="off" class="form-control" id="item-search" onclick="showSuggestions()" onfocus="showSuggestions()" oninput="searchItems(this.value)" placeholder="انقر هنا لفتح القائمة المنسدلة أو ابدأ الكتابة للبحث..." type="text"/>
 <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #64748b; pointer-events: none; font-size: 11px;">▼</span>
 </div>
 <div class="suggestions-box" id="suggestions-box"></div>
 <!-- تلميح استرشادي صامت لحالة المادة في الأرشيف والجرد -->
 <div id="item-selection-hint" style="display:none; font-size:12px; color:var(--text-muted); background:var(--bg-subtle); padding:6px 12px; border-radius:6px; border:1px dashed var(--border-color); margin-top:6px; line-height:1.6;">
-                            ℹ️ <span id="item-selection-hint-text">—</span>
+<span id="item-selection-hint-text">—</span>
 </div>
 <div class="checkbox-container">
 <input id="custom-item-toggle" onchange="toggleCustomItemMode()" type="checkbox"/>
@@ -4491,30 +4809,37 @@
 <input class="form-control" id="custom-item-name" placeholder="اكتب اسم القطعة أو المادة بدقة..." type="text"/>
 </div>
 </div>
-<div class="flex-row" style="margin-top:10px; align-items:flex-start;">
-<div class="form-group" style="flex: 1;">
+<div class="form-group">
 <label for="item-qty">الكمية / العدد:</label>
 <input class="form-control" id="item-qty" min="1" type="number" value="1"/>
 </div>
-<div class="form-group" style="flex: 2.2;">
+<div class="form-group">
 <label for="item-notes">الملاحظات (يدوية أو جاهزة):</label>
 <input class="form-control" id="item-notes" placeholder="اكتب ملاحظة أو اختر من القائمة أسفله..." type="text"/>
-<div class="saved-notes-bar">
-<select class="form-control" id="saved-notes-select" onchange="applySavedNoteToInput(this.value)" style="padding:4px 8px; font-size:12px;">
-<option value="">-- 📌 اختر ملاحظة جاهزة --</option>
+<div class="saved-notes-bar" style="width:100%;">
+<select class="form-control" id="saved-notes-select" onchange="applySavedNoteToInput(this.value)" style="padding:4px 8px; font-size:12px; flex:1; min-width:0;">
+<option value="">-- اختر ملاحظة جاهزة --</option>
 </select>
-<button class="btn btn-secondary btn-sm" onclick="saveCurrentNotePreset()" title="حفظ النص الحالي كملاحظة جاهزة" type="button">➕</button>
-<button class="btn btn-danger btn-sm" onclick="deleteSelectedNotePreset()" title="حذف الملاحظة الجاهزة المحددة" type="button">🗑️</button>
+<button class="btn btn-secondary btn-sm action-icon-btn" onclick="saveCurrentNotePreset()" title="حفظ النص الحالي كملاحظة جاهزة" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+</button>
+<button class="btn btn-danger btn-sm action-icon-btn" onclick="deleteSelectedNotePreset()" title="حذف الملاحظة الجاهزة المحددة" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+</button>
 </div>
 </div>
 </div>
-<button class="btn btn-primary" onclick="addItemToCertificate()" style="width: 100%; margin-top: 18px;">
-                        ➕ إضافة المادة إلى القائمة المؤقتة
-                    </button>
+<button class="btn btn-primary" onclick="addItemToCertificate()" style="width: 100%; margin-top: 14px; font-weight:700;" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+<span>إضافة المادة إلى القائمة المؤقتة</span>
+</button>
 </div>
-<div class="preview-panel">
+</div>
+
+<!-- القسم الثالث: القائمة المؤقتة وملخص الإشهاد الحالي -->
+<div class="preview-panel" id="issuance-step-3-preview">
 <h2 class="section-title">
-<span>تفاصيل الإشهاد الحالي (المعاينة والتعديل الفوري)</span>
+<span>3. القائمة المؤقتة وملخص الإشهاد الحالي</span>
 <span id="draft-total-badge" style="font-size:12px; background:rgba(15,76,129,0.1); padding:4px 10px; border-radius:20px;">0 مواد | 0 قطع</span>
 </h2>
 <div class="preview-info-card">
@@ -4522,7 +4847,7 @@
 <strong>الوجهة المحددة:</strong> <span id="lbl-dest">—</span><br/>
 <strong>المستلم:</strong> <span id="lbl-recipient">—</span>
 </div>
-<div id="lbl-date-preview" style="font-size:12px; color:var(--text-muted);">💡 يمكنك تعديل الكمية أو الملاحظات مباشرة داخل الجدول قبل الحفظ أو الطباعة</div>
+<div id="lbl-date-preview" style="font-size:12px; color:var(--text-muted);">لتعديل أي مادة مدرجة، اضغط على زر التعديل بجانبها لإعادتها لقسم الإدخال</div>
 </div>
 <div class="table-responsive">
 <table class="data-table" id="current-items-table">
@@ -4530,34 +4855,43 @@
 <tr>
 <th>بيان المادة والمواصفات</th>
 <th style="width: 85px; text-align: center;">الكمية</th>
-<th style="width: 32%;">الملاحظات (قابلة للتعديل)</th>
-<th style="width: 65px; text-align: center;">إجراء</th>
+<th style="width: 32%;">الملاحظات</th>
+<th style="width: 88px; text-align: center;">إجراء</th>
 </tr>
 </thead>
 <tbody id="current-items-body">
 <tr>
-<td colspan="4" style="text-align: center; padding: 40px 16px;">
+<td colspan="4" style="text-align: center; padding: 36px 16px;">
     <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
-        <div style="font-size: 34px;">📦</div>
-        <div style="font-weight: 700; color: var(--text-main); font-size: 14.5px;">لا توجد مواد في الإشهاد الحالي</div>
-        <div style="font-size: 12.5px; color: var(--text-muted); max-width: 320px; line-height: 1.6;">ابدأ باختيار مادة من القائمة وتحديد الكمية ثم اضغط على «إضافة المادة»</div>
-        <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('item-search').focus();" style="margin-top: 8px; font-size: 12px; padding: 4px 12px;">➕ اختيار مادة الآن</button>
+        <div style="font-weight: 700; color: var(--text-main); font-size: 14px;">لا توجد مواد مدرجة في الإشهاد الحالي</div>
+        <div style="font-size: 12px; color: var(--text-muted); max-width: 320px; line-height: 1.6;">حدد الوجهة والمستلم أولاً ثم أضف المواد المطلوبة لتظهر هنا</div>
     </div>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="preview-panel-actions" style="margin-top: auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; align-items: center; padding-top: 16px;">
-<div style="display:flex; gap:8px; flex-wrap:wrap;">
-<button class="btn btn-secondary" onclick="clearCurrentCertificate()" title="إفراغ سلة المواد المؤقتة فقط">🗑️ إفراغ السلة</button>
-<button class="btn btn-warning btn-sm" onclick="resetIssuanceFormCompletely()" title="تصفير النموذج بالكامل لبدء إشهاد جديد">🔄 تصفير النموذج / إشهاد جديد</button>
-</div>
-<div style="display:flex; gap:10px; flex-wrap:wrap;">
-<button class="btn btn-secondary" id="btn-preview-draft" onclick="previewCurrentCertificateDraft()" style="background:var(--bg-subtle); border:1px solid var(--border-color); color:var(--text-main); font-weight:600;" type="button">👁️ معاينة الإشهاد</button>
-<button class="btn btn-save-record-only" id="btn-save-only" onclick="initiateCertificateSave(false)">💾 حفظ بالسجل فقط</button>
-<button class="btn btn-save-and-pdf" id="btn-save-print" onclick="initiateCertificateSave(true)">🖨️ حفظ وتوليد إشهاد PDF</button>
-</div>
+<div class="preview-panel-actions final-cert-actions-bar">
+<button class="btn btn-danger icon-only-mobile" id="btn-clear-cart" onclick="clearCurrentCertificate()" title="إفراغ سلة المواد المؤقتة" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+<span class="btn-responsive-text">إفراغ السلة</span>
+</button>
+<button class="btn btn-warning icon-only-mobile" id="btn-reset-form" onclick="resetIssuanceFormCompletely()" title="تصفير النموذج بالكامل لبدء إشهاد جديد" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+<span class="btn-responsive-text">تصفير النموذج</span>
+</button>
+<button class="btn btn-secondary icon-only-mobile" id="btn-preview-draft" onclick="previewCurrentCertificateDraft()" title="معاينة الإشهاد قبل الحفظ" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+<span class="btn-responsive-text">معاينة الإشهاد</span>
+</button>
+<button class="btn btn-save-record-only icon-only-mobile" id="btn-save-only" onclick="initiateCertificateSave(false)" title="حفظ بالسجل فقط دون طباعة" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+<span class="btn-responsive-text">حفظ بالسجل فقط</span>
+</button>
+<button class="btn btn-save-and-pdf icon-only-mobile" id="btn-save-print" onclick="initiateCertificateSave(true)" title="حفظ وتوليد إشهاد PDF للطباعة" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+<span class="btn-responsive-text">حفظ وتوليد PDF</span>
+</button>
 </div>
 </div>
 </div>
@@ -4587,10 +4921,19 @@
 <div class="history-section">
 <h2 class="section-title">
 <span>📚 سجل العمليات المنفذة والأرشيف الشامل</span>
-<div style="display:flex; gap:8px; align-items:center;">
-<button class="btn btn-secondary btn-sm" id="btn-toggle-grouping" onclick="toggleArchiveGroupingMode('month')" title="عرض العمليات مجمعة حسب الشهور">📁 تجميع زمني بالشهور</button>
-<button class="btn btn-secondary btn-sm" id="btn-toggle-year-grouping" onclick="toggleArchiveGroupingMode('year')" title="عرض العمليات مجمعة حسب السنوات الإدارية">🗂️ تجميع زمني بالسنوات</button>
-<button class="btn btn-secondary btn-sm" onclick="toggleAdvancedArchiveFilters()">🔽 فلاتر متقدمة</button>
+<div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap;">
+<button class="btn btn-secondary btn-sm icon-only-mobile" id="btn-toggle-grouping" onclick="toggleArchiveGroupingMode('month')" title="عرض العمليات مجمعة حسب الشهور" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+<span class="btn-responsive-text" id="btn-toggle-grouping-text">تجميع زمني بالشهور</span>
+</button>
+<button class="btn btn-secondary btn-sm icon-only-mobile" id="btn-toggle-year-grouping" onclick="toggleArchiveGroupingMode('year')" title="عرض العمليات مجمعة حسب السنوات الإدارية" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+<span class="btn-responsive-text" id="btn-toggle-year-grouping-text">تجميع زمني بالسنوات</span>
+</button>
+<button class="btn btn-secondary btn-sm icon-only-mobile" id="btn-advanced-archive-filters" onclick="toggleAdvancedArchiveFilters()" title="إظهار أو إخفاء الفلاتر المتقدمة" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+<span class="btn-responsive-text">فلاتر متقدمة</span>
+</button>
 </div>
 </h2>
 <div class="history-filters">
@@ -4689,11 +5032,23 @@
 </div>
 <div style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
 <div id="filter-results-summary" style="font-size: 13px; font-weight: 700; color: var(--text-main); background: var(--bg-subtle); padding: 7px 14px; border-radius: 8px; border: 1px solid var(--border-color); display: inline-flex; align-items: center; gap: 6px;"></div>
-<div style="display: flex; gap: 8px; flex-wrap: wrap;">
-<button class="btn btn-secondary btn-sm" onclick="resetHistoryFilter()">🔄 إعادة ضبط الفلاتر</button>
-<button class="btn btn-success btn-sm" onclick="exportFilteredResultsToCSV()">📊 تصدير النتائج الحالية (Excel / CSV)</button>
-<button class="btn btn-primary btn-sm" onclick="exportDataFilesWithTimestamp()">💾 نسخة احتياطية كاملة (JSON)</button>
-<button class="btn btn-secondary btn-sm" onclick="document.getElementById('import-json-input').click()">📂 استيراد ذكي (JSON)</button>
+<div style="display: flex; gap: 6px; flex-wrap: wrap;">
+<button class="btn btn-secondary btn-sm icon-only-mobile" onclick="resetHistoryFilter()" title="إعادة ضبط الفلاتر" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+<span class="btn-responsive-text">إعادة ضبط الفلاتر</span>
+</button>
+<button class="btn btn-success btn-sm icon-only-mobile" onclick="exportFilteredResultsToCSV()" title="تصدير النتائج الحالية (Excel / CSV)" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+<span class="btn-responsive-text">تصدير النتائج (Excel / CSV)</span>
+</button>
+<button class="btn btn-primary btn-sm icon-only-mobile" onclick="exportDataFilesWithTimestamp()" title="نسخة احتياطية كاملة (JSON)" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+<span class="btn-responsive-text">نسخة احتياطية (JSON)</span>
+</button>
+<button class="btn btn-secondary btn-sm icon-only-mobile" onclick="document.getElementById('import-json-input').click()" title="استيراد ذكي (JSON)" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+<span class="btn-responsive-text">استيراد ذكي (JSON)</span>
+</button>
 <input accept=".json" id="import-json-input" onchange="importDataFiles(event)" style="display:none;" type="file"/>
 </div>
 </div>
@@ -4717,12 +5072,12 @@
 <thead>
 <tr>
 <th style="width: 38px; text-align: center;"><input type="checkbox" id="batch-select-all" onchange="toggleBatchSelectAll(this.checked)" title="تحديد كل العمليات المعروضة في الصفحة" style="cursor:pointer;" /></th>
-<th>رقم العملية</th>
 <th>التاريخ</th>
 <th>الجهة المستفيدة</th>
 <th>المستلم</th>
 <th>نوع ومسار العملية</th>
 <th style="text-align: center;">القطع</th>
+<th>رقم العملية</th>
 <th style="text-align: center;">الإجراءات</th>
 </tr>
 </thead>
@@ -4765,10 +5120,19 @@
 <div class="history-section">
 <h2 class="section-title">
 <span>📋 تدبير الجرد الدوري للمواد والمعدات (تنظيم حسب الأصناف والمواد المجمعة)</span>
-<div style="display:flex; gap:8px; flex-wrap:wrap;">
-<button class="btn btn-success btn-sm" onclick="toggleNewInventoryCreator()">➕ إنشاء جرد جديد بتاريخ محدد</button>
-<button class="btn btn-primary btn-sm" id="btn-print-inventory" onclick="openInventoryPrintConfigModal()" style="display:none;">🖨️ طباعة جرد المخزون (A4)</button>
-<button class="btn btn-secondary btn-sm" id="btn-export-inventory-csv" onclick="exportActiveInventoryCSV()" style="display:none;">📊 تصدير الجرد (Excel / CSV)</button>
+<div style="display:flex; gap:6px; flex-wrap:wrap;">
+<button class="btn btn-success btn-sm icon-only-mobile" onclick="toggleNewInventoryCreator()" title="إنشاء جرد جديد بتاريخ محدد" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+<span class="btn-responsive-text">إنشاء جرد جديد بتاريخ محدد</span>
+</button>
+<button class="btn btn-primary btn-sm icon-only-mobile" id="btn-print-inventory" onclick="openInventoryPrintConfigModal()" style="display:none;" title="طباعة جرد المخزون (A4)" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+<span class="btn-responsive-text">طباعة جرد المخزون (A4)</span>
+</button>
+<button class="btn btn-secondary btn-sm icon-only-mobile" id="btn-export-inventory-csv" onclick="exportActiveInventoryCSV()" style="display:none;" title="تصدير الجرد (Excel / CSV)" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+<span class="btn-responsive-text">تصدير الجرد (Excel / CSV)</span>
+</button>
 </div>
 </h2>
 <!-- صندوق إنشاء جرد جديد -->
@@ -4801,37 +5165,35 @@
 </div>
 </div>
 <!-- شريط اختيار الجرد من السجل التاريخي للجرد -->
-<div class="history-filters" style="margin-bottom:18px;">
-<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:12px; align-items:flex-end;">
-<div style="grid-column: span 2; display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap;">
-<div style="flex: 1; min-width: 220px;">
-<label style="font-size:12.5px; font-weight:bold; display:block; margin-bottom:5px;" title="سجل عمليات الجرد المحفوظة (اختر جرداً للاطلاع أو التعديل أو الطباعة)">📚 سجل عمليات الجرد:</label>
+<div class="history-filters inventory-vertical-filters" style="margin-bottom:18px;">
+<div class="issuance-vertical-fields">
+<div class="form-group">
+<label for="inventory-history-select" style="font-size:12.5px; font-weight:bold; display:block; margin-bottom:5px;" title="سجل عمليات الجرد المحفوظة">سجل عمليات الجرد:</label>
 <select class="form-control" id="inventory-history-select" onchange="selectInventoryById(this.value)">
 <option value="">-- لا يوجد جرد محدد --</option>
 </select>
 </div>
-<div style="width: 150px;">
-<label style="font-size:12.5px; font-weight:bold; display:block; margin-bottom:5px;" title="فرز سجل الجرود حسب السنة الإدارية">📆 فلترة بالسنة:</label>
+<div class="form-group">
+<label for="inventory-year-filter" style="font-size:12.5px; font-weight:bold; display:block; margin-bottom:5px;" title="فرز سجل الجرود حسب السنة الإدارية">فلترة بالسنة:</label>
 <select class="form-control" id="inventory-year-filter" onchange="filterInventoryHistoryDropdownByYear()">
 <option value="">-- كل السنوات --</option>
 </select>
 </div>
-</div>
-<div>
-<label style="font-size:12.5px; font-weight:bold; display:block; margin-bottom:5px;" title="بحث سريع داخل مواد الجرد الحالي">🔎 بحث داخل الجرد:</label>
+<div class="form-group">
+<label for="inv-item-search" style="font-size:12.5px; font-weight:bold; display:block; margin-bottom:5px;" title="بحث سريع داخل مواد الجرد الحالي">بحث داخل الجرد:</label>
 <div class="search-input-wrapper">
 <input class="form-control" id="inv-item-search" oninput="toggleClearBtn('inv-item-search', 'clear-inv-search-btn'); renderActiveInventoryTable();" placeholder="ابحث باسم المادة أو الطراز أو المرجع..." type="text"/>
 <button class="clear-search-btn" id="clear-inv-search-btn" onclick="clearSearchInput('inv-item-search', 'clear-inv-search-btn', false)" title="مسح البحث" type="button">✖</button>
 </div>
 </div>
-<div>
-<label style="font-size:12.5px; font-weight:bold; display:block; margin-bottom:5px;" title="تصفية مواد الجرد حسب الصنف">📦 تصفية الصنف:</label>
+<div class="form-group">
+<label for="inv-cat-filter" style="font-size:12.5px; font-weight:bold; display:block; margin-bottom:5px;" title="تصفية مواد الجرد حسب الصنف">تصفية الصنف (<span id="lbl-inv-cat-count">11</span>):</label>
 <select class="form-control" id="inv-cat-filter" onchange="renderActiveInventoryTable()">
 <option value="">-- كل الأصناف --</option>
 </select>
 </div>
-<div>
-<label style="font-size:12.5px; font-weight:bold; display:block; margin-bottom:5px;" title="تصفية مواد الجرد حسب مستوى التوفر بالمستودع">🎯 مستوى التوفر:</label>
+<div class="form-group" style="margin-bottom:0;">
+<label for="inv-status-filter" style="font-size:12.5px; font-weight:bold; display:block; margin-bottom:5px;" title="تصفية مواد الجرد حسب مستوى التوفر بالمستودع">مستوى التوفر:</label>
 <select class="form-control" id="inv-status-filter" onchange="renderActiveInventoryTable()">
 <option value="all">كل المواد</option>
 <option value="positive">مواد متوفرة (الكمية &gt; 0)</option>
@@ -4896,39 +5258,49 @@
 <!-- ================================================================= -->
 <div class="tab-panel-view" id="analytics-view">
 <div class="history-section">
-<h2 class="section-title">
-<span>📊 لوحة القيادة الإحصائية ومؤشرات النجاعة (BI Analytics)</span>
-<div style="display:flex; gap:8px; flex-wrap:wrap;">
-<button class="btn btn-primary btn-sm" onclick="openReportPrintConfigModal()">🖨️ طباعة تقرير النشاط (A4)</button>
+<h2 class="section-title" style="position:relative;">
+<span>لوحة القيادة الإحصائية ومؤشرات النجاعة (BI Analytics)</span>
+<div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; position:relative;">
+<!-- أيقونة اختيار الفترة الزمنية الموحدة مع قائمة منبثقة -->
+<div class="bi-timeframe-popover-wrapper" style="position:relative;">
+<button class="btn btn-secondary btn-sm" id="btn-bi-timeframe-popover" onclick="toggleBITimeframePopover(event)" title="تحديد الفترة الزمنية للإحصائيات" type="button" style="display:inline-flex; align-items:center; gap:6px;">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+<span id="bi-active-period-badge" style="font-size:11.5px; font-weight:700;">السنة الحالية (2026)</span>
+</button>
+<div class="bi-timeframe-popover-menu" id="bi-timeframe-popover-menu" onclick="event.stopPropagation();" style="display:none; position:absolute; top:calc(100% + 6px); left:0; min-width:250px; background:var(--bg-card); border:1px solid var(--border-strong); border-radius:10px; box-shadow:0 12px 28px rgba(0,0,0,0.32); padding:12px; z-index:250;">
+<div style="font-size:12px; font-weight:800; color:var(--primary); margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;">
+<span>اختر الفترة الزمنية للمؤشرات:</span>
+<button class="action-icon-btn" onclick="closeBITimeframePopover()" style="width:24px !important; height:24px !important; min-width:24px !important; min-height:24px !important;" type="button">✕</button>
 </div>
-</h2>
-<!-- شريط تصفية الفترة الزمنية في الإحصائيات (BI Timeframe Filter) -->
-<div class="analytics-timeframe-bar" style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; background:var(--bg-subtle); padding:10px 14px; border-radius:10px; border:1px solid var(--border-color); margin-bottom:18px;">
-<div style="display:inline-flex; align-items:center; gap:8px;">
-<label for="bi-timeframe-select" style="font-weight:bold; font-size:13px; color:var(--primary); margin-bottom:0 !important; height:auto !important; line-height:normal !important; cursor:default;" title="تصفية المؤشرات والإحصائيات حسب الفترة الزمنية المحددة">📅 الفترة الزمنية:</label>
-<select class="form-control" id="bi-timeframe-select" onchange="handleBITimeframeSelectChange(this.value)" style="font-size:13px; font-weight:600; padding:4px 12px; height:34px; min-width:190px; width:auto; border-radius:6px;">
-<option value="this_year">🏛️ السنة الحالية (2026)</option>
-<option value="last_month">📆 آخر شهر (30 يوماً)</option>
-<option value="last_3_months">📆 آخر 3 أشهر</option>
-<option value="last_6_months">📆 آخر 6 أشهر</option>
-<option value="specific_year">📚 سنة محددة...</option>
-<option value="all">🌐 كل السنوات (الشامل)</option>
-<option value="custom">🎯 فترة مخصصة (من — إلى)...</option>
+<select class="form-control" id="bi-timeframe-select" onchange="handleBITimeframeSelectChange(this.value)" style="font-size:13px; font-weight:600; width:100%; margin-bottom:8px;">
+<option value="this_year">السنة الحالية (2026)</option>
+<option value="last_month">آخر شهر (30 يوماً)</option>
+<option value="last_3_months">آخر 3 أشهر</option>
+<option value="last_6_months">آخر 6 أشهر</option>
+<option value="specific_year">سنة محددة...</option>
+<option value="all">كل السنوات (الشامل)</option>
+<option value="custom">فترة مخصصة (من — إلى)...</option>
 </select>
-</div>
-<div id="bi-specific-year-container" style="display:none; align-items:center; gap:6px;">
-<span style="font-size:12px; font-weight:bold; color:var(--text-muted);">السنة:</span>
-<select class="form-control" id="bi-specific-year-select" onchange="handleBISpecificYearChange(this.value)" style="font-size:12px; padding:3px 8px; height:32px; width:100px;">
+<div id="bi-specific-year-container" style="display:none; flex-direction:column; gap:6px; margin-top:6px;">
+<label style="font-size:11.5px; font-weight:bold; color:var(--text-muted);">اختر السنة:</label>
+<select class="form-control" id="bi-specific-year-select" onchange="handleBISpecificYearChange(this.value)" style="font-size:12.5px; width:100%;">
 <option value="">-- اختر --</option>
 </select>
 </div>
-<div id="bi-custom-date-inputs" style="display:none; align-items:center; gap:8px;">
-<span style="font-size:12px; color:var(--text-muted);">من:</span>
-<input class="form-control" id="bi-date-from" onchange="applyAnalyticsCustomDate()" style="font-size:12px; padding:3px 6px; height:32px;" type="date"/>
-<span style="font-size:12px; color:var(--text-muted);">إلى:</span>
-<input class="form-control" id="bi-date-to" onchange="applyAnalyticsCustomDate()" style="font-size:12px; padding:3px 6px; height:32px;" type="date"/>
+<div id="bi-custom-date-inputs" style="display:none; flex-direction:column; gap:6px; margin-top:6px;">
+<label style="font-size:11.5px; color:var(--text-muted);">من تاريخ:</label>
+<input class="form-control" id="bi-date-from" onchange="applyAnalyticsCustomDate()" style="font-size:12px; width:100%;" type="date"/>
+<label style="font-size:11.5px; color:var(--text-muted);">إلى تاريخ:</label>
+<input class="form-control" id="bi-date-to" onchange="applyAnalyticsCustomDate()" style="font-size:12px; width:100%;" type="date"/>
 </div>
 </div>
+</div>
+<button class="btn btn-primary btn-sm icon-only-mobile" onclick="openReportPrintConfigModal()" title="طباعة تقرير النشاط (A4)" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+<span class="btn-responsive-text">طباعة تقرير النشاط (A4)</span>
+</button>
+</div>
+</h2>
 <!-- شريط تنبيه استشرافي لحالة المخزون وإعادة الطلب (Stock Runway Alert) -->
 <div class="stock-depletion-alert-strip" id="bi-stock-alert-strip" style="display:none;"></div>
 <p style="font-size:12.5px; color:var(--text-muted); margin-top:-10px; margin-bottom:18px;">
@@ -4971,10 +5343,14 @@
 <!-- المبيان الأول: التوزيع حسب المحاكم والوجهات -->
 <div class="settings-card" data-widget-id="chart-dests" id="bi-widget-dests">
 <h2 class="section-title">
-<span>🏛️ توزيع الحصص حسب المحاكم والوجهات (تفاعلي)</span>
-<div style="display:flex; gap:6px;">
-<button class="btn btn-secondary btn-sm" id="btn-toggle-dest-donut" onclick="toggleDestChartType('donut')" style="font-size:11px; padding:2px 8px;" type="button">🍩 مخطط دائري</button>
-<button class="btn btn-secondary btn-sm" id="btn-toggle-dest-bars" onclick="toggleDestChartType('bars')" style="font-size:11px; padding:2px 8px;" type="button">📊 أشرطة</button>
+<span>توزيع الحصص حسب المحاكم والوجهات</span>
+<div style="display:inline-flex; gap:5px; align-items:center;">
+<button class="action-icon-btn chart-mode-icon-btn active-chart-mode" id="btn-toggle-dest-donut" onclick="toggleDestChartType('donut')" title="عرض كمخطط دائري" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+</button>
+<button class="action-icon-btn chart-mode-icon-btn" id="btn-toggle-dest-bars" onclick="toggleDestChartType('bars')" title="عرض كأشرطة بيانية" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+</button>
 </div>
 </h2>
 <div id="chart-destinations-container"></div>
@@ -4982,12 +5358,11 @@
 <!-- المبيان الثاني: المواد الأكثر استهلاكاً -->
 <div class="settings-card" data-widget-id="chart-items" id="bi-widget-items">
 <h2 class="section-title">
-<span id="top-items-title">🔥 أكثر المواد واللوازم استهلاكاً</span>
-<div style="display:flex; gap:4px; align-items:center;">
-<span style="font-size:11.5px; color:var(--text-muted); margin-left:4px;">عرض:</span>
-<button class="btn btn-secondary btn-sm top-items-btn" onclick="setTopItemsLimit(5, this)" style="padding:2px 7px; font-size:11px;" type="button">5</button>
-<button class="btn btn-primary btn-sm top-items-btn active-top-btn" onclick="setTopItemsLimit(8, this)" style="padding:2px 7px; font-size:11px;" type="button">8</button>
-<button class="btn btn-secondary btn-sm top-items-btn" onclick="setTopItemsLimit(10, this)" style="padding:2px 7px; font-size:11px;" type="button">10</button>
+<span id="top-items-title">أكثر المواد واللوازم استهلاكاً</span>
+<div style="display:inline-flex; gap:4px; align-items:center;">
+<button class="action-icon-btn top-items-btn" onclick="setTopItemsLimit(5, this)" title="عرض أعلى 5 مواد" type="button" style="font-size:11.5px; font-weight:800;">5</button>
+<button class="action-icon-btn top-items-btn active-top-btn" onclick="setTopItemsLimit(8, this)" title="عرض أعلى 8 مواد" type="button" style="font-size:11.5px; font-weight:800;">8</button>
+<button class="action-icon-btn top-items-btn" onclick="setTopItemsLimit(10, this)" title="عرض أعلى 10 مواد" type="button" style="font-size:11.5px; font-weight:800;">10</button>
 </div>
 </h2>
 <div id="chart-top-items-container"></div>
@@ -4995,21 +5370,29 @@
 <!-- المبيان الثالث: التوزيع حسب الأصناف -->
 <div class="settings-card" data-widget-id="chart-cats" id="bi-widget-cats">
 <h2 class="section-title">
-<span>📦 التوزيع الإحصائي حسب أصناف المخزون</span>
-<div style="display:flex; gap:6px;">
-<button class="btn btn-secondary btn-sm" id="btn-toggle-cat-donut" onclick="toggleCatChartType('donut')" style="font-size:11px; padding:2px 8px;" type="button">🍩 مخطط دائري</button>
-<button class="btn btn-secondary btn-sm" id="btn-toggle-cat-bars" onclick="toggleCatChartType('bars')" style="font-size:11px; padding:2px 8px;" type="button">📊 أشرطة</button>
+<span>التوزيع الإحصائي حسب أصناف المخزون</span>
+<div style="display:inline-flex; gap:5px; align-items:center;">
+<button class="action-icon-btn chart-mode-icon-btn active-chart-mode" id="btn-toggle-cat-donut" onclick="toggleCatChartType('donut')" title="عرض كمخطط دائري" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+</button>
+<button class="action-icon-btn chart-mode-icon-btn" id="btn-toggle-cat-bars" onclick="toggleCatChartType('bars')" title="عرض كأشرطة بيانية" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+</button>
 </div>
 </h2>
 <div id="chart-categories-container"></div>
 </div>
-<!-- المبيان الرابع: الحركية الشهرية -->
+<!-- المبيان الرابع: الحركية الشهرية والسنوية -->
 <div class="settings-card" data-widget-id="chart-months" id="bi-widget-months">
 <h2 class="section-title" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
-<span>📅 الحركية لتوزيع المواد والمعدات</span>
-<div style="display:flex; gap:6px;">
-<button class="btn btn-primary btn-sm bi-chart-freq-btn" id="btn-chart-freq-months" onclick="setBIActivityChartMode('months')" type="button">📊 عرض بالشهور</button>
-<button class="btn btn-secondary btn-sm bi-chart-freq-btn" id="btn-chart-freq-years" onclick="setBIActivityChartMode('years')" type="button">📈 عرض بالسنوات</button>
+<span>الحركية الزمنية لتوزيع المواد والمعدات</span>
+<div style="display:inline-flex; gap:5px; align-items:center;">
+<button class="action-icon-btn bi-chart-freq-btn active-chart-mode" id="btn-chart-freq-months" onclick="setBIActivityChartMode('months')" title="عرض الحركية بالشهور" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+</button>
+<button class="action-icon-btn bi-chart-freq-btn" id="btn-chart-freq-years" onclick="setBIActivityChartMode('years')" title="عرض الحركية بالسنوات" type="button">
+<svg class="outline-svg-icon" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+</button>
 </div>
 </h2>
 <div id="chart-monthly-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;"></div>
@@ -8901,6 +9284,24 @@
             if (histCatSelect && categories.includes(prevHistCatVal)) histCatSelect.value = prevHistCatVal;
             if (invCatSelect && categories.includes(prevInvCatVal)) invCatSelect.value = prevInvCatVal;
             if (settingsCatPicker && categories.includes(prevSettingsCatVal)) settingsCatPicker.value = prevSettingsCatVal;
+
+            updateIssuanceCategoryAndItemCounts();
+        }
+
+        function updateIssuanceCategoryAndItemCounts() {
+            const catCountEl = document.getElementById('lbl-category-count');
+            const invCatCountEl = document.getElementById('lbl-inv-cat-count');
+            const itemCountEl = document.getElementById('lbl-items-count');
+            const selectedCat = document.getElementById('category-select') ? document.getElementById('category-select').value : '';
+
+            const totalCats = Array.isArray(categories) ? categories.length : 0;
+            if (catCountEl) catCountEl.textContent = totalCats;
+            if (invCatCountEl) invCatCountEl.textContent = totalCats;
+
+            const matchingItems = Array.isArray(databaseItems)
+                ? databaseItems.filter(function(it) { return !selectedCat || it.category === selectedCat; }).length
+                : 0;
+            if (itemCountEl) itemCountEl.textContent = matchingItems;
         }
 
         function renderSavedNotesDropdown() {
@@ -8984,11 +9385,57 @@
         document.getElementById('recipient-select').onchange = updateRecipientLabel;
         document.getElementById('custom-recipient-input').oninput = updateRecipientLabel;
 
+        function checkIssuanceStep1Readiness() {
+            const dest = document.getElementById('dest-select') ? document.getElementById('dest-select').value.trim() : '';
+            const isCustom = document.getElementById('custom-recipient-toggle') ? document.getElementById('custom-recipient-toggle').checked : false;
+            const selectVal = document.getElementById('recipient-select') ? document.getElementById('recipient-select').value.trim() : '';
+            const customVal = document.getElementById('custom-recipient-input') ? document.getElementById('custom-recipient-input').value.trim() : '';
+            const rec = isCustom ? customVal : selectVal;
+            const isReady = Boolean(dest && rec);
+
+            const continueBtn = document.getElementById('btn-continue-to-items');
+            const continueTxt = document.getElementById('btn-continue-to-items-text');
+            const step2Box = document.getElementById('issuance-step-2-box');
+
+            if (continueBtn) {
+                continueBtn.disabled = !isReady;
+                if (continueTxt) {
+                    continueTxt.textContent = isReady ? 'متابعة لإضافة المواد للإشهاد' : 'اختر الوجهة والمستلم للمتابعة لإضافة المواد';
+                }
+            }
+            if (step2Box) {
+                if (isReady || (typeof currentCertificateItems !== 'undefined' && currentCertificateItems.length > 0)) {
+                    step2Box.style.display = 'block';
+                } else {
+                    step2Box.style.display = 'none';
+                }
+            }
+            return isReady;
+        }
+
+        function revealIssuanceStep2(scrollToBox) {
+            if (!checkIssuanceStep1Readiness()) {
+                NotificationService.show('يرجى اختيار الوجهة المستفيدة والمستلم أولاً.', 'warning');
+                return;
+            }
+            const step2Box = document.getElementById('issuance-step-2-box');
+            if (step2Box) {
+                step2Box.style.display = 'block';
+                updateIssuanceCategoryAndItemCounts();
+                if (scrollToBox) {
+                    step2Box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    const searchInp = document.getElementById('item-search');
+                    if (searchInp) setTimeout(function() { searchInp.focus(); }, 200);
+                }
+            }
+        }
+
         function updateRecipientLabel() {
             const selectVal = document.getElementById('recipient-select').value;
             const customVal = document.getElementById('custom-recipient-input').value;
             const isCustom = document.getElementById('custom-recipient-toggle').checked;
             document.getElementById('lbl-recipient').textContent = isCustom ? (customVal ? customVal : '—') : (selectVal ? selectVal : '—');
+            checkIssuanceStep1Readiness();
         }
 
         function toggleCustomRecipient() {
@@ -9008,6 +9455,7 @@
         function handleCategoryChange() {
             document.getElementById('item-search').value = '';
             selectedItemFromSuggest = null;
+            updateIssuanceCategoryAndItemCounts();
             if(document.getElementById('suggestions-box').style.display === 'block') {
                 showSuggestions();
             }
@@ -9240,23 +9688,60 @@
             if (badge) badge.textContent = currentCertificateItems.length + ' مواد | ' + totalUnits + ' قطع';
 
             if(currentCertificateItems.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; padding: 40px 16px;"><div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;"><div style="font-size: 34px;">📦</div><div style="font-weight: 700; color: var(--text-main); font-size: 14.5px;">لا توجد مواد في الإشهاد الحالي</div><div style="font-size: 12.5px; color: var(--text-muted); max-width: 320px; line-height: 1.6;">ابدأ باختيار مادة من القائمة وتحديد الكمية ثم اضغط على «إضافة المادة»</div><button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById(\'item-search\').focus();" style="margin-top: 8px; font-size: 12px; padding: 4px 12px;">➕ اختيار مادة الآن</button></div></td></tr>';
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; padding: 36px 16px;"><div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;"><div style="font-weight: 700; color: var(--text-main); font-size: 14px;">لا توجد مواد مدرجة في الإشهاد الحالي</div><div style="font-size: 12px; color: var(--text-muted); max-width: 320px; line-height: 1.6;">حدد الوجهة والمستلم أولاً ثم أضف المواد المطلوبة لتظهر هنا</div></div></td></tr>';
                 return;
             }
             tbody.innerHTML = '';
             currentCertificateItems.forEach(function(item, index) {
                 let tr = document.createElement('tr');
-                let safeNotes = (item.notes || '').replace(/"/g, '&quot;');
+                let displayNotes = (item.notes && String(item.notes).trim()) ? item.notes : '—';
                 tr.innerHTML = '<td><span style="font-size:11px; color:var(--primary); font-weight:bold;">[' + (item.category || '') + ']</span> ' + item.name + '</td>' +
-                               '<td style="text-align:center; font-weight:bold;">' +
-                                  '<input type="number" min="1" value="' + item.qty + '" class="inline-edit-input" style="width:65px; text-align:center; font-weight:bold;" onchange="updateDraftItemQty(' + index + ', this.value)">' +
-                               '</td>' +
-                               '<td>' +
-                                  '<input type="text" value="' + safeNotes + '" placeholder="أضف أو عدل الملاحظة..." class="inline-edit-input" oninput="updateDraftItemNotes(' + index + ', this.value)">' +
-                               '</td>' +
-                               '<td style="text-align:center;"><button class="btn btn-danger btn-sm" onclick="removeItemFromDraft(' + index + ')">حذف</button></td>';
+                               '<td style="text-align:center; font-weight:800; font-size:14px; color:var(--primary);">' + item.qty + '</td>' +
+                               '<td style="color:var(--text-secondary); font-size:12.5px;">' + displayNotes + '</td>' +
+                               '<td style="text-align:center; white-space:nowrap;">' +
+                                  '<div style="display:inline-flex; gap:4px; align-items:center;">' +
+                                     '<button type="button" class="action-icon-btn" onclick="editDraftItemInStep2(' + index + ')" title="تعديل هذه المادة في قسم الإضافة">' +
+                                        '<svg class="outline-svg-icon" viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>' +
+                                     '</button>' +
+                                     '<button type="button" class="action-icon-btn modal-action-close-btn" onclick="removeItemFromDraft(' + index + ')" title="حذف المادة من القائمة">' +
+                                        '<svg class="outline-svg-icon" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>' +
+                                     '</button>' +
+                                  '</div>' +
+                               '</td>';
                 tbody.appendChild(tr);
             });
+            checkIssuanceStep1Readiness();
+        }
+
+        function editDraftItemInStep2(index) {
+            if (index < 0 || index >= currentCertificateItems.length) return;
+            const item = currentCertificateItems[index];
+            currentCertificateItems.splice(index, 1);
+            renderCurrentCertificateItems();
+
+            const step2Box = document.getElementById('issuance-step-2-box');
+            if (step2Box) step2Box.style.display = 'block';
+
+            const catSelect = document.getElementById('category-select');
+            if (catSelect && item.category && categories.includes(item.category)) {
+                catSelect.value = item.category;
+                updateIssuanceCategoryAndItemCounts();
+            }
+            const searchEl = document.getElementById('item-search');
+            if (searchEl) searchEl.value = item.name || '';
+            selectedItemFromSuggest = databaseItems.find(function(d) { return d.name === item.name || d.id === item.id; }) || {
+                id: item.id,
+                category: item.category,
+                name: item.name
+            };
+            const qtyEl = document.getElementById('item-qty');
+            if (qtyEl) qtyEl.value = item.qty || 1;
+            const notesEl = document.getElementById('item-notes');
+            if (notesEl) notesEl.value = item.notes || '';
+
+            if (step2Box) step2Box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            if (qtyEl) setTimeout(function() { qtyEl.focus(); qtyEl.select(); }, 150);
+            NotificationService.show('تمت إعادة المادة إلى قسم الإضافة لتعديل كميتها أو ملاحظاتها.');
         }
 
         function updateDraftItemQty(index, newVal) {
@@ -10089,25 +10574,27 @@
 
         function updateArchiveGroupingButtonsUI() {
             const btnMonth = document.getElementById('btn-toggle-grouping');
+            const btnMonthTxt = document.getElementById('btn-toggle-grouping-text');
             const btnYear = document.getElementById('btn-toggle-year-grouping');
+            const btnYearTxt = document.getElementById('btn-toggle-year-grouping-text');
 
             if (btnMonth) {
                 if (archiveGroupingMode === 'month') {
-                    btnMonth.className = 'btn btn-primary btn-sm';
-                    btnMonth.textContent = '📋 عرض الجدول القياسي';
+                    btnMonth.className = 'btn btn-primary btn-sm icon-only-mobile';
+                    if (btnMonthTxt) btnMonthTxt.textContent = 'عرض الجدول القياسي';
                 } else {
-                    btnMonth.className = 'btn btn-secondary btn-sm';
-                    btnMonth.textContent = '📁 تجميع زمني بالشهور';
+                    btnMonth.className = 'btn btn-secondary btn-sm icon-only-mobile';
+                    if (btnMonthTxt) btnMonthTxt.textContent = 'تجميع زمني بالشهور';
                 }
             }
 
             if (btnYear) {
                 if (archiveGroupingMode === 'year') {
-                    btnYear.className = 'btn btn-primary btn-sm';
-                    btnYear.textContent = '📋 عرض الجدول القياسي';
+                    btnYear.className = 'btn btn-primary btn-sm icon-only-mobile';
+                    if (btnYearTxt) btnYearTxt.textContent = 'عرض الجدول القياسي';
                 } else {
-                    btnYear.className = 'btn btn-secondary btn-sm';
-                    btnYear.textContent = '🗂️ تجميع زمني بالسنوات';
+                    btnYear.className = 'btn btn-secondary btn-sm icon-only-mobile';
+                    if (btnYearTxt) btnYearTxt.textContent = 'تجميع زمني بالسنوات';
                 }
             }
         }
@@ -10251,12 +10738,12 @@
 
                 let isChecked = selectedBatchTxIds.has(tx.id) ? 'checked' : '';
                 tr.innerHTML = '<td style="text-align:center;"><input type="checkbox" class="batch-tx-checkbox" data-txid="' + tx.id + '" ' + isChecked + ' onchange="handleBatchCheckboxChange(\'' + tx.id + '\', this.checked)" style="cursor:pointer;" /></td>' +
-                               '<td style="font-weight:bold; color:var(--primary); cursor:pointer;" onclick="inspectTransactionDetails(\'' + tx.id + '\')">' + formatTransactionDisplayId(tx) + '</td>' +
-                               '<td>' + (tx.date ? tx.date.split(' ')[0] : (tx.isoDate || '—')) + '</td>' +
-                               '<td>' + tx.destination + '</td>' +
+                               '<td style="white-space:nowrap; font-weight:600;">' + (tx.date ? tx.date.split(' ')[0] : (tx.isoDate || '—')) + '</td>' +
+                               '<td style="font-weight:700;">' + tx.destination + '</td>' +
                                '<td>' + tx.recipient + '</td>' +
                                '<td><span style="font-size:11px; background:rgba(15,76,129,0.08); padding:3px 8px; border-radius:4px;">' + reasonLabel + channelLabel + statusLabel + '</span>' + itemsSummary + '</td>' +
-                               '<td style="text-align:center; font-weight:bold;">' + totalItemsQty + '</td>'  +
+                               '<td style="text-align:center; font-weight:bold;">' + totalItemsQty + '</td>' +
+                               '<td style="font-weight:bold; color:var(--primary); cursor:pointer; white-space:nowrap;" onclick="inspectTransactionDetails(\'' + tx.id + '\')">' + formatTransactionDisplayId(tx) + '</td>' +
                                '<td style="text-align:center; white-space:nowrap;">' +
                                    '<div class="action-dropdown" onclick="event.stopPropagation(); toggleRowActionDropdown(this)">' +
                                        '<button class="action-dropdown-btn" type="button">⚡ إجراءات ▾</button>' +
@@ -11353,13 +11840,32 @@
         let destChartMode = 'donut'; // 'donut' أو 'bars'
         let catChartMode = 'donut';  // 'donut' أو 'bars'
 
+        function toggleBITimeframePopover(evt) {
+            if (evt) evt.stopPropagation();
+            const menu = document.getElementById('bi-timeframe-popover-menu');
+            if (!menu) return;
+            menu.style.display = (menu.style.display === 'none' || !menu.style.display) ? 'block' : 'none';
+        }
+
+        function closeBITimeframePopover() {
+            const menu = document.getElementById('bi-timeframe-popover-menu');
+            if (menu) menu.style.display = 'none';
+        }
+
+        document.addEventListener('click', function(e) {
+            const wrap = document.querySelector('.bi-timeframe-popover-wrapper');
+            if (wrap && !wrap.contains(e.target)) {
+                closeBITimeframePopover();
+            }
+        });
+
         function toggleDestChartType(mode) {
             destChartMode = mode;
             const btnDonut = document.getElementById('btn-toggle-dest-donut');
             const btnBars = document.getElementById('btn-toggle-dest-bars');
             if (btnDonut && btnBars) {
-                btnDonut.className = mode === 'donut' ? 'btn btn-primary btn-sm' : 'btn btn-secondary btn-sm';
-                btnBars.className = mode === 'bars' ? 'btn btn-primary btn-sm' : 'btn btn-secondary btn-sm';
+                btnDonut.classList.toggle('active-chart-mode', mode === 'donut');
+                btnBars.classList.toggle('active-chart-mode', mode === 'bars');
             }
             renderBIAnalytics();
         }
@@ -11369,8 +11875,8 @@
             const btnDonut = document.getElementById('btn-toggle-cat-donut');
             const btnBars = document.getElementById('btn-toggle-cat-bars');
             if (btnDonut && btnBars) {
-                btnDonut.className = mode === 'donut' ? 'btn btn-primary btn-sm' : 'btn btn-secondary btn-sm';
-                btnBars.className = mode === 'bars' ? 'btn btn-primary btn-sm' : 'btn btn-secondary btn-sm';
+                btnDonut.classList.toggle('active-chart-mode', mode === 'donut');
+                btnBars.classList.toggle('active-chart-mode', mode === 'bars');
             }
             renderBIAnalytics();
         }
@@ -11487,8 +11993,8 @@
             biActivityChartMode = mode;
             const btnM = document.getElementById('btn-chart-freq-months');
             const btnY = document.getElementById('btn-chart-freq-years');
-            if (btnM) btnM.className = (mode === 'months') ? 'btn btn-primary btn-sm bi-chart-freq-btn' : 'btn btn-secondary btn-sm bi-chart-freq-btn';
-            if (btnY) btnY.className = (mode === 'years') ? 'btn btn-primary btn-sm bi-chart-freq-btn' : 'btn btn-secondary btn-sm bi-chart-freq-btn';
+            if (btnM) btnM.classList.toggle('active-chart-mode', mode === 'months');
+            if (btnY) btnY.classList.toggle('active-chart-mode', mode === 'years');
             renderBIAnalytics();
         }
 
@@ -11579,11 +12085,9 @@
         function setTopItemsLimit(lim, btn) {
             topItemsLimit = parseInt(lim, 10) || 8;
             document.querySelectorAll('.top-items-btn').forEach(function(b) {
-                if (parseInt(b.textContent.trim(), 10) === topItemsLimit) {
-                    b.className = 'btn btn-primary btn-sm top-items-btn active-top-btn';
-                } else {
-                    b.className = 'btn btn-secondary btn-sm top-items-btn';
-                }
+                const isAct = parseInt(b.textContent.trim(), 10) === topItemsLimit;
+                b.classList.toggle('active-top-btn', isAct);
+                b.classList.toggle('active-chart-mode', isAct);
             });
             renderBIAnalytics();
         }
@@ -11651,6 +12155,10 @@
 
             populateBIYearsDropdown();
             const ranges = getBIPeriodDateRanges();
+            const activePeriodBadge = document.getElementById('bi-active-period-badge');
+            if (activePeriodBadge && ranges && ranges.current) {
+                activePeriodBadge.textContent = ranges.current.label;
+            }
             let prevPeriodOps = 0;
             let prevPeriodUnits = 0;
             if (ranges.previous.start && ranges.previous.end) {
@@ -11844,11 +12352,9 @@
         // 3. المواد الأكثر استهلاكاً (تحديث حالة الأزرار وعرض العدد المحدد: 5 أو 8 أو 10)
             const currentTopLimit = (typeof topItemsLimit === 'number') ? topItemsLimit : 8;
             document.querySelectorAll('.top-items-btn').forEach(function(b) {
-                if (parseInt(b.textContent.trim(), 10) === currentTopLimit) {
-                    b.className = 'btn btn-primary btn-sm top-items-btn active-top-btn';
-                } else {
-                    b.className = 'btn btn-secondary btn-sm top-items-btn';
-                }
+                const isAct = parseInt(b.textContent.trim(), 10) === currentTopLimit;
+                b.classList.toggle('active-top-btn', isAct);
+                b.classList.toggle('active-chart-mode', isAct);
             });
 
             const topItemsContainer = document.getElementById('chart-top-items-container');
